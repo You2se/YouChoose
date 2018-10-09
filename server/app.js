@@ -57,7 +57,7 @@ app.use(require('node-sass-middleware')({
 }));
 
 app.use(session({
-  secret: 'angular auth passport secret shh',
+  secret: 'very secret password of you choose',
   resave: true,
   saveUninitialized: true,
   cookie: {
@@ -90,4 +90,4 @@ app.use('/api/user', genericCrud(require('./models/User')));
 
 
 
-module.exports = app;
+module.exports = app;/api/auth

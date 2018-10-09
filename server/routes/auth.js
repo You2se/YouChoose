@@ -10,8 +10,6 @@ const login = (req, user) => {
     req.login(user, err => {
       console.log('req.login ')
       console.log(user)
-
-      
       if(err) {
         reject(new Error('Something went wrong'))
       }else{
