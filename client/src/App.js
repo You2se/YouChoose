@@ -10,6 +10,7 @@ import Login from './components/auth/Login';
 import AuthService from './components/auth/AuthService';
 import Contents from './components/contents/Contents'
 import PopularMovies from './components/contents/PopularMovies'
+import MovieDetail from './components/contents/MovieDetail'
 
 class App extends Component {
 
@@ -65,13 +66,14 @@ class App extends Component {
       return (
         <div className="App">
           <header className="App-header">
-          <h2>MAIN PAGE</h2>
+          <Link to="/"><h2>MAIN PAGE</h2></Link>
           <Link to="/movielist">FilmList</Link>
             <Navbar userInSession={this.state.loggedInUser} logout={this.logout} />
             <Switch>
               <Route exact path='/signup' render={() => <Signup getUser={this.getTheUser}/>}/>
               <Route exact path='/login' render={() => <Login getUser={this.getTheUser}/>}/>
               <Route exact path='/movielist' component={PopularMovies}/>
+              <Route path={`/movie/:id`} component={MovieDetail}/>
             </Switch>
           </header>
         </div>
