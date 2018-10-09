@@ -90,4 +90,4 @@ app.use('/api/user', genericCrud(require('./models/User')));
 
 
 
-module.exports = app;/api/auth
+module.exports = app;

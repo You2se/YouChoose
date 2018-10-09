@@ -55,7 +55,7 @@ class Login extends Component {
           <input type="password" name="password" value={this.state.password} onChange={e => this.handleChange(e)} />
         </fieldset>
 
-        <input type="submit" value="Login" />
+        <input type="submit" value="Login"/>
       </form>
 
       <h1>{this.state.error ? 'Error' : ''}</h1>
