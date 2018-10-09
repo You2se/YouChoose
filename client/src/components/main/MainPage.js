@@ -7,6 +7,7 @@ import Login from '../auth/Login';
 import AuthService from '../auth/AuthService';
 import Profile from '../contents/ProfilePage'
 import PopularMovies from '../contents/PopularMovies'
+import MovieDetail from '../contents/MovieDetail'
 
 class Main extends Component {
 
@@ -69,6 +70,7 @@ class Main extends Component {
               <Route exact path='/login' render={() => <Login getUser={this.getTheUser}/>}/>
               <Route exact path='/movielist' component={PopularMovies}/>
               <Route userInSession={this.state.loggedInUser} exact path='/profile' component={Profile}/>
+              <Route path={`/movie/:id`} component={MovieDetail}/>
             </Switch>
           </header>
         </div>
