@@ -28,13 +28,16 @@ export default class PopularMovies extends React.Component {
   };
 
   render() {
+    let BASE_IMG ='https://image.tmdb.org/t/p/w200/';
     return (
       <div>
+        <img src={BASE_IMG + "wwemzKWzjKYJFfCeiB57q3r4Bcm.png"} alt=""/>
         {this.state.listMovies.map((movie, index) => {
           return (
-            <div style={{ display: "flex" }}>
+            <div> 
+            <img src={BASE_IMG+ movie.poster_path}  alt=""/>
               <p>{movie.title}</p>
-              <p>{movie.overview}</p>
+              <p style={{fontSize:15}}>{movie.overview}</p>
               <br></br>
             </div>
           );
