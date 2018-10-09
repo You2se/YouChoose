@@ -5,7 +5,7 @@ class AuthService {
   constructor() {
     this.service = axios.create({
       baseURL: 'http://localhost:3010/api/auth',
-      withCredentials: true
+      withCredentials: false
     });
   }
 

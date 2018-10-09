@@ -19,10 +19,18 @@ class Signup extends Component {
         this.setState({
             username: "", 
             password: "",
+            error: false
         });
         this.props.getUser(response.user)
     })
-    .catch( error => console.log(error) )
+    .catch( error => {
+      this.setState({
+        username: username,
+        password: password,
+        error: true
+      });
+    
+    })
   }
 
   handleChange = (event) => {  
@@ -49,6 +57,7 @@ class Signup extends Component {
           
           <input type="submit" value="Sign up" />
         </form>
+        <h1>{this.state.error ? 'Error': ''}</h1>
 
       </div>
     )
