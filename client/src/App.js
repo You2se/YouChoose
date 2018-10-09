@@ -58,7 +58,6 @@ class App extends Component {
           <h2>MAIN PAGE</h2>
             <Navbar userInSession={this.state.loggedInUser} logout={this.logout} />
             <Contents></Contents>
-            <MovieList/>
           </header>
         </div>
       );
