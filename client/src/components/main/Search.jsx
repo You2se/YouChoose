@@ -44,9 +44,8 @@ class Search extends Component {
         {this.state.movies.map(e => {
           if (e.poster_path !== null) {
             return (
-              
               <div>
-                <Link to={`/movie/${e.id}`}>{e.title}</Link>
+                {/* <Link to={`/movie/${e.id}`}>{e.title}</Link> */}
                 <img src={BASE_IMG + e.poster_path} alt="search-poster" />
               </div>
               

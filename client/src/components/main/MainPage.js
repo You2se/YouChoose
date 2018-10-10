@@ -68,7 +68,6 @@ class Main extends Component {
           <Link to="/movielist">FilmList</Link>
           
             <Navbar userInSession={this.state.loggedInUser} logout={this.logout} />
-            <Random/>
             <Search />
             <Switch>
             <Route exact path='/' component={Random}/>
