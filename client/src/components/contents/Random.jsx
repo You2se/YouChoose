@@ -27,11 +27,7 @@ export default class Random extends Component {
       });
   };
   render() {
-<<<<<<< HEAD
     let BASE_IMG = "https://image.tmdb.org/t/p/w400/";
-=======
-    let BASE_IMG = "https://image.tmdb.org/t/p/w200/";
->>>>>>> 779034be170a0b77d182bd7b7ad9d19cf10d7e25
 
     if (this.state.title !== undefined) {
       return (

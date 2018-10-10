@@ -21,13 +21,13 @@ export default class PopularMovies extends React.Component {
 
   handleNext = () => {
     this.setState(prevState => ({
-      activeStep: prevState.activeStep + 1
+      activeStep: prevState.activeStep + 3
     }));
   };
 
   handleBack = () => {
     this.setState(prevState => ({
-      activeStep: prevState.activeStep - 1
+      activeStep: prevState.activeStep - 3
     }));
   };
 
@@ -45,8 +45,8 @@ export default class PopularMovies extends React.Component {
 
   render() {
     const { activeStep } = this.state;
-    const maxSteps = this.state.listMovies.length;
-    let BASE_IMG = "https://image.tmdb.org/t/p/w200/";
+    let maxSteps = this.state.listMovies.length;
+    let BASE_IMG = "https://image.tmdb.org/t/p/w400/";
 
     if (this.state.listMovies.length > 0) {
       return (
@@ -54,14 +54,45 @@ export default class PopularMovies extends React.Component {
           <Typography variant="h4" gutterBottom>
             Popular Movies
           </Typography>
-          <Paper square elevation={0}>
-            <Typography><Link to={`/movie/${this.state.listMovies[activeStep].id}`}>{this.state.listMovies[activeStep].title}</Link></Typography>
-          </Paper>
-          <img
-            src={BASE_IMG + this.state.listMovies[activeStep].poster_path}
-            alt=""
-          />
+          <div className="names">
+            <Paper square elevation={0}>
+              <Typography>
+                <Link to={`/movie/${this.state.listMovies[activeStep].id}`}>
+                  {this.state.listMovies[activeStep].title}
+                </Link>
+              </Typography>
+            </Paper>
+            <Paper square elevation={0}>
+              <Typography>
+                <Link to={`/movie/${this.state.listMovies[activeStep + 1].id}`}>
+                  {this.state.listMovies[activeStep + 1].title}
+                </Link>
+              </Typography>
+            </Paper>
+            <Paper square elevation={0}>
+              <Typography>
+                <Link to={`/movie/${this.state.listMovies[activeStep + 2].id}`}>
+                  {this.state.listMovies[activeStep + 2].title}
+                </Link>
+              </Typography>
+            </Paper>
+          </div>
+          <div className="images">
+            <img
+              src={BASE_IMG + this.state.listMovies[activeStep].poster_path}
+              alt=""
+            />
 
+            <img
+              src={BASE_IMG + this.state.listMovies[activeStep + 1].poster_path}
+              alt=""
+            />
+
+            <img
+              src={BASE_IMG + this.state.listMovies[activeStep + 2].poster_path}
+              alt=""
+            />
+          </div>
           <MobileStepper
             steps={maxSteps}
             position="static"
