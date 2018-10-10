@@ -16,4 +16,8 @@ a {
   color: white;
   cursor: pointer;
 }
+.search-results {
+  display:flex;
+  align-items: stretch;
+}
 
