@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import AuthService from './AuthService'
 
-class Login extends Component {
+export default class Login extends Component {
   constructor(props) {
     super(props);
     this.state = { username: '', password: '' };
@@ -63,4 +63,3 @@ class Login extends Component {
   }
 }
 
-export default Login;

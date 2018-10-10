@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import TextField from '@material-ui/core/TextField';
 
-class Search extends Component {
+export default class Search extends Component {
   state = {
     searchText: "",
     movies: [],
@@ -65,4 +65,3 @@ class Search extends Component {
   }
 }
 
-export default Search;

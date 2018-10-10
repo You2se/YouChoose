@@ -3,7 +3,7 @@ import axios from "axios";
 import Search from "../main/Search"
 import { Link } from "react-router-dom";
 
-class Random extends Component {
+export default class Random extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -52,5 +52,3 @@ class Random extends Component {
     }
   }
 }
-
-export default Random;
