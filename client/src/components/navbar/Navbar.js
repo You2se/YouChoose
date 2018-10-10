@@ -38,7 +38,13 @@ class Navbar extends Component {
           <nav className="">
             <ul>
               <li>
-                <Link to="/signup">Signup</Link>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/movielist">Movie List</Link>
+              </li>
+              <li>
+                <Link to="/signup">Register</Link>
               </li>
               <li>
                 <Link to="/login">Login</Link>

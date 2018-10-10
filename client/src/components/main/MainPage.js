@@ -61,8 +61,6 @@ class Main extends Component {
     } else {
       return (
         <div className="App">
-          <Link to="/"><h2>HOME</h2></Link>
-          <Link to="/movielist">FilmList</Link>
             <Navbar userInSession={this.state.loggedInUser} logout={this.logout} />
           <Switch>
             <Route exact path='/' component={Random}/>
