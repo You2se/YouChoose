@@ -29,7 +29,6 @@ class Random extends Component {
   };
   render() {
     let BASE_IMG = "https://image.tmdb.org/t/p/w200/";
-    console.log(this.state.backdrop_path);
 
     if (this.state.title !== undefined) {
       return (

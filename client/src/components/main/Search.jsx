@@ -42,7 +42,9 @@ class Search extends Component {
             onChange={this.onTextChange}
             hintStyle={{ textAlign: "center", width: "100%" }}
             hintText="Search for movies"
+            placeholder="Search Movies Here"
             inputStyle={{ textAlign: "center", backgroundColor: "white" }}
+            autocomplete="section-name"
           />
         <div className="search-results">
           {this.state.movies.map(e => {
