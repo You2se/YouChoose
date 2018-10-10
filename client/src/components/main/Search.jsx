@@ -1,7 +1,6 @@
-
 import axios from "axios";
 import React, { Component } from "react";
-
+import { Link } from "react-router-dom";
 
 class Search extends Component {
   state = {
@@ -9,7 +8,6 @@ class Search extends Component {
     movies: [],
     recommendations: []
   };
-
 
   onTextChange = e => {
     let val = e.target.value;
@@ -23,7 +21,7 @@ class Search extends Component {
               this.state.searchText
           )
           .then(res => {
-            console.log(res.data.results)
+            console.log(res.data.results);
             this.setState({
               movies: res.data.results
             });
@@ -37,16 +35,27 @@ class Search extends Component {
     let BASE_IMG = "https://image.tmdb.org/t/p/w200/";
     return (
       <div className="search">
-        <input name="searchText" value={this.state.searchText} onChange={this.onTextChange}/>
+        <input
+          name="searchText"
+          value={this.state.searchText}
+          onChange={this.onTextChange}
+        />
+        <div className="search-results">
         {this.state.movies.map(e => {
-          return(
-            <div>
-            <p>{e.title}</p>
-            
-            <img src={BASE_IMG + e.poster_path} alt="search-poster"/>
-        </div>
-          )
+          if (e.poster_path !== null) {
+            return (
+              
+              <div>
+                <Link to={`/movie/${e.id}`}>{e.title}</Link>
+                <img src={BASE_IMG + e.poster_path} alt="search-poster" />
+              </div>
+              
+            );
+          } else {
+            return "";
+          }
         })}
+        </div>
       </div>
     );
   }

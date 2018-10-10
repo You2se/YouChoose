@@ -20,7 +20,7 @@ class Profile extends Component {
   }
 
   render() {
-    if (this.state.loggedInUser) {
+    if (this.props) {
       return (
         <p>This is the profile User site</p>
       )
