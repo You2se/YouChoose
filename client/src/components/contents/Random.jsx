@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 class Random extends Component {
   constructor(props) {
@@ -26,18 +27,26 @@ class Random extends Component {
   };
   render() {
     let BASE_IMG = "https://image.tmdb.org/t/p/w200/";
-    console.log("this is the state---> " + this.state.title);
+    console.log(this.state.backdrop_path);
 
     if (this.state.title !== undefined) {
       return (
         <div>
-          <p>{this.state.title}</p>
+          <div>
+            <div>
+          <Link to={`/movie/${this.state.id}`}>{this.state.title}</Link>
+          </div>
           <img src={BASE_IMG + this.state.poster_path} alt="movie-detail" />
+          
+          </div>
+          <div>
+            <button onClick={this.getRandomMovie} >Another Random Movie</button>
+          </div>
         </div>
       );
     } else {
       this.getRandomMovie()
-      return <p>Page not found</p>;
+      return <p></p>;
     }
   }
 }

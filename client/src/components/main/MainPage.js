@@ -66,8 +66,8 @@ class Main extends Component {
           <Link to="/"><h2>MAIN PAGE</h2></Link>
           <Link to="/movielist">FilmList</Link>
             <Navbar userInSession={this.state.loggedInUser} logout={this.logout} />
-            <Random/>
             <Switch>
+            <Route exact path='/' component={Random}/>
               <Route exact path='/signup' render={() => <Signup getUser={this.getTheUser}/>}/>
               <Route exact path='/login' render={() => <Login getUser={this.getTheUser}/>}/>
               <Route exact path='/movielist' component={PopularMovies}/>
