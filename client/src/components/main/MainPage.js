@@ -8,6 +8,7 @@ import AuthService from '../auth/AuthService';
 import Profile from '../contents/ProfilePage'
 import PopularMovies from '../contents/PopularMovies'
 import MovieDetail from '../contents/MovieDetail'
+import Search from './Search'
 
 class Main extends Component {
 
@@ -64,6 +65,7 @@ class Main extends Component {
           <header className="App-header">
           <Link to="/"><h2>MAIN PAGE</h2></Link>
           <Link to="/movielist">FilmList</Link>
+          <Search />
             <Navbar userInSession={this.state.loggedInUser} logout={this.logout} />
             <Switch>
               <Route exact path='/signup' render={() => <Signup getUser={this.getTheUser}/>}/>
