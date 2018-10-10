@@ -36,11 +36,14 @@ class Search extends Component {
     let BASE_IMG = "https://image.tmdb.org/t/p/w300/";
     return (
       <div className="search">
-        <input
-          name="searchText"
-          value={this.state.searchText}
-          onChange={this.onTextChange}
-        />
+        <TextField
+            name="searchText"
+            value={this.state.searchText}
+            onChange={this.onTextChange}
+            hintStyle={{ textAlign: "center", width: "100%" }}
+            hintText="Search for movies"
+            inputStyle={{ textAlign: "center", backgroundColor: "white" }}
+          />
         <div className="search-results">
           {this.state.movies.map(e => {
             if (e.poster_path !== null) {
