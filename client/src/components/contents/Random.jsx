@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import Search from "../main/Search"
 import { Link } from "react-router-dom";
 
 class Random extends Component {
@@ -22,6 +23,7 @@ class Random extends Component {
         this.setState(movieDetail);
       })
       .catch(err => {
+
         console.log(err);
       });
   };
@@ -42,6 +44,7 @@ class Random extends Component {
           <div>
             <button onClick={this.getRandomMovie} >Another Random Movie</button>
           </div>
+          <Link to="/search">Search Movies</Link>
         </div>
       );
     } else {

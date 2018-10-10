@@ -68,8 +68,6 @@ class Main extends Component {
           <Link to="/movielist">FilmList</Link>
           
             <Navbar userInSession={this.state.loggedInUser} logout={this.logout} />
-            <Random/>
-            <Search />
             <Switch>
             <Route exact path='/' component={Random}/>
               <Route exact path='/signup' render={() => <Signup getUser={this.getTheUser}/>}/>
@@ -77,6 +75,7 @@ class Main extends Component {
               <Route exact path='/movielist' component={PopularMovies}/>
               <Route userInSession={this.state.loggedInUser} exact path='/profile' component={Profile}/>
               <Route path={`/movie/:id`} component={MovieDetail}/>
+              <Route path="/search" component={Search}/>
             </Switch>
           </header>
         </div>
