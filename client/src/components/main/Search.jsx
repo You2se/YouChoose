@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import TextField from '@material-ui/core/TextField';
 
-class Search extends Component {
+export default class Search extends Component {
   state = {
     searchText: "",
     movies: [],
@@ -36,13 +36,16 @@ class Search extends Component {
     let BASE_IMG = "https://image.tmdb.org/t/p/w300/";
     return (
       <div className="search">
+      <i class="material-icons">search</i>
         <TextField
             name="searchText"
             value={this.state.searchText}
             onChange={this.onTextChange}
             hintStyle={{ textAlign: "center", width: "100%" }}
             hintText="Search for movies"
+            placeholder="Search Movies Here"
             inputStyle={{ textAlign: "center", backgroundColor: "white" }}
+            autocomplete="section-name"
           />
         <div className="search-results">
           {this.state.movies.map(e => {
@@ -62,4 +65,3 @@ class Search extends Component {
   }
 }
 
-export default Search;

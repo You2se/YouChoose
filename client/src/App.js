@@ -3,10 +3,9 @@ import Main from "./components/main/MainPage";
 
 
 
-class App extends Component {
+export default class App extends Component {
   render() {
     return <Main/>;
   }
 }
 
-export default App;

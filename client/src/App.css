@@ -18,6 +18,7 @@ a {
   align-items: stretch;
 }
 
+<<<<<<< HEAD
 .overme {
   display: -webkit-box;
   max-width: 20%;
@@ -34,3 +35,10 @@ a {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+=======
+ul {
+  display:flex;
+  justify-content: space-around;
+  list-style: none;
+}
+>>>>>>> 779034be170a0b77d182bd7b7ad9d19cf10d7e25

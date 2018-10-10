@@ -3,7 +3,7 @@ import axios from "axios";
 import Search from "../main/Search";
 import { Link } from "react-router-dom";
 
-class Random extends Component {
+export default class Random extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -27,7 +27,11 @@ class Random extends Component {
       });
   };
   render() {
+<<<<<<< HEAD
     let BASE_IMG = "https://image.tmdb.org/t/p/w400/";
+=======
+    let BASE_IMG = "https://image.tmdb.org/t/p/w200/";
+>>>>>>> 779034be170a0b77d182bd7b7ad9d19cf10d7e25
 
     if (this.state.title !== undefined) {
       return (
@@ -53,5 +57,3 @@ class Random extends Component {
     }
   }
 }
-
-export default Random;

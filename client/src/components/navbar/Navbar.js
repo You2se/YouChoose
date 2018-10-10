@@ -4,7 +4,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import AuthService from "../auth/AuthService";
 
-class Navbar extends Component {
+export default class Navbar extends Component {
   constructor(props) {
     super(props);
     this.state = { loggedInUser: null };
@@ -38,7 +38,13 @@ class Navbar extends Component {
           <nav className="">
             <ul>
               <li>
-                <Link to="/signup">Signup</Link>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/movielist">Movie List</Link>
+              </li>
+              <li>
+                <Link to="/signup">Register</Link>
               </li>
               <li>
                 <Link to="/login">Login</Link>
@@ -51,4 +57,3 @@ class Navbar extends Component {
   }
 }
 
-export default Navbar;
