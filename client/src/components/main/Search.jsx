@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import TextField from '@material-ui/core/TextField';
 
 class Search extends Component {
   state = {
@@ -32,7 +33,7 @@ class Search extends Component {
   };
 
   render() {
-    let BASE_IMG = "https://image.tmdb.org/t/p/w200/";
+    let BASE_IMG = "https://image.tmdb.org/t/p/w300/";
     return (
       <div className="search">
         <input
@@ -41,19 +42,17 @@ class Search extends Component {
           onChange={this.onTextChange}
         />
         <div className="search-results">
-        {this.state.movies.map(e => {
-          if (e.poster_path !== null) {
-            return (
-              <div>
-                {/* <Link to={`/movie/${e.id}`}>{e.title}</Link> */}
-                <img src={BASE_IMG + e.poster_path} alt="search-poster" />
-              </div>
-              
-            );
-          } else {
-            return "";
-          }
-        })}
+          {this.state.movies.map(e => {
+            if (e.poster_path !== null) {
+              return (
+                <div>
+                  <img src={BASE_IMG + e.poster_path} alt="search-poster" />
+                </div>
+              );
+            } else {
+              return "";
+            }
+          })}
         </div>
       </div>
     );
