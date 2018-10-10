@@ -8,6 +8,7 @@ import AuthService from '../auth/AuthService';
 import Profile from '../contents/ProfilePage'
 import PopularMovies from '../contents/PopularMovies'
 import MovieDetail from '../contents/MovieDetail'
+import Random from '../contents/Random'
 
 class Main extends Component {
 
@@ -65,6 +66,7 @@ class Main extends Component {
           <Link to="/"><h2>MAIN PAGE</h2></Link>
           <Link to="/movielist">FilmList</Link>
             <Navbar userInSession={this.state.loggedInUser} logout={this.logout} />
+            <Random/>
             <Switch>
               <Route exact path='/signup' render={() => <Signup getUser={this.getTheUser}/>}/>
               <Route exact path='/login' render={() => <Login getUser={this.getTheUser}/>}/>
