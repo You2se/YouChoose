@@ -53,22 +53,18 @@ class Main extends Component {
     if(this.state.loggedInUser){
       return (
         <div className="App">
-          <header className="App-header">
           <h2>MAIN PAGE</h2>
             <Navbar userInSession={this.state.loggedInUser} logout={this.logout} />
-            <Profile userInSession={this.state.loggedInUser}></Profile>
-          </header>
+          <Profile userInSession={this.state.loggedInUser}></Profile>
         </div>
       );
     } else {
       return (
         <div className="App">
-          <header className="App-header">
-          <Link to="/"><h2>MAIN PAGE</h2></Link>
+          <Link to="/"><h2>HOME</h2></Link>
           <Link to="/movielist">FilmList</Link>
-          
             <Navbar userInSession={this.state.loggedInUser} logout={this.logout} />
-            <Switch>
+          <Switch>
             <Route exact path='/' component={Random}/>
               <Route exact path='/signup' render={() => <Signup getUser={this.getTheUser}/>}/>
               <Route exact path='/login' render={() => <Login getUser={this.getTheUser}/>}/>
@@ -77,7 +73,6 @@ class Main extends Component {
               <Route path={`/movie/:id`} component={MovieDetail}/>
               <Route path="/search" component={Search}/>
             </Switch>
-          </header>
         </div>
       );
     }

@@ -22,7 +22,7 @@ class Navbar extends Component {
   render() {
     if (this.props.userInSession) {
       return (
-        <nav className="nav-style">
+        <nav className="">
           <ul>
             <li>
               <a onClick={this.handleLogout}>Logout</a>
@@ -35,7 +35,7 @@ class Navbar extends Component {
     } else {
       return (
         <div>
-          <nav className="nav-style">
+          <nav className="">
             <ul>
               <li>
                 <Link to="/signup">Signup</Link>
