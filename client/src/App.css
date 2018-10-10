@@ -1,5 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+}
 .App {
   text-align: center;
+  background-color: white;
+  width: 100vw;
+  height: 100vh;
 }
 
 a {
@@ -7,7 +14,23 @@ a {
   cursor: pointer;
 }
 .search-results {
-  display:flex;
+  display: flex;
   align-items: stretch;
 }
 
+.overme {
+  display: -webkit-box;
+  max-width: 20%;
+  margin: 0 auto;
+  font-size: 14px;
+  line-height: 1;
+  -webkit-line-clamp: 3;
+  /* autoprefixer: off */
+
+  -webkit-box-orient: vertical;
+
+  /* autoprefixer: on */
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

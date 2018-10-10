@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Search from "../main/Search"
+import Search from "../main/Search";
 import { Link } from "react-router-dom";
 
 class Random extends Component {
@@ -23,33 +23,33 @@ class Random extends Component {
         this.setState(movieDetail);
       })
       .catch(err => {
-
         console.log(err);
       });
   };
   render() {
-    let BASE_IMG = "https://image.tmdb.org/t/p/w200/";
-    console.log(this.state.backdrop_path);
+    let BASE_IMG = "https://image.tmdb.org/t/p/w400/";
 
     if (this.state.title !== undefined) {
       return (
         <div>
           <div>
+         
             <div>
-          <Link to={`/movie/${this.state.id}`}>{this.state.title}</Link>
-          </div>
-          <img src={BASE_IMG + this.state.poster_path} alt="movie-detail" />
-          
+              <Link to={`/movie/${this.state.id}`}>{this.state.title}</Link>
+            </div>
+            <div class="overme">{this.state.overview}</div>
+            <img src={BASE_IMG + this.state.poster_path} alt="movie-detail" />
+           
           </div>
           <div>
-            <button onClick={this.getRandomMovie} >Another Random Movie</button>
+            <button onClick={this.getRandomMovie}>Another Random Movie</button>
           </div>
           <Link to="/search">Search Movies</Link>
         </div>
       );
     } else {
-      this.getRandomMovie()
-      return <p></p>;
+      this.getRandomMovie();
+      return <p />;
     }
   }
 }
