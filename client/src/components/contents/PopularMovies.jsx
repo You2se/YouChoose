@@ -22,7 +22,7 @@ export default class PopularMovies extends React.Component {
       open: false,
       open2: false,
       open3: false,
-      scroll: "paper"
+      scroll: "body"
     };
   }
 
@@ -87,14 +87,13 @@ export default class PopularMovies extends React.Component {
           <div className="names">
             <Paper square elevation={0}>
               <Typography>
-                <Typography variant="h6" gutterBottom>
-                  {this.state.listMovies[activeStep].title}
-                </Typography>
+                
                 <Dialog
                   open={this.state.open}
                   onClose={this.handleClose}
                   scroll={this.state.scroll}
                   aria-labelledby="scroll-dialog-title1"
+                  className="card"
                 >
                   <DialogTitle
                     style={{ textAlign: "center" }}
@@ -131,6 +130,7 @@ export default class PopularMovies extends React.Component {
                   onClose={this.handleClose2}
                   scroll={this.state.scroll}
                   aria-labelledby="scroll-dialog-title2"
+                  className="card"
                 >
                   <DialogTitle
                     style={{ textAlign: "center" }}
@@ -169,6 +169,7 @@ export default class PopularMovies extends React.Component {
                   onClose={this.handleClose3}
                   scroll={this.state.scroll}
                   aria-labelledby="scroll-dialog-title3"
+                  className="card"
                 >
                   <DialogTitle
                     style={{ textAlign: "center" }}
