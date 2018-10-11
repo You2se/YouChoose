@@ -47,11 +47,11 @@ justify-content: space-around;
 .images{
   display: flex;
   width: 100vw;
-justify-content: space-between;
+justify-content: space-around;
 
 }
 .images img{
-  width: 28%;
+  width: 20%;
   height: 10%;
 
 }
