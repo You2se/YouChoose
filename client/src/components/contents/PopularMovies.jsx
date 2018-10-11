@@ -6,6 +6,11 @@ import MobileStepper from "@material-ui/core/MobileStepper";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
+import Dialog from "@material-ui/core/Dialog";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import DialogTitle from "@material-ui/core/DialogTitle";
 
 export default class PopularMovies extends React.Component {
   constructor() {
@@ -13,7 +18,11 @@ export default class PopularMovies extends React.Component {
     this.state = {
       listMovies: [],
       activeStep: 0,
-      num:1
+      num: 1,
+      open: false,
+      open2: false,
+      open3: false,
+      scroll: "paper"
     };
   }
 
@@ -21,16 +30,36 @@ export default class PopularMovies extends React.Component {
     this.retrieveAllMovies(this.state.num);
   };
 
+  handleClickOpen = scroll => () => {
+    this.setState({ open: true, scroll });
+  };
+  handleClickOpen2 = scroll => () => {
+    this.setState({ open2: true, scroll });
+  };
+  handleClickOpen3 = scroll => () => {
+    this.setState({ open3: true, scroll });
+  };
+
+  handleClose = () => {
+    this.setState({ open: false });
+  };
+  handleClose2 = () => {
+    this.setState({ open2: false });
+  };
+  handleClose3 = () => {
+    this.setState({ open3: false });
+  };
+
   handleNext = () => {
     if (this.state.activeStep < 17) {
       this.setState(prevState => ({
         activeStep: prevState.activeStep + 1
       }));
-    }else{
-      this.retrieveAllMovies(this.state.num+1)
+    } else {
+      this.retrieveAllMovies(this.state.num + 1);
       this.setState(prevState => ({
-        activeStep: prevState.activeStep =0, 
-        num: this.state.num+1
+        activeStep: (prevState.activeStep = 0),
+        num: this.state.num + 1
       }));
     }
   };
@@ -55,9 +84,8 @@ export default class PopularMovies extends React.Component {
 
   render() {
     const { activeStep } = this.state;
-    let maxSteps = this.state.listMovies.length-2;
+    let maxSteps = this.state.listMovies.length - 2;
     let BASE_IMG = "https://image.tmdb.org/t/p/w400/";
-
     if (this.state.listMovies.length > 0) {
       return (
         <div>
@@ -67,23 +95,113 @@ export default class PopularMovies extends React.Component {
           <div className="names">
             <Paper square elevation={0}>
               <Typography>
-                <Link to={`/movie/${this.state.listMovies[activeStep].id}`}>
+                <Typography variant="h6" gutterBottom>
                   {this.state.listMovies[activeStep].title}
-                </Link>
+                </Typography>
+                <Dialog
+                  open={this.state.open}
+                  onClose={this.handleClose}
+                  scroll={this.state.scroll}
+                  aria-labelledby="scroll-dialog-title1"
+                >
+                  <DialogTitle
+                    style={{ textAlign: "center" }}
+                    id="scroll-dialog-title1"
+                  >
+                    {this.state.listMovies[activeStep].title}
+                  </DialogTitle>
+                  <DialogContent>
+                    <img
+                      src={
+                        BASE_IMG + this.state.listMovies[activeStep].poster_path
+                      }
+                      alt=""
+                    />
+                    <DialogContentText>
+                      {this.state.listMovies[activeStep].overview}
+                    </DialogContentText>
+                  </DialogContent>
+                  <DialogActions>
+                    <Button onClick={this.handleClose} color="primary">
+                      Close
+                    </Button>
+                  </DialogActions>
+                </Dialog>
               </Typography>
             </Paper>
             <Paper square elevation={0}>
               <Typography>
-                <Link to={`/movie/${this.state.listMovies[activeStep + 1].id}`}>
-                  {this.state.listMovies[activeStep + 1].title}
-                </Link>
+              <Typography variant="h6" gutterBottom>
+                  {this.state.listMovies[activeStep+1].title}
+                </Typography>
+                <Dialog
+                  open={this.state.open2}
+                  onClose={this.handleClose2}
+                  scroll={this.state.scroll}
+                  aria-labelledby="scroll-dialog-title2"
+                >
+                  <DialogTitle
+                    style={{ textAlign: "center" }}
+                    id="scroll-dialog-title2"
+                  >
+                    {this.state.listMovies[activeStep + 1].title}
+                  </DialogTitle>
+                  <DialogContent>
+                    <img
+                      src={
+                        BASE_IMG +
+                        this.state.listMovies[activeStep + 1].poster_path
+                      }
+                      alt=""
+                    />
+                    <DialogContentText>
+                      {this.state.listMovies[activeStep + 1].overview}
+                    </DialogContentText>
+                  </DialogContent>
+                  <DialogActions>
+                    <Button onClick={this.handleClose2} color="primary">
+                      Close
+                    </Button>
+                  </DialogActions>
+                </Dialog>
               </Typography>
             </Paper>
+
             <Paper square elevation={0}>
               <Typography>
-                <Link to={`/movie/${this.state.listMovies[activeStep + 2].id}`}>
-                  {this.state.listMovies[activeStep + 2].title}
-                </Link>
+              <Typography variant="h6" gutterBottom>
+                  {this.state.listMovies[activeStep+2].title}
+                </Typography>
+                <Dialog
+                  open={this.state.open3}
+                  onClose={this.handleClose3}
+                  scroll={this.state.scroll}
+                  aria-labelledby="scroll-dialog-title3"
+                >
+                  <DialogTitle
+                    style={{ textAlign: "center" }}
+                    id="scroll-dialog-title3"
+                  >
+                    {this.state.listMovies[activeStep + 2].title}
+                  </DialogTitle>
+                  <DialogContent>
+                    <img
+                      src={
+                        BASE_IMG +
+                        this.state.listMovies[activeStep + 2].poster_path
+                      }
+                      alt=""
+                    />
+                    <DialogContentText>
+                      {this.state.listMovies[activeStep + 2].overview}
+                    </DialogContentText>
+                  </DialogContent>
+                  <DialogActions>
+                    <Button onClick={this.handleClose3} color="primary">
+                      Close
+                    </Button>
+                  </DialogActions>
+                </Dialog>
               </Typography>
             </Paper>
           </div>
@@ -91,16 +209,19 @@ export default class PopularMovies extends React.Component {
             <img
               src={BASE_IMG + this.state.listMovies[activeStep].poster_path}
               alt=""
+              onClick={this.handleClickOpen("paper")}
             />
 
             <img
               src={BASE_IMG + this.state.listMovies[activeStep + 1].poster_path}
               alt=""
+              onClick={this.handleClickOpen2("paper")}
             />
 
             <img
               src={BASE_IMG + this.state.listMovies[activeStep + 2].poster_path}
               alt=""
+              onClick={this.handleClickOpen3("paper")}
             />
           </div>
           <MobileStepper
@@ -128,7 +249,11 @@ export default class PopularMovies extends React.Component {
               </Button>
             }
           />
-          <p>THE PAGE IS --> {this.state.num}</p>
+          <p>
+            {" "}
+            <span>Page:</span>
+            {this.state.num}
+          </p>
         </div>
       );
     } else {
