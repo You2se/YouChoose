@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import AuthService from '../auth/AuthService';
 
 
+
 export default class Profile extends Component {
   constructor(props) {
     super(props);
@@ -22,7 +23,9 @@ export default class Profile extends Component {
   render() {
     if (this.props) {
       return (
+        <div>
         <p>This is the profile User site</p>
+        </div>
       )
     } else {
       return (
