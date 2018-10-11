@@ -30,24 +30,16 @@ export default class PopularMovies extends React.Component {
     this.retrieveAllMovies(this.state.num);
   };
 
-  handleClickOpen = scroll => () => {
-    this.setState({ open: true, scroll });
-  };
-  handleClickOpen2 = scroll => () => {
-    this.setState({ open2: true, scroll });
-  };
-  handleClickOpen3 = scroll => () => {
-    this.setState({ open3: true, scroll });
+  handleClickOpen = (params, scroll) => () => {
+    if (params === 1) this.setState({ open: true, scroll });
+    if (params === 2) this.setState({ open2: true, scroll });
+    else if (params === 3) this.setState({ open3: true, scroll });
   };
 
-  handleClose = () => {
-    this.setState({ open: false });
-  };
-  handleClose2 = () => {
-    this.setState({ open2: false });
-  };
-  handleClose3 = () => {
-    this.setState({ open3: false });
+  handleClose = params => {
+    if (params === 1) this.setState({ open: false });
+    else if (params === 2) this.setState({ open2: false });
+    else if (params === 3) this.setState({ open3: false });
   };
 
   handleNext = () => {
@@ -121,7 +113,7 @@ export default class PopularMovies extends React.Component {
                     </DialogContentText>
                   </DialogContent>
                   <DialogActions>
-                    <Button onClick={this.handleClose} color="primary">
+                    <Button onClick={() => this.handleClose(1)} color="primary">
                       Close
                     </Button>
                   </DialogActions>
@@ -130,6 +122,9 @@ export default class PopularMovies extends React.Component {
             </Paper>
             <Paper square elevation={0}>
               <Typography>
+                <Typography variant="h6" gutterBottom>
+                  {this.state.listMovies[activeStep + 1].title}
+                </Typography>
                 <Dialog
                   open={this.state.open2}
                   onClose={this.handleClose2}
@@ -156,7 +151,7 @@ export default class PopularMovies extends React.Component {
                     </DialogContentText>
                   </DialogContent>
                   <DialogActions>
-                    <Button onClick={this.handleClose2} color="primary">
+                    <Button onClick={() => this.handleClose(2)} color="primary">
                       Close
                     </Button>
                   </DialogActions>
@@ -166,6 +161,9 @@ export default class PopularMovies extends React.Component {
 
             <Paper square elevation={0}>
               <Typography>
+                <Typography variant="h6" gutterBottom>
+                  {this.state.listMovies[activeStep + 2].title}
+                </Typography>
                 <Dialog
                   open={this.state.open3}
                   onClose={this.handleClose3}
@@ -192,7 +190,7 @@ export default class PopularMovies extends React.Component {
                     </DialogContentText>
                   </DialogContent>
                   <DialogActions>
-                    <Button onClick={this.handleClose3} color="primary">
+                    <Button onClick={() => this.handleClose(3)} color="primary">
                       Close
                     </Button>
                   </DialogActions>
@@ -204,19 +202,19 @@ export default class PopularMovies extends React.Component {
             <img
               src={BASE_IMG + this.state.listMovies[activeStep].poster_path}
               alt=""
-              onClick={this.handleClickOpen("body")}
+              onClick={this.handleClickOpen(1, "paper")}
             />
 
             <img
               src={BASE_IMG + this.state.listMovies[activeStep + 1].poster_path}
               alt=""
-              onClick={this.handleClickOpen2("body")}
+              onClick={this.handleClickOpen(2, "paper")}
             />
 
             <img
               src={BASE_IMG + this.state.listMovies[activeStep + 2].poster_path}
               alt=""
-              onClick={this.handleClickOpen3("body")}
+              onClick={this.handleClickOpen(3, "paper")}
             />
           </div>
           <MobileStepper
