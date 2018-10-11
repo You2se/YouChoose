@@ -12,29 +12,39 @@ export default class PopularMovies extends React.Component {
     super();
     this.state = {
       listMovies: [],
-      activeStep: 0
+      activeStep: 0,
+      num:1
     };
   }
+
   componentDidMount = () => {
-    this.retrieveAllMovies();
+    this.retrieveAllMovies(this.state.num);
   };
 
   handleNext = () => {
-    this.setState(prevState => ({
-      activeStep: prevState.activeStep + 3
-    }));
+    if (this.state.activeStep < 17) {
+      this.setState(prevState => ({
+        activeStep: prevState.activeStep + 1
+      }));
+    }else{
+      this.retrieveAllMovies(this.state.num+1)
+      this.setState(prevState => ({
+        activeStep: prevState.activeStep =0, 
+        num: this.state.num+1
+      }));
+    }
   };
 
   handleBack = () => {
     this.setState(prevState => ({
-      activeStep: prevState.activeStep - 3
+      activeStep: prevState.activeStep - 1
     }));
   };
 
-  retrieveAllMovies = () => {
+  retrieveAllMovies = num => {
     axios
       .get(
-        "https://api.themoviedb.org/3/movie/popular?api_key=3d561f8d0b8aac21ad2ca16cb83e0825&language=es&page=1"
+        `https://api.themoviedb.org/3/movie/popular?api_key=3d561f8d0b8aac21ad2ca16cb83e0825&language=es&page=${num}`
       )
       .then(res => {
         this.setState({
@@ -45,7 +55,7 @@ export default class PopularMovies extends React.Component {
 
   render() {
     const { activeStep } = this.state;
-    let maxSteps = this.state.listMovies.length;
+    let maxSteps = this.state.listMovies.length-2;
     let BASE_IMG = "https://image.tmdb.org/t/p/w400/";
 
     if (this.state.listMovies.length > 0) {
@@ -101,7 +111,7 @@ export default class PopularMovies extends React.Component {
               <Button
                 size="small"
                 onClick={this.handleNext}
-                disabled={activeStep === maxSteps - 1}
+                disabled={activeStep === maxSteps}
               >
                 Next
                 {/* {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />} */}
@@ -118,6 +128,7 @@ export default class PopularMovies extends React.Component {
               </Button>
             }
           />
+          <p>THE PAGE IS --> {this.state.num}</p>
         </div>
       );
     } else {
