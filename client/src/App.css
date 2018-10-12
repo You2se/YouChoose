@@ -5,14 +5,14 @@
 }
 .App {
   text-align: center;
-  background-color: white;
+  background-color: black;
   width: 100vw;
   height: 100vh;
 }
 
 a,
-p {
-  color: black;
+p,h1 {
+  color: white;
   cursor: pointer;
 }
 .search-results {
@@ -102,16 +102,20 @@ ul {
   justify-content: space-around;
 }
 
-.images {
+.images-profile {
   display: flex;
-  width: 100vw;
-  justify-content: space-around;
+  width: 100%;
+  
 }
-.images img {
-  width: 20%;
-  height: 10%;
+.images-profile img {
+  padding: 0 30px;
+    display: inherit;
+    width: 10%;
+    height: 10%;
 }
-
+.bar div{
+  height: 8px;
+}
 .card {
   text-align: center;
 }

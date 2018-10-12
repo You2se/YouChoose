@@ -16,9 +16,9 @@ export default class Signup extends Component {
       username: "",
       password: "",
       genres: {
-        actions: true,
-        drama: false,
-        comedy: false
+        action: Number,
+        drama: Number,
+        comedy: Number
       }
     };
     this.service = new AuthService();
@@ -49,13 +49,17 @@ export default class Signup extends Component {
   };
 
   handleChange = event => {
-    //this.setState({ [name]: event.target.checked });
     const { name, value } = event.target;
+      console.log("aqui entra")
+      event.checked=
+      this.setState({
+        action: 1
+      })
     this.setState({ [name]: value });
   };
 
   render() {
-    const { actions, drama, comedy } = this.state;
+    const { action, drama, comedy } = this.state;
     return (
       <div>
         <h3>Welcome!, create your account next:</h3>
@@ -88,12 +92,12 @@ export default class Signup extends Component {
             <FormControlLabel
               control={
                 <Checkbox
-                  checked={actions}
-                  //onChange={this.handleChange('gilad')}
-                  value="actions"
+                  checked={false}
+                  onClick={e => this.handleChange(e)}
+                  value="action"
                 />
               }
-              label="Actions"
+              label="Action"
             />
             <FormControlLabel
               control={
