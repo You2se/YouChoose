@@ -4,18 +4,23 @@ import Search from "../main/Search";
 import { Link } from "react-router-dom";
 import {Pie} from 'react-chartjs-2';
 
+
 export default class Random extends Component {
   constructor(props) {
     super(props);
-    
     this.state = {
       data: {
         labels: ["Action", "Comedy", "Drama", "Animation"],
         datasets: [{
         label: "Genres of Movies",
-        backgroundColor: 'rgb(33, 150, 243)',
+        backgroundColor: [
+          "red",
+          "orange",
+          "blue",
+          "greenyellow",
+        ],
         borderColor: 'rgb(, 0, 0)',
-        data: [10, 20, 5, 2],
+        data: [10, 10, 5, 2],
         maintainAspectRatio: false,
         }]
     },
@@ -28,7 +33,7 @@ export default class Random extends Component {
   }
 
   getRandomMovie = () => {
-    let randNum = Math.floor(Math.random() * (200 - 100)) + 100;
+    let randNum = Math.floor(Math.random() * (500 - 100)) + 100;
     axios
       .get(
         `https://api.themoviedb.org/3/movie/${randNum}?api_key=3d561f8d0b8aac21ad2ca16cb83e0825&language=es`
@@ -74,16 +79,17 @@ export default class Random extends Component {
       return (
         <div className="random">
           <div>
-          < Pie data={this.state.data}
+            <div>
+               < Pie data={this.state.data}
           height={20}
           width={100}/>
-            <div>
-              <Link to={`/movie/${this.state.id}`}>{this.state.title}</Link>
+           
             </div>
             <div className="random-img">
               <img className="image-ran" src={BASE_IMG + this.state.poster_path} alt="movie-detail" />
               <div className="txt-img">
                 <div className="text">
+                <Link to={`/movie/${this.state.id}`}>{this.state.title}</Link>
                  {this.state.overview}
                 </div>
               </div>
