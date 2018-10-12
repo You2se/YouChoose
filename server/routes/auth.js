@@ -38,7 +38,9 @@ router.post('/signup', (req, res, next) => {
 
     return new User({
       username,
-      password: hashPass
+      password: hashPass,
+      favGenres: { action: 1}
+     
     }).save();
   })
   .then( savedUser => login(req, savedUser)) 
