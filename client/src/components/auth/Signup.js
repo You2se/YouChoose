@@ -16,10 +16,11 @@ export default class Signup extends Component {
       username: "",
       password: "",
       genres: {
-        actions: true,
-        drama: false,
+        action: false,
+        drama:  false,
         comedy: false
       }
+      
     };
     this.service = new AuthService();
   }
@@ -28,14 +29,40 @@ export default class Signup extends Component {
     event.preventDefault();
     const username = this.state.username;
     const password = this.state.password;
-
+    
+    const { action, drama, comedy} = this.state.genres
+    if(this.state.genres) {
+      if(this.state.genres.action === true) {
+        console.log("pasa action")
+        this.setState({
+          genres: { action: 1, drama, comedy, }})
+      }
+      else if(this.state.genres.drama === true) {
+        console.log("pasa drama")
+        this.setState({
+          genres: {action, drama: 1, comedy}
+        })
+       }
+       else if(this.state.genres.comedy === true) {
+        console.log("pasa comedy")
+         this.setState({
+           genres: {action,drama,comedy:1}
+         })
+       }
+    }
     this.service
-      .signup(username, password)
+      .signup(username, password, this.state.genres)
       .then(response => {
+        console.log(response.data)
         this.setState({
           username: "",
           password: "",
-          error: false
+          error: false,
+          genres: { 
+            action: false,
+            drama: false,
+            comedy: false
+          }
         });
         this.props.getUser(response.user);
       })
@@ -49,13 +76,16 @@ export default class Signup extends Component {
   };
 
   handleChange = event => {
-    //this.setState({ [name]: event.target.checked });
     const { name, value } = event.target;
     this.setState({ [name]: value });
+    //this.setState({genres: {action: 1}})
+    
   };
-
+  
   render() {
-    const { actions, drama, comedy } = this.state;
+    console.log(this.state.genres)
+    const { action, drama, comedy } = this.state.genres;
+    //console.log(action)
     return (
       <div>
         <h3>Welcome!, create your account next:</h3>
@@ -88,39 +118,55 @@ export default class Signup extends Component {
             <FormControlLabel
               control={
                 <Checkbox
-                  checked={actions}
-                  //onChange={this.handleChange('gilad')}
-                  value="actions"
+                  checked={action}
+                  onChange={() => this.setState({genres: {
+                    action : !action,
+                    drama,
+                    comedy,
+                  }})}
+                  value="action"
                 />
               }
-              label="Actions"
+              label="Action"
             />
             <FormControlLabel
               control={
                 <Checkbox
-                  checked={drama}
-                  //onChange={this.handleChange('jason')}
+                checked={drama}
+                  onChange={() => this.setState({genres: {
+                    action,
+                    drama : !drama,
+                    comedy
+                  }})}
                   value="drama"
                 />
               }
               label="Drama"
             />
-            <FormControlLabel
+            
+          <FormControlLabel
               control={
                 <Checkbox
-                  checked={comedy}
-                  //onChange={this.handleChange('antoine')}
+                checked={comedy}
+                  onChange={() => this.setState({genres: {
+                    action,
+                    drama,
+                    comedy : !comedy,
+
+                  }})}
                   value="comedy"
                 />
               }
               label="Comedy"
             />
           </FormGroup>
+          
+    
 
+        </FormControl>
           <Button onClick={this.handleFormSubmit} primary>
             Submit
           </Button>
-        </FormControl>
 
         <h1>{this.state.error ? "Error" : ""}</h1>
       </div>

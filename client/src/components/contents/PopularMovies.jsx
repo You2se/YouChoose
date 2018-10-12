@@ -90,7 +90,7 @@ export default class PopularMovies extends React.Component {
                 
                 <Dialog
                   open={this.state.open}
-                  onClose={this.handleClose}
+                  onClose={() => this.handleClose(1)}
                   scroll={this.state.scroll}
                   aria-labelledby="scroll-dialog-title1"
                   className="card"
@@ -127,7 +127,7 @@ export default class PopularMovies extends React.Component {
                 </Typography>
                 <Dialog
                   open={this.state.open2}
-                  onClose={this.handleClose2}
+                  onClose={() => this.handleClose(2)}
                   scroll={this.state.scroll}
                   aria-labelledby="scroll-dialog-title2"
                   className="card"
@@ -166,7 +166,7 @@ export default class PopularMovies extends React.Component {
                 </Typography>
                 <Dialog
                   open={this.state.open3}
-                  onClose={this.handleClose3}
+                  onClose={() => this.handleClose(3)}
                   scroll={this.state.scroll}
                   aria-labelledby="scroll-dialog-title3"
                   className="card"
