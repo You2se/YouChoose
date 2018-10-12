@@ -23,7 +23,7 @@ const login = (req, user) => {
 // SIGNUP
 router.post('/signup', (req, res, next) => {
 
-  const {username, password} = req.body;
+  const {username, password, genres} = req.body;
 
   console.log('username', username)
   console.log('password', password)
@@ -44,7 +44,11 @@ router.post('/signup', (req, res, next) => {
     return new User({
       username,
       password: hashPass,
-      favGenres: { action: 1}
+      favGenres: { 
+        action: genres.action,
+        drama: genres.drama,
+        comedy: genres.comedy
+      }
      
     }).save();
   })
