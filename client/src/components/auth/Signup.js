@@ -44,9 +44,21 @@ export default class Signup extends Component {
     event.preventDefault();
     const username = this.state.username;
     const password = this.state.password;
+    const genres = this.state.genres;
+    if(this.state.genres) {
+      genres.map((e,i, arr) => {
+        if(e.bool ===true) {
+        arr.splice(i, 1, { type: e.type, bool: 1 });
+            this.setState({ genres: arr });
+            
+      } else {
+        arr.splice(i, 1, { type: e.type, bool: 0 });
+            this.setState({ genres: arr });
 
-    const { action, drama, comedy } = this.state.genres;
-
+      }
+      })
+      console.log(genres)
+    }
     this.service
       .signup(username, password, this.state.genres)
       .then(response => {
@@ -55,11 +67,27 @@ export default class Signup extends Component {
           username: "",
           password: "",
           error: false,
-          genres: {
-            action: false,
-            drama: false,
-            comedy: false
-          }
+         genres: [
+            { type: "action", bool: false },
+            { type: "drama", bool: false },
+            { type: "comedy", bool: false },
+            { type: "adventure", bool: false },
+            { type: "animation", bool: false },
+            { type: "crimen", bool: false },
+            { type: "documental", bool: false },
+            { type: "family", bool: false },
+            { type: "history", bool: false },
+            { type: "fantasy", bool: false },
+            { type: "terror", bool: false },
+            { type: "music", bool: false },
+            { type: "mistery", bool: false },
+            { type: "romance", bool: false },
+            { type: "scifi", bool: false },
+            { type: "tvshow", bool: false },
+            { type: "belic", bool: false },
+            { type: "western", bool: false },
+            { type: "suspense", bool: false }
+          ]
         });
         this.props.getUser(response.user);
       })
@@ -78,15 +106,11 @@ export default class Signup extends Component {
       action: 1
     });
     this.setState({ [name]: value });
-    //this.setState({genres: {action: 1}})
+    
   };
 
   render() {
-    //console.log(this.state.genres)
-    const { action, drama, comedy } = this.state.genres;
-    console.log(Object.values(this.state.genres));
 
-    //console.log(action)
     return (
       <div>
         <h3>Welcome!, create your account next:</h3>
