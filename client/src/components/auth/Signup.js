@@ -15,12 +15,27 @@ export default class Signup extends Component {
     this.state = {
       username: "",
       password: "",
-      genres: {
-        action: Number,
-        drama: Number,
-        comedy: Number
-      }
-      
+      genres: [
+        { type: "action", bool: false },
+        { type: "drama", bool: false },
+        { type: "comedy", bool: false },
+        { type: "adventure", bool: false },
+        { type: "animation", bool: false },
+        { type: "crimen", bool: false },
+        { type: "documental", bool: false },
+        { type: "family", bool: false },
+        { type: "history", bool: false },
+        { type: "fantasy", bool: false },
+        { type: "terror", bool: false },
+        { type: "music", bool: false },
+        { type: "mistery", bool: false },
+        { type: "romance", bool: false },
+        { type: "scifi", bool: false },
+        { type: "tvshow", bool: false },
+        { type: "belic", bool: false },
+        { type: "western", bool: false },
+        { type: "suspense", bool: false }
+      ]
     };
     this.service = new AuthService();
   }
@@ -29,36 +44,18 @@ export default class Signup extends Component {
     event.preventDefault();
     const username = this.state.username;
     const password = this.state.password;
-    
-    const { action, drama, comedy} = this.state.genres
-    if(this.state.genres) {
-      if(this.state.genres.action === true) {
-        console.log("pasa action")
-        this.setState({
-          genres: { action: 1, drama, comedy, }})
-      }
-      else if(this.state.genres.drama === true) {
-        console.log("pasa drama")
-        this.setState({
-          genres: {action, drama: 1, comedy}
-        })
-       }
-       else if(this.state.genres.comedy === true) {
-        console.log("pasa comedy")
-         this.setState({
-           genres: {action,drama,comedy:1}
-         })
-       }
-    }
+
+    const { action, drama, comedy } = this.state.genres;
+
     this.service
       .signup(username, password, this.state.genres)
       .then(response => {
-        console.log(response.data)
+        console.log(response.data);
         this.setState({
           username: "",
           password: "",
           error: false,
-          genres: { 
+          genres: {
             action: false,
             drama: false,
             comedy: false
@@ -77,102 +74,74 @@ export default class Signup extends Component {
 
   handleChange = event => {
     const { name, value } = event.target;
-      console.log("aqui entra")
-      event.checked=
-      this.setState({
-        action: 1
-      })
+    event.checked = this.setState({
+      action: 1
+    });
     this.setState({ [name]: value });
     //this.setState({genres: {action: 1}})
-    
   };
-  
+
   render() {
-    console.log(this.state.genres)
+    //console.log(this.state.genres)
     const { action, drama, comedy } = this.state.genres;
+    console.log(Object.values(this.state.genres));
+
     //console.log(action)
     return (
       <div>
         <h3>Welcome!, create your account next:</h3>
         <br />
         <br />
+
         <FormControl component="fieldset" className="form-control">
-          <FormLabel className="form-label-username" component="legend">Username</FormLabel>
+          <FormLabel component="legend">
+            <p className="register-label-user">Username</p>
+          </FormLabel>
           <TextField
             className="username-textfield"
             name="username"
-            hintText="Username"
-            floatingLabelText="username"
             value={this.state.username}
             onChange={e => this.handleChange(e)}
-            floatingLabelFixed
           />
-          <FormLabel component="legend">Password</FormLabel>
+          <FormLabel className="label-password" component="legend">
+            <p className="register-label-password">Password</p>
+          </FormLabel>
           <TextField
+            className="password-textfield"
             name="password"
-            hintText="Password"
-            floatingLabelText="password"
             value={this.state.password}
             onChange={e => this.handleChange(e)}
-            floatingLabelFixed
           />
 
           <br />
           <br />
+
           <FormGroup>
-            <FormLabel component="legend">Select Genres</FormLabel>
-            <FormControlLabel
-              control={
-                <Checkbox
-                  checked={action}
-                  onChange={() => this.setState({genres: {
-                    action : !action,
-                    drama,
-                    comedy,
-                  }})}
-                  value="action"
+            <FormLabel component="legend">
+              <p>Select Genres</p>
+            </FormLabel>
+            {this.state.genres.map((el, index, arr) => {
+              return (
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      checked={el.bool}
+                      onChange={event => {
+                        arr.splice(index, 1, { type: el.type, bool: !el.bool });
+                        this.setState({ genres: arr });
+                      }}
+                      value="action"
+                    />
+                  }
+                  label={el.type}
                 />
-              }
-              label="Action"
-            />
-            <FormControlLabel
-              control={
-                <Checkbox
-                checked={drama}
-                  onChange={() => this.setState({genres: {
-                    action,
-                    drama : !drama,
-                    comedy
-                  }})}
-                  value="drama"
-                />
-              }
-              label="Drama"
-            />
-            
-          <FormControlLabel
-              control={
-                <Checkbox
-                checked={comedy}
-                  onChange={() => this.setState({genres: {
-                    action,
-                    drama,
-                    comedy : !comedy,
-
-                  }})}
-                  value="comedy"
-                />
-              }
-              label="Comedy"
-            />
+              );
+            })}
           </FormGroup>
-          
-    
-
         </FormControl>
-          <Button onClick={this.handleFormSubmit} primary>
-            Submit
-          </Button>
+        <Button onClick={this.handleFormSubmit} primary="true">
+          Submit
+        </Button>
 
         <h1>{this.state.error ? "Error" : ""}</h1>
       </div>
