@@ -16,9 +16,9 @@ export default class Signup extends Component {
       username: "",
       password: "",
       genres: {
-        action: false,
-        drama:  false,
-        comedy: false
+        action: Number,
+        drama: Number,
+        comedy: Number
       }
       
     };
@@ -77,6 +77,11 @@ export default class Signup extends Component {
 
   handleChange = event => {
     const { name, value } = event.target;
+      console.log("aqui entra")
+      event.checked=
+      this.setState({
+        action: 1
+      })
     this.setState({ [name]: value });
     //this.setState({genres: {action: 1}})
     
@@ -92,8 +97,9 @@ export default class Signup extends Component {
         <br />
         <br />
         <FormControl component="fieldset" className="form-control">
-          <FormLabel component="legend">Username</FormLabel>
+          <FormLabel className="form-label-username" component="legend">Username</FormLabel>
           <TextField
+            className="username-textfield"
             name="username"
             hintText="Username"
             floatingLabelText="username"
