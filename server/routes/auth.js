@@ -23,7 +23,7 @@ const login = (req, user) => {
 // SIGNUP
 router.post('/signup', (req, res, next) => {
 
-  const {username, password} = req.body;
+  const {username, password, genres} = req.body;
 
   if (!username || !password){
     next(new Error('You must provide valid credentials'));
@@ -36,10 +36,32 @@ router.post('/signup', (req, res, next) => {
     const salt     = bcrypt.genSaltSync(10);
     const hashPass = bcrypt.hashSync(password, salt);
 
+    console.log(genres)
     return new User({
       username,
       password: hashPass,
-      favGenres: { action: 1}
+      favGenres: { 
+        action: genres[0].bool,
+        drama: genres[1].bool,
+        comedy: genres[2].bool,
+        adventure: genres[3].bool,
+        animation: genres[4].bool,
+        crimen: genres[5].bool,
+        documental: genres[6].bool,
+        family: genres[7].bool,
+        history: genres[8].bool,
+        fantasy: genres[9].bool,
+        terror: genres[10].bool,
+        music: genres[11].bool,
+        mistery: genres[12].bool,
+        romance: genres[13].bool,
+        scifi: genres[14].bool,
+        tvshow: genres[15].bool,
+        belic: genres[16].bool,
+        western: genres[17].bool,
+        suspense: genres[18].bool,
+
+      }
      
     }).save();
   })
