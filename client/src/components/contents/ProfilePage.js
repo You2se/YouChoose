@@ -1,15 +1,20 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import AuthService from "../auth/AuthService";
-import { Pie } from "react-chartjs-2";
 import axios from "axios";
-import CarrouselUser from "./CarrouselUser"
+import CarrouselUser from "./CarrouselUser";
+import Chart from "./Chart"
 
 export default class Profile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      listMovies: [],
+      listMovies: {
+        drama: 5,
+        action:10,
+        animation:5,
+        comedy:8
+      }
     };
     this.service = new AuthService();
   }
@@ -18,28 +23,30 @@ export default class Profile extends Component {
     this.setState({ ...this.state, loggedInUser: nextProps["userInSession"] });
   }
 
-  componentDidMount = () => {
-    this.retrieveMovies(18);
-  };
-
   handleLogout = e => {
     this.props.logout();
   };
 
-  
-  retrieveMovies = genre => {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/discover/movie?api_key=3d561f8d0b8aac21ad2ca16cb83e0825&language=es&with_genres=${genre}`
-      )
-      .then(res => {
-        this.setState({
-          listMovies: res.data.results
-        });
-      });
-  };
   render() {
-    console.log(this.state.listMovies)
-    return <CarrouselUser listMovies={this.state.listMovies} />;
+    return (
+      <div>
+        <Chart genresUser={this.state.listMovies}/>
+        <h1>Your Movies</h1>
+        <div>
+          <h4>Action: </h4>
+          <CarrouselUser listMovies={28} />
+        </div>
+        <div>
+          <h4>Drama: </h4>
+          <CarrouselUser listMovies={18} />
+        </div>
+        <div>
+          <h4>Comedy: </h4>
+          <CarrouselUser listMovies={35}/>
+        </div>
+      </div>
+    );
   }
 }
+
+// listMovies={this.state.listMovies}

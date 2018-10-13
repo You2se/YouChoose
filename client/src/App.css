@@ -5,14 +5,33 @@
 }
 .App {
   text-align: center;
-  background-color: black;
+  background-color: white;
   width: 100vw;
   height: 100vh;
 }
 
+.Navigation ul {
+  display: flex;
+  height: 37px;
+  align-items: center;
+  padding: 0 10px;
+}
+.Navigation li {
+  font-weight: 400;
+  padding: 7px 10px;
+  font-size: 14px;
+  transition: background 0.125s ease;
+  border-radius: 3px;
+}
+.Navigation li:hover {
+  background: red;
+  cursor: pointer;
+}
+
 a,
-p,h1 {
-  color: white;
+p,
+h1 {
+  color: black;
   cursor: pointer;
 }
 .search-results {
@@ -60,7 +79,7 @@ p,h1 {
   width: 100%;
 }
 .text {
-  color: white;
+  color: black;
   font-size: 16px;
   padding: 16px 32px;
   display: -webkit-box;
@@ -74,7 +93,6 @@ p,h1 {
   overflow: hidden;
   text-overflow: ellipsis;
   position: absolute;
-
 }
 
 .random-img:hover .image-ran {
@@ -102,18 +120,35 @@ ul {
   justify-content: space-around;
 }
 
+.images {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.images img {
+  padding: 0 30px;
+  display: inherit;
+  width: 20%;
+  height: 10%;
+}
+
 .images-profile {
   display: flex;
   width: 100%;
-  
 }
+
 .images-profile img {
   padding: 0 30px;
-    display: inherit;
-    width: 10%;
-    height: 10%;
+  display: inherit;
+  width: 10%;
+  height: 10%;
 }
-.bar div{
+h4 {
+  color: black;
+  float: left;
+}
+.bar div {
   height: 8px;
 }
 .card {

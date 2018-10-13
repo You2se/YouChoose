@@ -22,20 +22,24 @@ export default class Navbar extends Component {
   render() {
     if (this.props.userInSession) {
       return (
-        <nav className="">
-          <ul>
-            <li>
-              <a onClick={this.handleLogout}>Logout</a>
-            </li>
-          </ul>
-
-          <h2>Welcome, {this.props.userInSession.username}</h2>
-        </nav>
+        <div id="navigator" className="Navigation">
+          <nav>
+            <ul>
+              <li>Browse</li>
+              <li>My List</li>
+              <Link to="/movielist"><li>Popular List</li></Link>
+              <li>Recent</li>
+              <li>
+                <a onClick={this.handleLogout}>Logout</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
       );
     } else {
       return (
         <div>
-          <nav className="">
+          <nav className="Navigation">
             <ul>
               <li>
                 <Link to="/">Home</Link>
@@ -56,4 +60,3 @@ export default class Navbar extends Component {
     }
   }
 }
-

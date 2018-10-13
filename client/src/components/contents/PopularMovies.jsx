@@ -1,22 +1,21 @@
 import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-
 import Carrousel from "./CarrouselPopular";
 
 export default class PopularMovies extends React.Component {
   constructor() {
     super();
     this.state = {
-      listMovies: []
+      listMovies: [],
     };
   }
 
   componentDidMount = () => {
-    this.retrieveAllMovies();
+    this.retrieveAllMovies(this.state.num);
   };
 
-  retrieveAllMovies = () => {
+  retrieveAllMovies = (num) => {
     axios
       .get(
         "https://api.themoviedb.org/3/movie/popular?api_key=3d561f8d0b8aac21ad2ca16cb83e0825&language=es"
@@ -29,7 +28,6 @@ export default class PopularMovies extends React.Component {
   };
 
   render() {
-    console.log(this.state.listMovies)
     return <Carrousel listMovies={this.state.listMovies} />;
   }
 }
