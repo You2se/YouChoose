@@ -1,19 +1,15 @@
 import React, { Component } from "react";
 import "../App.css"
-import Navbar from "./Navbar"
-import Logo from "./Logo"
 import Hero from "./Main"
 import TitleList from "./TitleList"
 import AuthService from "../components/auth/AuthService";
-import Login from "../components/auth/Login"
+
 
 
 export default class UserProfile extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      searchTerm:"",
-      searchUrl:"",
       loggedInUser: null
     }
     this.service = new AuthService();
@@ -21,21 +17,6 @@ export default class UserProfile extends Component {
 
   componentWillReceiveProps(nextProps) {
     this.setState({ ...this.state, loggedInUser: nextProps["userInSession"] });
-  }
-
-  handleKeyUp (event) {
-    if(event.key === 'Enter' && this.state.searchTerm !== ""){
-      var searchUrl =  "search/multi?query=" + this.state.searchTerm + "&api_key=166624c030b91c943c397020f20525b4";
-      this.setState({
-        searchUrl: searchUrl
-      })
-    }
-  }
-
-  handleChange(event) {
-    this.setState({
-      searchTerm: event.target.value
-    })
   }
 
   render(){

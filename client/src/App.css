@@ -24,17 +24,6 @@ p {
   margin-bottom: 1em;
 }
 
-.Header {
-  display: flex;
-  padding: 40px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  box-sizing: border-box;
-  z-index: 5;
-}
-
 .Logo img {
   width: 154px;
   height: 91px;
@@ -48,8 +37,8 @@ p {
 }
 .Navigation {
   display: flex;
-  margin: 3%;
-  
+  margin-top: 3%;
+  margin-left: 4%;
 }
 
 .Navigation ul {
@@ -58,7 +47,7 @@ p {
   align-items: center;
   padding: 0 10px;
   position: absolute;
-  margin-left:44%;
+  margin-left:40%;
 }
 .Navigation li {
   list-style-type: none;
@@ -118,7 +107,7 @@ p {
 .UserProfile {
   display: flex;
     position: absolute;
-    margin-left: 80%;
+    margin-left: 75%;
     margin-top: -0.5%;
 }
 .UserProfile .User {
@@ -354,7 +343,7 @@ p {
 
 .Random {
   height: 100%;
-  margin-top: -10%;
+  margin-top: -8%;
 }
 
 .Random-pic {
