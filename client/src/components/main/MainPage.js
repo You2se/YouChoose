@@ -49,7 +49,6 @@ export default class Main extends Component {
   }
 
   render() {
-    console.log(this.state.loggedInUser)
     if(this.state.loggedInUser){
       return (
         <div className="App">
