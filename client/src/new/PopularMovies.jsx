@@ -1,6 +1,5 @@
 import React from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import Carrousel from "./CarrouselPopular";
 
 export default class PopularMovies extends React.Component {

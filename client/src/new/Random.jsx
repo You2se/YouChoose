@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Search from "../main/Search";
-import { Link } from "react-router-dom";
+import AuthService from "../components/auth/AuthService";
+
 
  
 export default class Random extends Component {
@@ -10,8 +10,14 @@ export default class Random extends Component {
     this.state = {
       pageNum: 1,
       countButton: 0
-    };
+    }
+    this.service = new AuthService();
   }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({ ...this.state, loggedInUser: nextProps["userInSession"] });
+  }
+  
   componentWillMount() {
     this.getRandomMovie();
   }
@@ -55,28 +61,22 @@ export default class Random extends Component {
   };
   render() {
     let BASE_IMG = "https://image.tmdb.org/t/p/w400/";
-
-    if (
-      this.state.title !== undefined &&
-      this.state.poster_path !== undefined
-    ) {
+    let posterPath = "";
+    if (this.state.title !== undefined && this.state.poster_path !== undefined) {
+      posterPath=this.state.poster_path
       return (
-        <div className="random">
-          <div>
-            <div className="random-img">
-              <img
-                className="image-ran"
-                src={BASE_IMG + this.state.poster_path}
-                alt="movie-detail"
-              />
-              <div className="txt-img">
-                <div className="text">
-                  <Link to={`/movie/${this.state.id}`}>{this.state.title}</Link>
-                  {this.state.overview}
-                </div>
+        <div class="Random">
+         <div
+              className="Item Random-pic"
+              style={{ backgroundImage: "url(" + BASE_IMG + posterPath + ")" }}
+            >
+              <div className="overlay">
+                <div className="title">{this.state.title}</div>
+                <i className="material-icons">favorite</i>
+                <div className="rating">{this.state.vote_average} / 10</div>
+                <div className="plot plot-random">{this.state.overview}</div>
               </div>
             </div>
-          </div>
           <div className="button">
             <button onClick={this.getRandomMovie}>Another Random Movie</button>
             <button onClick={() => this.getMovieByGenre(28)}>
@@ -92,7 +92,6 @@ export default class Random extends Component {
               Animation Movies
             </button>
           </div>
-          <Link to="/search">Search Movies</Link>
         </div>
       );
     } else {

@@ -1,6 +1,5 @@
 // auth/Signup.js
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import AuthService from "./AuthService";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
@@ -49,12 +48,11 @@ export default class Login extends Component {
     return (
       <div>
         <h3>Please, login to our site</h3>
-
         <FormControl component="fieldset" className="form-control">
           <FormLabel component="legend">Username</FormLabel>
           <TextField
             name="username"
-            hintText="Username"
+            hinttext="Username"
             floatingLabelText="username"
             value={this.state.username}
             onChange={e => this.handleChange(e)}
@@ -63,7 +61,7 @@ export default class Login extends Component {
           <FormLabel component="legend">Password</FormLabel>
           <TextField
             name="password"
-            hintText="Password"
+            hinttext="Password"
             floatingLabelText="password"
             value={this.state.password}
             onChange={e => this.handleChange(e)}

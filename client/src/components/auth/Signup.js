@@ -102,11 +102,7 @@ export default class Signup extends Component {
 
   handleChange = event => {
     const { name, value } = event.target;
-    event.checked = this.setState({
-      action: 1
-    });
     this.setState({ [name]: value });
-    
   };
 
   render() {

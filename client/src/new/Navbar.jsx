@@ -1,8 +1,10 @@
-// navbar/Navbar.js
-
 import React, { Component } from "react";
+import "../App.css";
 import { Link } from "react-router-dom";
-import AuthService from "../auth/AuthService";
+import AuthService from "../components/auth/AuthService";
+import Logo from "./Logo";
+import Search from "./Search";
+import Profile from "./Profile";
 
 export default class Navbar extends Component {
   constructor(props) {
@@ -22,30 +24,39 @@ export default class Navbar extends Component {
   render() {
     if (this.props.userInSession) {
       return (
-        <div id="navigator" className="Navigation">
-          <nav>
-            <ul>
-              <li>Browse</li>
-              <li>My List</li>
-              <Link to="/movielist"><li>Popular List</li></Link>
-              <li>Recent</li>
-              <li>
-                <a onClick={this.handleLogout}>Logout</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
+        <nav className="Navigation">
+          <Logo />
+          <Search />
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/profile">My Profile</Link>
+            </li>
+            <li>
+
+              <Link to="/popular">Popular List</Link>
+            </li>
+            <li>
+              <a onClick={this.handleLogout}>Logout</a>
+            </li>
+          </ul>
+          <Profile />
+        </nav>
       );
     } else {
       return (
         <div>
           <nav className="Navigation">
+            <Logo />
+            <Search />
             <ul>
               <li>
                 <Link to="/">Home</Link>
               </li>
               <li>
-                <Link to="/movielist">Movie List</Link>
+                <Link to="/popular">Popular List</Link>
               </li>
               <li>
                 <Link to="/signup">Register</Link>
