@@ -33,7 +33,6 @@ export default class Random extends Component {
         this.setState(movieDetail);
       })
       .catch(err => {
-        console.log(err);
       });
   };
 
@@ -52,7 +51,6 @@ export default class Random extends Component {
         }
         let random = Math.floor(Math.random() * 21);
         const movieDetail = res.data.results[random];
-        console.log(movieDetail);
         this.setState(movieDetail);
       })
       .catch(err => {
@@ -65,7 +63,7 @@ export default class Random extends Component {
     if (this.state.title !== undefined && this.state.poster_path !== undefined) {
       posterPath=this.state.poster_path
       return (
-        <div class="Random">
+        <div className="Random">
          <div
               className="Item Random-pic"
               style={{ backgroundImage: "url(" + BASE_IMG + posterPath + ")" }}

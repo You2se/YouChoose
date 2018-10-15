@@ -21,7 +21,7 @@ export default class Hero extends Component {
 class HeroButton extends Component {
   render() {
     return(
-      <a a href={this.props.href} className="Button" data-primary={this.props.primary}>{this.props.text}</a>
+      <a href={this.props.href} className="Button" data-primary={this.props.primary}>{this.props.text}</a>
     )
   }
 }

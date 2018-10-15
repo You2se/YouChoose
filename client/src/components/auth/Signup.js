@@ -1,4 +1,3 @@
-// auth/Signup.js
 import React, { Component } from "react";
 import AuthService from "./AuthService";
 import TextField from "@material-ui/core/TextField";
@@ -54,15 +53,12 @@ export default class Signup extends Component {
       } else {
         arr.splice(i, 1, { type: e.type, bool: 0 });
             this.setState({ genres: arr });
-
       }
       })
-      console.log(genres)
     }
     this.service
       .signup(username, password, this.state.genres)
       .then(response => {
-        console.log(response.data);
         this.setState({
           username: "",
           password: "",

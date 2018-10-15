@@ -28,5 +28,15 @@ export default class AuthService {
     return this.service.get('/logout',)
     .then(response => response.data)
   }
+  friendsGet = (friendName,user) => {
+    console.log("pasa friendsget");
+    return this.service.get("/friends", {friendName, user})
+    .then(response => response.data)
+  }
+friends = (friendName, user) => {
+  console.log(user)
+    return this.service.post('/friends', {friendName, user})
+    .then(response => response.data)
+  }
 }
 

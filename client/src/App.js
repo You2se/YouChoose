@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Switch, Route, Link } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import Signup from './components/auth/Signup';
 import Login from "./components/auth/Login"
 import AuthService from './components/auth/AuthService';
@@ -52,20 +52,19 @@ export default class App extends Component {
        <Switch>
        <Route exact path='/' component={Random}/>
        <Route exact path='/popular' component={PopularMovies}/>
-       <Route userInSession={this.state.loggedInUser} exact path='/profile' component={UserProfile}/>
+       <Route  exact path='/profile' component={() => <UserProfile userInSession={this.state.loggedInUser}/>}/>
        </Switch>
        </header>
        )
        }else{
          return (
          <header>
-            <Navbar userInSession={this.state.loggedInUser} logout={this.logout} />
+            <Navbar/>
             <Switch>
             <Route exact path='/' component={Random}/>
               <Route exact path='/signup' render={() => <Signup getUser={this.getTheUser}/>}/>
               <Route exact path='/login' render={() => <Login getUser={this.getTheUser}/>}/>
               <Route exact path='/popular' component={PopularMovies}/>
-              <Route userInSession={this.state.loggedInUser} exact path='/login' component={Login}/>
             </Switch>
        </header> 
       )

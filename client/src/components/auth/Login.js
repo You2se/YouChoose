@@ -1,4 +1,3 @@
-// auth/Signup.js
 import React, { Component } from "react";
 import AuthService from "./AuthService";
 import TextField from "@material-ui/core/TextField";
@@ -53,7 +52,7 @@ export default class Login extends Component {
           <TextField
             name="username"
             hinttext="Username"
-            floatingLabelText="username"
+            floatinglabeltext="username"
             value={this.state.username}
             onChange={e => this.handleChange(e)}
             floatingLabelFixed
@@ -62,7 +61,7 @@ export default class Login extends Component {
           <TextField
             name="password"
             hinttext="Password"
-            floatingLabelText="password"
+            floatinglabeltext="password"
             value={this.state.password}
             onChange={e => this.handleChange(e)}
             floatingLabelFixed
