@@ -69,6 +69,7 @@ export default class Main extends Component {
               <Route userInSession={this.state.loggedInUser} exact path='/profile' component={Profile}/>
               <Route path={`/movie/:id`} component={MovieDetail}/>
               <Route path="/search" component={Search}/>
+              <Route path="/friends" component={Profile}/>
             </Switch>
         </div>
       );

@@ -2,28 +2,12 @@ import React, { Component } from "react";
 import axios from "axios";
 import Search from "../main/Search";
 import { Link } from "react-router-dom";
-import {Pie} from 'react-chartjs-2';
 
-
+ 
 export default class Random extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: {
-        labels: ["Action", "Comedy", "Drama", "Animation"],
-        datasets: [{
-        label: "Genres of Movies",
-        backgroundColor: [
-          "red",
-          "orange",
-          "blue",
-          "greenyellow",
-        ],
-        borderColor: 'rgb(, 0, 0)',
-        data: [10, 10, 5, 2],
-        maintainAspectRatio: false,
-        }]
-    },
       pageNum: 1,
       countButton: 0
     };
@@ -43,7 +27,6 @@ export default class Random extends Component {
         this.setState(movieDetail);
       })
       .catch(err => {
-        console.log(err);
       });
   };
 
@@ -62,7 +45,6 @@ export default class Random extends Component {
         }
         let random = Math.floor(Math.random() * 21);
         const movieDetail = res.data.results[random];
-        console.log(movieDetail);
         this.setState(movieDetail);
       })
       .catch(err => {
@@ -79,18 +61,16 @@ export default class Random extends Component {
       return (
         <div className="random">
           <div>
-            <div>
-               < Pie data={this.state.data}
-          height={20}
-          width={100}/>
-           
-            </div>
             <div className="random-img">
-              <img className="image-ran" src={BASE_IMG + this.state.poster_path} alt="movie-detail" />
+              <img
+                className="image-ran"
+                src={BASE_IMG + this.state.poster_path}
+                alt="movie-detail"
+              />
               <div className="txt-img">
                 <div className="text">
-                <Link to={`/movie/${this.state.id}`}>{this.state.title}</Link>
-                 {this.state.overview}
+                  <Link to={`/movie/${this.state.id}`}>{this.state.title}</Link>
+                  {this.state.overview}
                 </div>
               </div>
             </div>

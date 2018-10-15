@@ -22,11 +22,9 @@ export default class Search extends Component {
               this.state.searchText
           )
           .then(res => {
-            console.log(res.data.results);
             this.setState({
               movies: res.data.results
             });
-            console.log(this.state.movies);
           });
       }
     });

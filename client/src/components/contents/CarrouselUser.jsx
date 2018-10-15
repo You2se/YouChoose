@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import MobileStepper from "@material-ui/core/MobileStepper";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
@@ -13,6 +14,7 @@ export default class Carrousel extends React.Component {
   constructor() {
     super();
     this.state = {
+      listMovies: [],
       activeStep: 0,
       num: 1,
       open: false,
@@ -25,6 +27,10 @@ export default class Carrousel extends React.Component {
   componentWillReceiveProps(nextProps) {
     this.setState({ ...this.state, listMovies: nextProps["listMovies"] });
   }
+
+  componentDidMount = () => {
+    this.retrieveMovies(this.props.listMovies, this.state.num);
+  };
 
   handleClickOpen = (params, scroll) => () => {
     if (params === 1) this.setState({ open: true, scroll });
@@ -39,12 +45,12 @@ export default class Carrousel extends React.Component {
   };
 
   handleNext = () => {
-    if (this.state.activeStep < 17) {
+    if (this.state.activeStep < 14) {
       this.setState(prevState => ({
         activeStep: prevState.activeStep + 1
       }));
     } else {
-      this.retrieveAllMovies(this.state.num + 1);
+      this.retrieveMovies(this.props.listMovies,this.state.num + 1);
       this.setState(prevState => ({
         activeStep: (prevState.activeStep = 0),
         num: this.state.num + 1
@@ -58,16 +64,25 @@ export default class Carrousel extends React.Component {
     }));
   };
 
+  retrieveMovies = ((genre,num) => {
+    axios
+      .get(
+        `https://api.themoviedb.org/3/discover/movie?api_key=3d561f8d0b8aac21ad2ca16cb83e0825&language=es&with_genres=${genre}&page=${num}`
+      )
+      .then(res => {
+        this.setState({
+          listMovies: res.data.results
+        });
+      });
+  });
+
   render() {
-    const { activeStep } = this.state;
-    let maxSteps = this.props.listMovies.length - 2;
-    let BASE_IMG = "https://image.tmdb.org/t/p/w400/";
-    if (this.state.listMovies !== undefined) {
+    if (this.state.listMovies.length > 0) {
+      const { activeStep } = this.state;
+      let maxSteps = this.state.listMovies.length - 5;
+      let BASE_IMG = "https://image.tmdb.org/t/p/w400/";
       return (
         <div>
-          <Typography variant="h4" gutterBottom>
-            Popular Movies
-          </Typography>
           <div className="names">
             <Paper square elevation={0}>
               <Typography>
@@ -175,7 +190,7 @@ export default class Carrousel extends React.Component {
               </Typography>
             </Paper>
           </div>
-          <div className="images">
+          <div className="images-profile">
             <img
               src={BASE_IMG + this.state.listMovies[activeStep].poster_path}
               alt=""
@@ -193,47 +208,49 @@ export default class Carrousel extends React.Component {
               alt=""
               onClick={this.handleClickOpen(3, "paper")}
             />
-              <img
+            <img
               src={BASE_IMG + this.state.listMovies[activeStep + 3].poster_path}
               alt=""
               onClick={this.handleClickOpen(3, "paper")}
             />
-              <img
+            <img
               src={BASE_IMG + this.state.listMovies[activeStep + 4].poster_path}
               alt=""
               onClick={this.handleClickOpen(3, "paper")}
             />
-              <img
+            <img
               src={BASE_IMG + this.state.listMovies[activeStep + 5].poster_path}
               alt=""
               onClick={this.handleClickOpen(3, "paper")}
             />
           </div>
-          <MobileStepper
-            steps={maxSteps}
-            position="static"
-            activeStep={activeStep}
-            nextButton={
-              <Button
-                size="small"
-                onClick={this.handleNext}
-                disabled={activeStep === maxSteps}
-              >
-                Next
-                {/* {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />} */}
-              </Button>
-            }
-            backButton={
-              <Button
-                size="small"
-                onClick={this.handleBack}
-                disabled={activeStep === 0}
-              >
-                {/* {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />} */}
-                Back
-              </Button>
-            }
-          />
+          <div className="bar">
+            <MobileStepper
+              steps={maxSteps}
+              position="static"
+              activeStep={activeStep}
+              nextButton={
+                <Button
+                  size="small"
+                  onClick={this.handleNext}
+                  disabled={activeStep === maxSteps}
+                >
+                  Next
+                  {/* {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />} */}
+                </Button>
+              }
+              backButton={
+                <Button
+                  size="small"
+                  onClick={this.handleBack}
+                  disabled={activeStep === 0}
+                >
+                  {/* {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />} */}
+                  Back
+                </Button>
+              }
+            />
+          </div>
           <p>
             {" "}
             <span>Page:</span>
@@ -241,10 +258,8 @@ export default class Carrousel extends React.Component {
           </p>
         </div>
       );
-    }else{
-      return (
-        <p></p>
-      )
+    } else {
+      return <p />;
     }
   }
 }

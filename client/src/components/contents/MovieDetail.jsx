@@ -22,10 +22,9 @@ export default class MovieDetail extends React.Component {
       .then(res => {
         const movieDetail = res.data;
         this.setState(movieDetail);
-        console.log(movieDetail);
+
       })
       .catch(err => {
-        console.log(err);
       });
   };
   render() {

@@ -33,7 +33,8 @@ const userSchema = new Schema({
     western: {type :Number},
     suspense: {type :Number}
   },
-  favMovies: [Number] 
+  favMovies: [Number],
+  friends: [String],
 
 }, {
   timestamps: {

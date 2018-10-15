@@ -8,8 +8,6 @@ const passport = require('passport');
 const login = (req, user) => {
   return new Promise((resolve,reject) => {
     req.login(user, err => {
-      console.log('req.login ')
-      console.log(user)
       if(err) {
         reject(new Error('Something went wrong'))
       }else{
@@ -20,6 +18,32 @@ const login = (req, user) => {
 }
 
 
+router.post('/friends', (req,res,next) => {
+  const friendName = req.body.friendName;
+  const user = req.body.user;
+
+  console.log(req.body)
+
+  User.findOne({ username:friendName })
+  .then(() => {
+    User.findOne({ _id: user._id})
+    .then((me)=>{
+      console.log(me._id)
+    User.findByIdAndUpdate(me._id,{ $push: { friends: friendName } },)
+    .then((user)=>{
+      res.json({user})
+    })
+    .catch(err=>console.log(err))
+  })
+})
+  .catch(e => console.log(e))
+})
+
+router.get('/friends', (req,res,next) => {
+  const friendName = req.body.friendName;
+  const user = req.body.user;
+  console.log(req.body.user)
+})
 // SIGNUP
 router.post('/signup', (req, res, next) => {
 

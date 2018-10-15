@@ -57,12 +57,10 @@ export default class Signup extends Component {
 
       }
       })
-      console.log(genres)
     }
     this.service
       .signup(username, password, this.state.genres)
       .then(response => {
-        console.log(response.data);
         this.setState({
           username: "",
           password: "",
@@ -102,9 +100,9 @@ export default class Signup extends Component {
 
   handleChange = event => {
     const { name, value } = event.target;
-    event.checked = this.setState({
-      action: 1
-    });
+    // event.checked = this.setState({
+    //   action: 1
+    // });
     this.setState({ [name]: value });
     
   };
