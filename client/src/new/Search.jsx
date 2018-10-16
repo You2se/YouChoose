@@ -17,6 +17,7 @@ export default class Search extends Component {
       if (val === "") {
         this.setState({ movies: [] });
       } else {
+        if(this.state.searchText.length > 2){
         axios
           .get(
             "https://api.themoviedb.org/3/search/movie?api_key=3d561f8d0b8aac21ad2ca16cb83e0825&language=es&include_adult=false&query=" +
@@ -28,7 +29,7 @@ export default class Search extends Component {
               search: true
             });
           });
-      }
+      }}
     });
   };
 

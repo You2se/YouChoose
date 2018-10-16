@@ -3,6 +3,7 @@
   padding: 0;
   max-width: 90vw;
 }
+
 @import "https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900";
 
 body {
@@ -36,6 +37,7 @@ p {
   cursor: pointer;
   margin-top: 2px;
 }
+
 .Navigation {
   display: flex;
   margin-top: 3%;
@@ -48,8 +50,9 @@ p {
   align-items: center;
   padding: 0 10px;
   position: absolute;
-  margin-left:40%;
+  margin-left: 40%;
 }
+
 .Navigation li {
   list-style-type: none;
   font-weight: 400;
@@ -58,10 +61,12 @@ p {
   transition: background 0.125s ease;
   border-radius: 3px;
 }
+
 .Navigation li a {
   color: white;
   text-decoration: none;
 }
+
 .Navigation li:hover {
   background: red;
   cursor: pointer;
@@ -77,6 +82,7 @@ p {
   pointer-events: none;
   margin-left: -37%;
 }
+
 .Search input {
   font-family: Lato, sans-serif;
   font-weight: 300;
@@ -106,13 +112,15 @@ p {
 
 .UserProfile {
   display: flex;
-    position: absolute;
-    margin-left: 75%;
-    margin-top: -0.5%;
+  position: absolute;
+  margin-left: 75%;
+  margin-top: -0.5%;
 }
+
 .UserProfile .User {
   display: flex;
 }
+
 .UserProfile .User .image {
   border-radius: 44px;
   margin-left: 10px;
@@ -123,6 +131,7 @@ p {
   border: 3px solid transparent;
   transition: border 0.125s ease;
 }
+
 .UserProfile .User .image img {
   width: 100%;
   display: block;
@@ -139,6 +148,7 @@ p {
 .UserProfile:hover {
   cursor: pointer;
 }
+
 .UserProfile .image:hover {
   border: 3px solid red;
 }
@@ -155,6 +165,7 @@ p {
   min-height: 500px;
   margin-top: -10%;
 }
+
 .Hero .content {
   position: relative;
   z-index: 4;
@@ -162,6 +173,7 @@ p {
   left: 10vw;
   top: 10vw;
 }
+
 .Hero .logo {
   max-width: 400px;
   display: block;
@@ -172,11 +184,13 @@ p {
 .Hero .logo p {
   width: 100%;
 }
+
 .Hero .logo .button-wrapper {
   display: flex;
   width: 400px;
   margin-top: 30px;
 }
+
 .Hero .logo .Button:first-child {
   margin-right: 10px;
 }
@@ -209,6 +223,7 @@ p {
   width: 82%;
   margin-left: -3%;
 }
+
 .Button:hover {
   border: 2px solid grey;
 }
@@ -216,11 +231,12 @@ p {
 .Button[data-primary="true"] {
   border: 2px solid red;
 }
+
 .Button[data-primary="true"]:hover {
   background: red;
 }
 
-.Hero ~ .TitleList:nth-child(3) {
+.Hero~.TitleList:nth-child(3) {
   margin-top: -10vw;
   position: relative;
   z-index: 4;
@@ -232,6 +248,7 @@ p {
   transition: opacity 3s ease;
   opacity: 0;
 }
+
 .TitleList .titles-wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -258,9 +275,11 @@ p {
   margin-right: 10px;
   transition: background 1s ease;
 }
+
 .Item:nth-child(n + 6) {
   margin-top: 20px;
 }
+
 .Item:last-child {
   margin-right: 0;
 }
@@ -305,16 +324,19 @@ p {
   margin-top: 30px;
   margin-left: -10%;
 }
+
 .Item:hover .overlay i {
   margin-left: 70%;
   margin-top: -6%;
   font-size: 25px;
   position: absolute;
 }
+
 .Item:hover .overlay i:hover {
   color: red;
   cursor: pointer;
 }
+
 .Item:hover .overlay .plot {
   margin-top: 30px;
   opacity: 1;
@@ -352,16 +374,25 @@ p {
   margin: 0 auto;
 }
 
-.plot-random{
+.plot-random {
   width: 100%;
   font-size: 15px;
 }
+
 /* TEMPORAL */
 .MuiFormControl-root-1 .search-user {
   margin-top: -150px;
-    position: absolute;
+  position: absolute;
 }
 
 .Search-bar {
   max-width: 77vw;
+}
+
+.user-search-container {
+  position: absolute;
+  display: flex;
+  margin-top: 2030px;
+  ;
+  color: "white"
 }
