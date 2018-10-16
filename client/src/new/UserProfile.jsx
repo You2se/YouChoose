@@ -4,11 +4,7 @@ import Hero from "./Main";
 import Friends from "./Friends";
 import TitleList from "./TitleList";
 import AuthService from "../components/auth/AuthService";
-import axios from "axios";
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
-import FormLabel from "@material-ui/core/FormLabel";
-import FormControl from "@material-ui/core/FormControl";
+
 
 export default class UserProfile extends Component {
   constructor(props) {
