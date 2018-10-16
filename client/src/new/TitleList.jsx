@@ -5,6 +5,7 @@ export default class TitleList extends Component {
   constructor(props){
     super(props)
     this.state = {
+      genres:null,
       data: [],
       mounted: false
     }
@@ -24,6 +25,8 @@ export default class TitleList extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    this.setState({ ...this.state, genres: nextProps["userInSession"] });
+
     if(nextProps.url !== this.props.url && nextProps.url !== ''){
       this.setState({
         url: nextProps.url,
@@ -46,6 +49,7 @@ export default class TitleList extends Component {
   render() {
     let titles = '';
     if(this.state.data.results){
+      console.log(this.state.genres)
       titles = this.state.data.results.map((title, i) => {
         if(i < 5){
           var name = '';

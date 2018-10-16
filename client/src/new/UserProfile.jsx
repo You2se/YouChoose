@@ -34,7 +34,6 @@ export default class UserProfile extends Component {
   handleFriendButton = event => {
     event.preventDefault();
     const friendName = this.state.friendName;
-    //console.log(this.props.userInSession.friends)
     this.service
       .friends(friendName, this.props.userInSession)
       .then(response => {
@@ -128,7 +127,7 @@ export default class UserProfile extends Component {
         </div>
         <div>
           <Hero />
-          <TitleList title="Top picks for Steve" url='discover/tv?sort_by=popularity.desc&page=1'/>
+          <TitleList userInSession={this.state.loggedInUser} title="Top picks for Steve" url='discover/tv?sort_by=popularity.desc&page=1'/>
           <TitleList title="Trending now" url='discover/movie?sort_by=popularity.desc&page=1'/>
           <TitleList title="Most watched in Horror" url='genre/27/movies?sort_by=popularity.desc&page=1'/>
           <TitleList title="Sci-Fi greats" url='genre/878/movies?sort_by=popularity.desc&page=1'/>

@@ -39,7 +39,6 @@ export default class Search extends Component {
     let name = "";
     if (this.state.movies) {
       titles = this.state.movies.map((title, i) => {
-        console.log(this.state.movies);
         if (i < 5) {
           name = "";
           backDrop = "http://image.tmdb.org/t/p/original" + title.backdrop_path;
@@ -68,7 +67,7 @@ export default class Search extends Component {
       });
     }
     return (
-      <div>
+      <div className="Search-bar">
         <div className="Search">
           <i className="material-icons">search</i>
           <TextField
