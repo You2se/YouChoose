@@ -39,10 +39,18 @@ router.post('/friends', (req,res,next) => {
   .catch(e => console.log(e))
 })
 
-router.get('/friends', (req,res,next) => {
-  const friendName = req.body.friendName;
-  const user = req.body.user;
-  console.log(req.body.user)
+router.get('/friends/:friendName', (req, res, next) => {
+  const friendName = req.params.friendName;
+  console.log(friendName)
+  User.findOne({username: friendName})
+  .then((foundFriend) => {
+    if (foundFriend)  {
+      res.status(200).json({"friend": foundFriend, "requestURL": req.originalUrl})
+    } else {
+      res.status(500).json({"status": 'user not found', "requestURL": req.originalUrl})
+    }
+  })
+  .catch(e => console.log(e))
 })
 // SIGNUP
 router.post('/signup', (req, res, next) => {
