@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../App.css"
+import "../App.scss"
 import Hero from "./Main"
 import TitleList from "./TitleList"
 import AuthService from "../components/auth/AuthService";
@@ -67,7 +67,6 @@ export default class UserProfile extends Component {
           )
           .then(res => {
             console.log(res)
-            debugger
             this.setState({
               userList: res.data.results
             });

@@ -8,6 +8,7 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
+import TitleList from "./TitleList"
 
 export default class Carrousel extends React.Component {
   constructor() {
@@ -175,7 +176,8 @@ export default class Carrousel extends React.Component {
               </Typography>
             </Paper>
           </div>
-          <div className="images">
+          <TitleList title="Trending now" url='discover/movie?sort_by=popularity.desc&page=1'/>
+          {/* <div className="images">
             <img
               src={BASE_IMG + this.state.listMovies[activeStep].poster_path}
               alt=""
@@ -193,7 +195,7 @@ export default class Carrousel extends React.Component {
               alt=""
               onClick={this.handleClickOpen(3, "paper")}
             />
-          </div>
+          </div> */}
           <MobileStepper
             steps={maxSteps}
             position="static"
