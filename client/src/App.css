@@ -356,3 +356,8 @@ p {
   width: 100%;
   font-size: 15px;
 }
+/* TEMPORAL */
+.MuiFormControl-root-1 .search-user {
+  margin-top: -150px;
+    position: absolute;
+}

@@ -56,23 +56,22 @@ export default class UserProfile extends Component {
   };
 
   onTextChange = e => {
+    //const friendName = this.state.friendName;
     let val = e.target.value;
     this.setState({ [e.target.name]: val }, () => {
       if (val === "") {
         this.setState({ userList: [] });
       } else {
-        axios
-          .get(
-            "https://localhost:3000/api/auth/friends?username=" +
-              this.state.friendName
-          )
-          .then(res => {
-            console.log(res)
-            debugger
-            this.setState({
-              userList: res.data.results
-            });
-          });
+        this.service.friendsGet(val, this.props.userInSession)
+                .then((response) => {
+                  
+                  console.log(response.friend.username)
+                  
+                    this.setState({
+                        userList:[...this.state.userList, response.friend.username],
+                        friendName: val
+                    })
+                })
       }
     });
   };
@@ -85,6 +84,7 @@ export default class UserProfile extends Component {
    });
 };
   render(){
+    console.log(this.state.userList)
   if(this.props.userInSession!==null){
     const favGenres = this.props.userInSession.favGenres;
     let highest = this.getMaxGenres(favGenres)
@@ -96,13 +96,16 @@ export default class UserProfile extends Component {
     })
       return (
         <div>
-        <div>
+        <div style={{display:"flex"}}>
         <h1>Your Favorite Genres are:</h1>
         {genresToPrint}
+        <div >
         <p>Add Friends</p>
-        <FormControl component="fieldset" className="form-control">
+        <FormControl component="fieldset">
               <FormLabel component="legend">FindUser</FormLabel>
               <TextField
+                className="search-user"
+                style={{backgroundColor:"white"}}
                 name="friendName"
                 value={this.state.friendName}
                 //onChange={e => this.handleChange(e)}
@@ -125,6 +128,7 @@ export default class UserProfile extends Component {
                 <p>{e}</p>
               )
             })}
+            </div>
         </div>
         <div>
           <Hero />
