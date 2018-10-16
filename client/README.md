@@ -140,10 +140,10 @@ my-app/
     index.html
     favicon.ico
   src/
-    App.css
+    App.scss
     App.js
     App.test.js
-    index.css
+    index.scss
     index.js
     logo.svg
 ```
@@ -484,7 +484,7 @@ Also check out the [Code Splitting](https://reactjs.org/docs/code-splitting.html
 
 This project setup uses [Webpack](https://webpack.js.org/) for handling all assets. Webpack offers a custom way of “extending” the concept of `import` beyond JavaScript. To express that a JavaScript file depends on a CSS file, you need to **import the CSS from the JavaScript file**:
 
-### `Button.css`
+### `Button.scss`
 
 ```css
 .Button {
@@ -496,7 +496,7 @@ This project setup uses [Webpack](https://webpack.js.org/) for handling all asse
 
 ```js
 import React, { Component } from 'react';
-import './Button.css'; // Tell Webpack that Button.js uses these styles
+import './Button.scss'; // Tell Webpack that Button.js uses these styles
 
 class Button extends Component {
   render() {
@@ -508,21 +508,21 @@ class Button extends Component {
 
 **This is not required for React** but many people find this feature convenient. You can read about the benefits of this approach [here](https://medium.com/seek-blog/block-element-modifying-your-javascript-components-d7f99fcab52b). However you should be aware that this makes your code less portable to other build tools and environments than Webpack.
 
-In development, expressing dependencies this way allows your styles to be reloaded on the fly as you edit them. In production, all CSS files will be concatenated into a single minified `.css` file in the build output.
+In development, expressing dependencies this way allows your styles to be reloaded on the fly as you edit them. In production, all CSS files will be concatenated into a single minified `.scss` file in the build output.
 
-If you are concerned about using Webpack-specific semantics, you can put all your CSS right into `src/index.css`. It would still be imported from `src/index.js`, but you could always remove that import if you later migrate to a different build tool.
+If you are concerned about using Webpack-specific semantics, you can put all your CSS right into `src/index.scss`. It would still be imported from `src/index.js`, but you could always remove that import if you later migrate to a different build tool.
 
 ## Adding a CSS Modules Stylesheet
 
 > Note: this feature is available with `react-scripts@2.0.0` and higher.
 
-This project supports [CSS Modules](https://github.com/css-modules/css-modules) alongside regular stylesheets using the `[name].module.css` file naming convention. CSS Modules allows the scoping of CSS by automatically creating a unique classname of the format `[filename]\_[classname]\_\_[hash]`.
+This project supports [CSS Modules](https://github.com/css-modules/css-modules) alongside regular stylesheets using the `[name].module.scss` file naming convention. CSS Modules allows the scoping of CSS by automatically creating a unique classname of the format `[filename]\_[classname]\_\_[hash]`.
 
 > **Tip:** Should you want to preprocess a stylesheet with Sass then make sure to [follow the installation instructions](#adding-a-sass-stylesheet) and then change the stylesheet file extension as follows: `[name].module.scss` or `[name].module.sass`.
 
 CSS Modules let you use the same CSS class name in different files without worrying about naming clashes. Learn more about CSS Modules [here](https://css-tricks.com/css-modules-part-1-need/).
 
-### `Button.module.css`
+### `Button.module.scss`
 
 ```css
 .error {
@@ -530,7 +530,7 @@ CSS Modules let you use the same CSS class name in different files without worry
 }
 ```
 
-### `another-stylesheet.css`
+### `another-stylesheet.scss`
 
 ```css
 .error {
@@ -542,8 +542,8 @@ CSS Modules let you use the same CSS class name in different files without worry
 
 ```js
 import React, { Component } from 'react';
-import styles from './Button.module.css'; // Import css modules stylesheet as styles
-import './another-stylesheet.css'; // Import regular stylesheet
+import styles from './Button.module.scss'; // Import css modules stylesheet as styles
+import './another-stylesheet.scss'; // Import regular stylesheet
 
 class Button extends Component {
   render() {
@@ -562,7 +562,7 @@ No clashes from other `.error` class names
 <button class="Button_error_ax7yz"></div>
 ```
 
-**This is an optional feature.** Regular `<link>` stylesheets and CSS files are fully supported. CSS Modules are turned on for files ending with the `.module.css` extension.
+**This is an optional feature.** Regular `<link>` stylesheets and CSS files are fully supported. CSS Modules are turned on for files ending with the `.module.scss` extension.
 
 ## Adding a Sass Stylesheet
 
@@ -580,7 +580,7 @@ $ # or
 $ yarn add node-sass
 ```
 
-Now you can rename `src/App.css` to `src/App.scss` and update `src/App.js` to import `src/App.scss`.
+Now you can rename `src/App.scss` to `src/App.scss` and update `src/App.js` to import `src/App.scss`.
 This file and any other file will be automatically compiled if imported with the extension `.scss` or `.sass`.
 
 To share variables between Sass files, you can use Sass imports. For example, `src/App.scss` and other component style files could include `@import "./shared.scss";` with variable definitions.
@@ -793,7 +793,7 @@ yarn add bootstrap@4 reactstrap
 Import Bootstrap CSS and optionally Bootstrap theme CSS in the beginning of your `src/index.js` file:
 
 ```js
-import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.scss';
 // Put any other imports below so that CSS from your
 // components takes precedence over default styles.
 ```
@@ -825,7 +825,7 @@ $body-bg: #000;
 
 > **Note:** You must prefix imports from `node_modules` with `~` as displayed above.
 
-Finally, import the newly created `.scss` file instead of the default Bootstrap `.css` in the beginning of your `src/index.js` file, for example:
+Finally, import the newly created `.scss` file instead of the default Bootstrap `.scss` in the beginning of your `src/index.js` file, for example:
 
 ```javascript
 import './custom.scss';

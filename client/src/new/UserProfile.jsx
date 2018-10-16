@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../App.css";
+import "../App.scss";
 import Hero from "./Main";
 import Friends from "./Friends";
 import TitleList from "./TitleList";

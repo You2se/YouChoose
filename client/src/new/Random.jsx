@@ -63,6 +63,7 @@ export default class Random extends Component {
     if (this.state.title !== undefined && this.state.poster_path !== undefined) {
       posterPath=this.state.poster_path
       return (
+        
         <div className="Random">
          <div
               className="Item Random-pic"

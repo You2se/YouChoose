@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
-import Carrousel from "./CarrouselPopular";
+import TitleList from "./TitleList"
+
 
 export default class PopularMovies extends React.Component {
   constructor() {
@@ -27,6 +28,7 @@ export default class PopularMovies extends React.Component {
   };
 
   render() {
-    return <Carrousel listMovies={this.state.listMovies} />;
+    return <TitleList title="Trending now" url='discover/movie?sort_by=popularity.desc&page=1'/>
+
   }
 }

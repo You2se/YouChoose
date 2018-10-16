@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import "../App.css"
+import "../App.scss"
+import Item from "./Item"
 
 export default class TitleList extends Component {
   constructor(props){
@@ -7,7 +8,14 @@ export default class TitleList extends Component {
     this.state = {
       genres:null,
       data: [],
-      mounted: false
+      mounted: false,
+      imageNum:0,
+      imageIndex:5,
+      activeStep: 0,
+      open: false,
+      open2: false,
+      open3: false,
+      scroll: "body"
     }
   }
 
@@ -46,12 +54,29 @@ export default class TitleList extends Component {
     }
   }
 
+  nextMovie(){
+    this.setState({
+      imageNum: this.state.imageNum+1,
+      imageIndex: this.state.imageIndex+1
+    })
+  }
+  previousMovie(){
+    this.setState({
+      imageNum: this.state.imageNum-1,
+      imageIndex: this.state.imageIndex-1
+    })
+  }
+
   render() {
     let titles = '';
-    if(this.state.data.results){
-      console.log(this.state.genres)
+    let imageNum = this.state.imageNum
+    let imageIndex = this.state.imageIndex
+    if(this.state.data.results){  
       titles = this.state.data.results.map((title, i) => {
-        if(i < 5){
+        if(i<imageNum){
+          return ""
+        }
+        if(i < imageIndex){
           var name = '';
           var backDrop = 'http://image.tmdb.org/t/p/original' + title.backdrop_path;
           if(!title.name) {
@@ -59,7 +84,6 @@ export default class TitleList extends Component {
           } else {
             name = title.name;
           }
-
           return (
             <Item key={title.id} title={name} score={title.vote_average} overview={title.overview} backdrop={backDrop}/>
           )
@@ -79,24 +103,10 @@ export default class TitleList extends Component {
             {titles}
           </div>
         </div>
+        <button onClick={() => this.previousMovie()}>Previous</button>
+        <button onClick={() => this.nextMovie()}>Next</button>
       </div>
     )
   }
 }
 
-export class Item extends Component {
-  render() {
-    return(
-      <div className="Item" style={{backgroundImage: 'url(' + this.props.backdrop + ')'} }>
-        <div className="overlay">
-          <div className="title">{this.props.title}</div>
-          <i className="material-icons">favorite</i>
-          <div className="rating">{this.props.score} / 10</div>
-          <div className="plot">{this.props.overview}</div>
-        </div>
-      </div>
-    )
-  }
-}
-
- 

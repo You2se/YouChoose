@@ -4,8 +4,6 @@
   max-width: 90vw;
 }
 
-@import "https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900";
-
 body {
   background: black;
   color: white;
@@ -31,6 +29,7 @@ p {
   height: 91px;
   transition: margin 0.125s ease;
   margin-top: -16%;
+  margin-left: -17%;
 }
 
 .Logo:hover {
@@ -389,10 +388,7 @@ p {
   max-width: 77vw;
 }
 
-.user-search-container {
-  position: absolute;
-  display: flex;
-  margin-top: 2030px;
-  ;
-  color: "white"
+.search-icon{
+  padding-top: 25px;
+  padding-left: 3px;
 }
