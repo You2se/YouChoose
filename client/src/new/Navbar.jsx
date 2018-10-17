@@ -42,7 +42,7 @@ export default class Navbar extends Component {
               <Link to="/" onClick={this.handleLogout}>Logout</Link>
             </li>
           </ul>
-          <Profile />
+          <Profile userInSession={this.state.loggedInUser}/>
         </nav>
       );
     } else {

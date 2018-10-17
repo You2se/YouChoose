@@ -47,7 +47,7 @@ export default class UserProfile extends Component {
             <Hero />
             <TitleList
               userInSession={this.state.loggedInUser}
-              title="Top picks for Steve"
+              title="Top Picks for you"
               url="discover/tv?sort_by=popularity.desc&page=1"
             />
             <TitleList
