@@ -39,7 +39,7 @@ export default class Navbar extends Component {
               <Link to="/popular">Popular List</Link>
             </li>
             <li>
-              <a href="/" onClick={this.handleLogout}>Logout</a>
+              <Link to="/" onClick={this.handleLogout}>Logout</Link>
             </li>
           </ul>
           <Profile />
