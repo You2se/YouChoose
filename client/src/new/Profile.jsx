@@ -1,13 +1,19 @@
 import React, { Component } from "react";
 
 export default class Profile extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {loggedInUser: props.userInSession}
+    
+  }
   render(){
+    console.log(this.state.loggedInUser.imgPath)
     return(
       <div className="UserProfile">
         <div className="User">
-          <div className="name">Steve Jobs</div>
+          <div className="name">{this.state.loggedInUser.username}</div>
           <div className="image">
-            <img src="https://pbs.twimg.com/profile_images/900363575767728130/f-ymAfOR_400x400.jpg" alt="profile"/>
+            <img src={this.state.loggedInUser.imgPath} alt="profile"/>
           </div>
         </div>
       </div>
