@@ -20,13 +20,15 @@ const login = (req, user) => {
 
 router.post("/friends", (req, res, next) => {
   const friendName = req.body.friendName;
+  console.log("body:",req.body.friendGenres)
   const user = req.body.user;
+  const favGenres = req.body.friendGenres
 
   User.findOne({ username: friendName })
     .then(() => {
       User.findOne({ _id: user._id }).then(me => {
         console.log(me._id);
-        User.findByIdAndUpdate(me._id, { $push: { friends: friendName } })
+        User.findByIdAndUpdate(me._id, { $push: { friendsList: {amigo: {amigo: friendName, favGenres}} } })
           .then(user => {
             res.json({ user });
           })

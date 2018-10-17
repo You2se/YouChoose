@@ -43,9 +43,8 @@ export default class AuthService {
     return this.service.get(`auth/friends/${friendName}`, {friendName, user})
     .then(response => response.data)
   }
-friends = (friendName, user) => {
-  console.log(user)
-    return this.service.post('auth/friends', {friendName, user})
+friends = (friendName, user, friendGenres) => {
+    return this.service.post('auth/friends', {friendName, user, friendGenres})
     .then(response => response.data)
   }
 }

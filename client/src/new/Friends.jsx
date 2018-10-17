@@ -5,16 +5,21 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import FormLabel from "@material-ui/core/FormLabel";
 import FormControl from "@material-ui/core/FormControl";
+import FriendList from "./FriendList"
 
 export default class Friends extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      friends: [props.userInSession.friends],
+      friends: [props.userInSession],
       friendName: "",
       userList: [],
       userGenres: {},
-      friendListGenres: {},
+
+      friendsList: {
+        amigo: { amigo: "", favGenres: "" }
+      },
+
       loggedInUser: props.userInSession
     };
     this.service = new AuthService();
@@ -32,59 +37,74 @@ export default class Friends extends Component {
   handleFriendButton = event => {
     event.preventDefault();
     const friendName = this.state.friendName;
-    if(!this.state.friends.includes(friendName)) {
-    this.service
-      .friends(friendName, this.props.userInSession)
-      .then(response => {
-      //   this.setState({
-      //     friendListGenres: {
-      //         ...this.state.friendListGenres,
-      //         action:action
-      //     },
-      //     friendName: "",
-      //     friends: [...this.state.friends, friendName],
-      // })
-     
-        console.log("pasa-noesta")
-        this.setState({
-          ...this.state,
-          friendName: "",
-          friends: [...this.state.friends, friendName],
-        });
-       
+    if (!this.state.friends.includes(friendName)) {
+      this.service
+        .friends(
+          friendName,
+          this.props.userInSession,
+          this.state.friendsList.amigo.favGenres
+        )
+        //console.log(this.state.friendsList.amigo.favGenres)
+        .then(response => {
+          //console.log("pasa",response)
+          //   this.setState({
+          //     friendListGenres: {
+          //         ...this.state.friendListGenres,
+          //         action:action
+          //     },
+          //     friendName: "",
+          //     friends: [...this.state.friends, friendName],
+          // })
+          //console.log(this.state.friendName)
+          this.setState({
+            ...this.state,
+            friendName,
+            friends: [...this.state.friends, friendName],
+            ...this.state.friendsList,
+            friendsList: {
+              amigo: {
+                amigo: response.friend.username,
+                favGenres: response.friend.favGenres
+              }
+            }
+          });
 
-        
-        this.props.getUser(response);
-      })
-      .catch(error => {
-        this.setState({
-          error: true
+          this.props.getUser(response);
+        })
+        .catch(error => {
+          this.setState({
+            error: true
+          });
         });
-      });
-    }
-    else alert("User Already in your friendList")
+    } else alert("User Already in your friendList");
   };
 
   onTextChange = e => {
     //const friendName = this.state.friendName;
     let val = e.target.value;
     this.setState({ [e.target.name]: val }, () => {
-
-        if (this.state.friendName.length > 2 || val ==="") {
-          this.setState({ userList: [],  userGenres: {}});
-          this.service
-            .friendsGet(val, this.props.userInSession)
-            .then(response => {
-              this.setState({
-                ...this.state,
-                userList: [...this.state.userList, response.friend.username],
-                userGenres: response.friend.favGenres,
-                friendName: val
-              });
-              console.log(response.friend.favGenres)
-              
+      if (this.state.friendName.length > 2 || val === "") {
+        this.setState({ userList: [], userGenres: {} });
+        this.service
+          .friendsGet(val, this.props.userInSession)
+          .then(response => {
+            //console.log(response.friend)
+            this.setState({
+              ...this.state,
+              userList: [...this.state.userList, response.friend.username],
+              userGenres: response.friend.favGenres,
+              friendName: val,
+              ...this.state.friendsList,
+              friendsList: {
+                amigo: {
+                  amigo: response.friend.username,
+                  favGenres: response.friend.favGenres
+                }
+              }
             });
-        }
+            //console.log(this.state.friendsList)
+          });
+      }
     });
   };
 
@@ -93,17 +113,20 @@ export default class Friends extends Component {
       return object[x] === Math.max.apply(null, Object.values(object));
     });
   };
+  
 
   render() {
-    console.log(this.state.friendListGenres.action)
-    let genresToPrintSearch;
+    let genresToPrintSearch, toPrint
+  
+
     this.state.friends.map(e => {
       let highest = this.getMaxGenres(this.state.userGenres);
       genresToPrintSearch = highest.map(e => {
-      return <span>{e},</span>
-      })})
-
-    
+        return <span>{e},</span>;
+      });
+    });
+    console.log(this.state.friends)
+    if(this.state.friends.length>0){
     return (
       <div>
         <p>Add Friends</p>
@@ -129,6 +152,7 @@ export default class Friends extends Component {
 
         <div>
           <h4>SEARCH RESULTS</h4>
+
           {this.state.userList.map(e => {
             return (
               <>
@@ -139,25 +163,12 @@ export default class Friends extends Component {
         </div>
         <div>
           <h3>Friends</h3>
-        {this.state.friends} 
-        {/* <span>{genresToPrintSearch},</span> */}
-        {/* {this.state.friends.map(e => {
-        let highest = this.getMaxGenres(this.state.userGenres)
-        let genresToPrintSearch = highest.map(e => {
-          return <p>{e}</p>
-        })
-        return (
-          <div>
-        <p>{e}</p>
-        <span>{genresToPrintSearch},</span>
-        </div>
-        )
-      })} */}
-        
-          
+          <FriendList userInSession={this.state.friends}/>
         </div>
       </div>
-    );
+    )
+        }else{
+          return <p></p>
+        }
   }
-
-  }
+}
