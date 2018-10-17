@@ -35,7 +35,7 @@ const userSchema = new Schema({
   },
   favMovies: [Number],
   friends: [String],
-
+  imgPath: String,
 }, {
   timestamps: {
     createdAt: 'created_at',

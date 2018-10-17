@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import axios from "axios";
 import AuthService from "../components/auth/AuthService";
 
-
- 
 export default class Random extends Component {
   constructor(props) {
     super(props);

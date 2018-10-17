@@ -7,6 +7,8 @@ import FormControl from "@material-ui/core/FormControl";
 import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
+import UploadFile from "../../new/UpdloadFile";
+import axios from "axios";
 
 export default class Signup extends Component {
   constructor(props) {
@@ -34,7 +36,8 @@ export default class Signup extends Component {
         { type: "belic", bool: false },
         { type: "western", bool: false },
         { type: "suspense", bool: false }
-      ]
+      ],
+      photo: {}
     };
     this.service = new AuthService();
   }
@@ -44,26 +47,27 @@ export default class Signup extends Component {
     const username = this.state.username;
     const password = this.state.password;
     const genres = this.state.genres;
-    if(this.state.genres) {
-      genres.map((e,i, arr) => {
-        if(e.bool ===true) {
-        arr.splice(i, 1, { type: e.type, bool: 1 });
-            this.setState({ genres: arr });
-            
-      } else {
-        arr.splice(i, 1, { type: e.type, bool: 0 });
-            this.setState({ genres: arr });
-      }
-      })
+    const file = this.state.file;
+    if (this.state.genres) {
+      genres.map((e, i, arr) => {
+        if (e.bool === true) {
+          arr.splice(i, 1, { type: e.type, bool: 1 });
+          this.setState({ genres: arr });
+        } else {
+          arr.splice(i, 1, { type: e.type, bool: 0 });
+          this.setState({ genres: arr });
+        }
+      });
     }
+
     this.service
-      .signup(username, password, this.state.genres)
+      .signup(username, password, this.state.genres, file)
       .then(response => {
         this.setState({
           username: "",
           password: "",
           error: false,
-         genres: [
+          genres: [
             { type: "action", bool: false },
             { type: "drama", bool: false },
             { type: "comedy", bool: false },
@@ -83,7 +87,8 @@ export default class Signup extends Component {
             { type: "belic", bool: false },
             { type: "western", bool: false },
             { type: "suspense", bool: false }
-          ]
+          ],
+          file: null
         });
         this.props.getUser(response.user);
       })
@@ -96,13 +101,19 @@ export default class Signup extends Component {
       });
   };
 
+  handleUploadFile = event => {
+    console.log(event)
+    this.setState({
+      file: event.target.files[0]
+    });
+  };
+
   handleChange = event => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   };
 
   render() {
-
     return (
       <div>
         <h3>Welcome!, create your account next:</h3>
@@ -127,6 +138,11 @@ export default class Signup extends Component {
             name="password"
             value={this.state.password}
             onChange={e => this.handleChange(e)}
+          />
+          <input
+            type="file"
+            name="photo"
+            onChange={e => this.handleUploadFile(e)}
           />
 
           <br />

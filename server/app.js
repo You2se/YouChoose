@@ -12,6 +12,22 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const cors = require('cors');
 
+const multer = require('multer')
+const cloudinary = require('cloudinary')
+const {API_CLOUD} = process.env
+const {API_CLOUD_SECRET} = process.env
+
+/* your servrer init and express code here */
+
+
+
+/**
+  * Multer config for file upload
+*/
+
+const storage = multer.memoryStorage();
+const upload = multer({ storage });
+
 const { DBURL } = process.env;
 mongoose.Promise = Promise;
 mongoose
