@@ -18,6 +18,7 @@ export default class Friends extends Component {
     };
     this.service = new AuthService();
   }
+  
   componentWillReceiveProps(nextProps) {
     this.setState({ ...this.state, loggedInUser: nextProps["userInSession"] });
   }

@@ -11,11 +11,6 @@ export default class TitleList extends Component {
       mounted: false,
       imageNum:0,
       imageIndex:5,
-      activeStep: 0,
-      open: false,
-      open2: false,
-      open3: false,
-      scroll: "body"
     }
   }
 

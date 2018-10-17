@@ -7,6 +7,7 @@ import Navbar from "./new/Navbar"
 import Random from "./new/Random"
 import PopularMovies from "./new/PopularMovies"
 import UserProfile from "./new/UserProfile"
+import Friends from "./new/Friends"
 
 
 export default class App extends Component {
@@ -53,6 +54,7 @@ export default class App extends Component {
        <Route exact path='/' component={Random}/>
        <Route exact path='/popular' component={PopularMovies}/>
        <Route  exact path='/profile' component={() => <UserProfile userInSession={this.state.loggedInUser}/>}/>
+       <Route  exact path='/friends' component={() => <Friends userInSession={this.state.loggedInUser}/>}/>
        </Switch>
        </header>
        )

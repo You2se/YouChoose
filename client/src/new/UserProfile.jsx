@@ -4,6 +4,7 @@ import Hero from "./Main";
 import Friends from "./Friends";
 import TitleList from "./TitleList";
 import AuthService from "../components/auth/AuthService";
+import { Link } from "react-router-dom";
 
 
 export default class UserProfile extends Component {
@@ -25,6 +26,7 @@ export default class UserProfile extends Component {
       return object[x] === Math.max.apply(null, Object.values(object));
     });
   };
+
   render() {
     console.log(this.state.userList);
     console.log(this.state.userGenres)
@@ -41,7 +43,7 @@ export default class UserProfile extends Component {
             <h1>Your Favorite Genres are:</h1>
             {genresToPrint}
             </div>
-            <Friends userInSession={this.state.loggedInUser}/>
+            <Link to="/friends">Friends</Link>
           </div>
           <div>
             <Hero />
