@@ -21,18 +21,18 @@ export default class DialogPop extends Component {
   componentWillReceiveProps(nextProps) {
     this.setState({ ...this.state, open: nextProps["open"] });
   }
-  handleClose = params => {
-    if (params === 1) this.setState({ open: false });
+  handleClose = () => {
+    this.setState({ open: false });
    
   };
 
   render() {
-    return (
+    return(
       <Paper square elevation={0}>
         <Typography>
           <Dialog
             open={this.state.open}
-            onClose={this.props.close}
+            onClose={() => this.handleClose()}
             scroll={this.state.scroll}
             aria-labelledby="scroll-dialog-title1"
             className="card"
@@ -44,12 +44,12 @@ export default class DialogPop extends Component {
               {this.props.name}
             </DialogTitle>
             <DialogContent>
-             <img src={this.props.backdrop} alt=""/>
+             <img className="model-img" src={this.props.backdrop} alt=""/>
               <DialogContentText>{this.props.overview}
               </DialogContentText>
             </DialogContent>
             <DialogActions>
-              <Button onClick={() => this.handleClose(1)} color="primary">
+              <Button onClick={() => this.handleClose()} color="primary">
                 Close
               </Button>
             </DialogActions>

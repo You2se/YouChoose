@@ -3,9 +3,10 @@
   padding: 0;
   max-width: 90vw;
 }
+$grey:#181818;
 
 body {
-  background: black;
+  background: $grey;
   color: white;
   font-family: lato, sans-serif;
 }
@@ -24,17 +25,21 @@ p {
   margin-bottom: 1em;
 }
 
-.Logo img {
-  width: 154px;
+.Logo {
+  background-image: url("./Sofa.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 258px;
   height: 91px;
   transition: margin 0.125s ease;
-  margin-top: -16%;
-  margin-left: -17%;
+  margin-top: -3%;
+  margin-left: -5%;
+  position: absolute;
 }
 
 .Logo:hover {
   cursor: pointer;
-  margin-top: 2px;
+  margin-top: -2%;
 }
 .Navigation {
   display: flex;
@@ -48,7 +53,7 @@ p {
   align-items: center;
   padding: 0 10px;
   position: absolute;
-  margin-left:40%;
+  margin-left: 45%;
 }
 .Navigation li {
   list-style-type: none;
@@ -69,13 +74,11 @@ p {
 
 .Search {
   align-items: center;
-  justify-content: center;
-  width: 100%;
+  width: 20%;
   position: absolute;
   display: flex;
-  justify-content: center;
   pointer-events: none;
-  margin-left: -37%;
+  margin-left: 25%;
 }
 .Search input {
   font-family: Lato, sans-serif;
@@ -106,9 +109,9 @@ p {
 
 .UserProfile {
   display: flex;
-    position: absolute;
-    margin-left: 75%;
-    margin-top: -0.5%;
+  position: absolute;
+  margin-left: 79%;
+  margin-top: -0.5%;
 }
 .UserProfile .User {
   display: flex;
@@ -235,10 +238,11 @@ p {
 .TitleList .titles-wrapper {
   display: flex;
   flex-wrap: wrap;
-  margin: 20px 0;
+  margin-left: 11%;
   width: 100vw;
   box-sizing: border-box;
   justify-content: space-between;
+  padding-bottom: 6%;
 }
 
 .TitleList[data-loaded="true"] {
@@ -248,7 +252,7 @@ p {
 .Item {
   width: 18%;
   min-width: calc(20% - 10px);
-  background-color: black;
+  background-color: $grey;
   flex: 1 0 auto;
   background-position: center;
   background-size: 100%;
@@ -352,21 +356,25 @@ p {
   margin: 0 auto;
 }
 
-.plot-random{
+.plot-random {
   width: 100%;
   font-size: 15px;
 }
 /* TEMPORAL */
 .MuiFormControl-root-1 .search-user {
   margin-top: -150px;
-    position: absolute;
+  position: absolute;
 }
 
 .Search-bar {
   max-width: 77vw;
 }
 
-.search-icon{
+.search-icon {
   padding-top: 25px;
   padding-left: 3px;
+}
+
+.model-img {
+  width: 57%;
 }

@@ -19,7 +19,7 @@ export default class Item extends Component {
   render() {
   return(
       <div className="Item" style={{backgroundImage: 'url(' + this.props.backdrop + ')'} }>
-      <DialogPop open={this.state.open} close={this.state.close} title={this.props.name} score={this.props.score} overview={this.props.overview} backdrop={this.props.backdrop}/>
+       <div className="model">      <DialogPop open={this.state.open} close={this.state.close} title={this.props.name} score={this.props.score} overview={this.props.overview} backdrop={this.props.backdrop}/></div>
         <div className="overlay">
           <div className="title">{this.props.title}</div>
           <i className="material-icons">favorite</i>

@@ -26,7 +26,7 @@ export default class Random extends Component {
     let randNum = Math.floor(Math.random() * (500 - 100)) + 100;
     axios
       .get(
-        `https://api.themoviedb.org/3/movie/${randNum}?api_key=3d561f8d0b8aac21ad2ca16cb83e0825&language=es`
+        `https://api.themoviedb.org/3/movie/${randNum}?api_key=3d561f8d0b8aac21ad2ca16cb83e0825&.scssage=es`
       )
       .then(res => {
         const movieDetail = res.data;
