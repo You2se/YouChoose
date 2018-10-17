@@ -22,8 +22,6 @@ router.post("/friends", (req, res, next) => {
   const friendName = req.body.friendName;
   const user = req.body.user;
 
-  console.log(req.body);
-
   User.findOne({ username: friendName })
     .then(() => {
       User.findOne({ _id: user._id }).then(me => {
@@ -40,7 +38,6 @@ router.post("/friends", (req, res, next) => {
 
 router.get("/friends/:friendName", (req, res, next) => {
   const friendName = req.params.friendName;
-  console.log(friendName);
   User.findOne({ username: friendName })
     .then(foundFriend => {
       if (foundFriend) {
@@ -58,10 +55,10 @@ router.get("/friends/:friendName", (req, res, next) => {
 
 // SIGNUP
 router.post("/signup", parser.single('picture'), (req, res, next) => {
-  console.log(req.body)
-  const { username, password, genres } = req.body;
+  const { username, password, genres} = req.body;
+  const genresParsed = JSON.parse(genres);
   const imgPath = req.file.url;
-
+    console.log(genres)
   if (!username || !password) {
     next(new Error("You must provide valid credentials"));
   }
@@ -76,28 +73,28 @@ router.post("/signup", parser.single('picture'), (req, res, next) => {
       return new User({
         username,
         password: hashPass,
+        imgPath,
         favGenres: {
-          action: genres[0].bool,
-          drama: genres[1].bool,
-          comedy: genres[2].bool,
-          adventure: genres[3].bool,
-          animation: genres[4].bool,
-          crimen: genres[5].bool,
-          documental: genres[6].bool,
-          family: genres[7].bool,
-          history: genres[8].bool,
-          fantasy: genres[9].bool,
-          terror: genres[10].bool,
-          music: genres[11].bool,
-          mistery: genres[12].bool,
-          romance: genres[13].bool,
-          scifi: genres[14].bool,
-          tvshow: genres[15].bool,
-          belic: genres[16].bool,
-          western: genres[17].bool,
-          suspense: genres[18].bool,
-        },
-        imgPath
+          action: genresParsed[0].bool,
+          drama: genresParsed[1].bool,
+          comedy: genresParsed[2].bool,
+          adventure: genresParsed[3].bool,
+          animation: genresParsed[4].bool,
+          crimen: genresParsed[5].bool,
+          documental: genresParsed[6].bool,
+          family: genresParsed[7].bool,
+          history: genresParsed[8].bool,
+          fantasy: genresParsed[9].bool,
+          terror: genresParsed[10].bool,
+          music: genresParsed[11].bool,
+          mistery: genresParsed[12].bool,
+          romance: genresParsed[13].bool,
+          scifi: genresParsed[14].bool,
+          tvshow: genresParsed[15].bool,
+          belic: genresParsed[16].bool,
+          western: genresParsed[17].bool,
+          suspense: genresParsed[18].bool,
+        }
       }).save();
     })
     .then(savedUser => login(req, savedUser))

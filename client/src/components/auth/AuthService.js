@@ -14,9 +14,8 @@ export default class AuthService {
     formData.append("picture", file)
     formData.append("username",username)
     formData.append("password",password)
-    formData.append("genres",genres)
-    console.log('DEBUG formData', formData.get("picture"));
-    console.log(formData)
+    formData.append("genres",JSON.stringify(genres))
+
     return this.service.post('auth/signup', formData,{ 
       headers: {
         'Content-Type': 'multipart/form-data',

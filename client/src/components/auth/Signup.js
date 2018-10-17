@@ -7,8 +7,6 @@ import FormControl from "@material-ui/core/FormControl";
 import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
-import UploadFile from "../../new/UpdloadFile";
-import axios from "axios";
 
 export default class Signup extends Component {
   constructor(props) {
