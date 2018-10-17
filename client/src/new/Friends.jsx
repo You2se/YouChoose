@@ -116,7 +116,7 @@ export default class Friends extends Component {
       {this.state.friends.map(e => {
         let highest = this.getMaxGenres(this.state.userGenres)
         let genresToPrintSearch = highest.map(e => {
-          return <span>{e}</span>
+          return <p>{e}</p>
         })
         return (
           <div>
