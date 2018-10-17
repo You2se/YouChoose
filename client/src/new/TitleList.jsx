@@ -91,8 +91,10 @@ export default class TitleList extends Component {
           }
           return (
             <Item
+              userInSession={this.props.userInSession}
               key={title.id}
               title={name}
+              all={title}
               score={title.vote_average}
               overview={title.overview}
               backdrop={backDrop}
