@@ -70,6 +70,8 @@ export default class Search extends Component {
     return (
       <div className="Search-bar">
         <div className="Search">
+        <img className="logo" src="https://www.pngarts.com/files/1/Deadpool-Free-PNG-Image.png" alt="deadpool background"/>
+
           <i className="material-icons">search</i>
           <TextField
             name="searchText"

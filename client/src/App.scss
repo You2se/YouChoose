@@ -89,7 +89,7 @@ p {
   font-family: Lato, sans-serif;
   font-weight: 300;
   font-size: 14px;
-  height: 37px;
+  height: 19px;
   width: 100%;
   background: transparent;
   color: white;
@@ -101,6 +101,7 @@ p {
   padding: 0 10px;
   pointer-events: all;
   transition: border 0.25s ease, width 0.125s ease 0.125s;
+  margin-top: 7px;
 }
 
 .Search input:focus {
@@ -158,53 +159,11 @@ p {
 .UserProfile-menu {
   display: none;
 }
-
-.Hero {
-  background-image: url("./joker.jpg");
-  width: 100%;
-  position: relative;
-  background-size: cover;
-  min-height: 500px;
-  margin-top: 0%;
-}
-
-.Hero .content {
-  position: relative;
-  z-index: 4;
-  width: 500px;
-  left: 10vw;
-  top: 10vw;
-}
-
-.Hero .logo {
-  max-width: 400px;
-  display: block;
-  position: relative;
-  left: -5px;
-}
-
-.Hero .logo p {
-  width: 100%;
-}
-
-.Hero .logo .button-wrapper {
-  display: flex;
-  width: 400px;
-  margin-top: 30px;
-}
-
-.Hero .logo .Button:first-child {
-  margin-right: 10px;
-}
-
-.Hero .logo .overlay {
-  height: 100%;
-  position: absolute;
-  z-index: 3;
-  top: 0;
-  left: 0;
-  width: 100%;
-  transform: rotate(180deg);
+.logo{
+  width: 117px;
+    position: absolute;
+    margin-top: -25px;
+    margin-left: 51px;
 }
 
 .Button {
@@ -254,7 +213,7 @@ p {
 .TitleList .titles-wrapper {
   display: flex;
   flex-wrap: wrap;
-  margin-left: 11%;
+  margin-left: 1%;
   width: 100vw;
   box-sizing: border-box;
   justify-content: space-between;
