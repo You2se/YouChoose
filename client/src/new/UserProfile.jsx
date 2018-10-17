@@ -28,8 +28,6 @@ export default class UserProfile extends Component {
   };
 
   render() {
-    console.log(this.state.userList);
-    console.log(this.state.userGenres)
     if (this.props.userInSession !== null) {
       const favGenres = this.props.userInSession.favGenres;
       let highest = this.getMaxGenres(favGenres);

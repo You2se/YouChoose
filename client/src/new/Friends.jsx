@@ -14,11 +14,12 @@ export default class Friends extends Component {
       friendName: "",
       userList: [],
       userGenres: {},
+      friendListGenres: {},
       loggedInUser: props.userInSession
     };
     this.service = new AuthService();
   }
-  
+
   componentWillReceiveProps(nextProps) {
     this.setState({ ...this.state, loggedInUser: nextProps["userInSession"] });
   }
@@ -31,14 +32,28 @@ export default class Friends extends Component {
   handleFriendButton = event => {
     event.preventDefault();
     const friendName = this.state.friendName;
+    if(!this.state.friends.includes(friendName)) {
     this.service
       .friends(friendName, this.props.userInSession)
       .then(response => {
+      //   this.setState({
+      //     friendListGenres: {
+      //         ...this.state.friendListGenres,
+      //         action:action
+      //     },
+      //     friendName: "",
+      //     friends: [...this.state.friends, friendName],
+      // })
+     
+        console.log("pasa-noesta")
         this.setState({
+          ...this.state,
           friendName: "",
-          friends: [...this.state.friends, friendName]
+          friends: [...this.state.friends, friendName],
         });
+       
 
+        
         this.props.getUser(response);
       })
       .catch(error => {
@@ -46,28 +61,30 @@ export default class Friends extends Component {
           error: true
         });
       });
+    }
+    else alert("User Already in your friendList")
   };
 
   onTextChange = e => {
     //const friendName = this.state.friendName;
     let val = e.target.value;
     this.setState({ [e.target.name]: val }, () => {
-      if (val === "") {
-        this.setState({ userList: [] });
-      } else {
-        if(this.state.friendName.length > 2){
-        this.service
-          .friendsGet(val, this.props.userInSession)
-          .then(response => {
-            console.log(response.friend.username);
 
-            this.setState({
-              userList: [...this.state.userList, response.friend.username],
-              userGenres: response.friend.favGenres,
-              friendName: val
+        if (this.state.friendName.length > 2 || val ==="") {
+          this.setState({ userList: [],  userGenres: {}});
+          this.service
+            .friendsGet(val, this.props.userInSession)
+            .then(response => {
+              this.setState({
+                ...this.state,
+                userList: [...this.state.userList, response.friend.username],
+                userGenres: response.friend.favGenres,
+                friendName: val
+              });
+              console.log(response.friend.favGenres)
+              
             });
-          });
-      }}
+        }
     });
   };
 
@@ -78,42 +95,53 @@ export default class Friends extends Component {
   };
 
   render() {
-      
+    console.log(this.state.friendListGenres.action)
+    let genresToPrintSearch;
+    this.state.friends.map(e => {
+      let highest = this.getMaxGenres(this.state.userGenres);
+      genresToPrintSearch = highest.map(e => {
+      return <span>{e},</span>
+      })})
+
+    
     return (
       <div>
-      <p>Add Friends</p>
-      <FormControl component="fieldset">
-        <FormLabel component="legend">FindUser</FormLabel>
-        <TextField
-          className="search-user"
-          style={{ backgroundColor: "white" }}
-          name="friendName"
-          value={this.state.friendName}
-          //onChange={e => this.handleChange(e)}
-          onChange={this.onTextChange}
-          floatingLabelFixed
-        />
-        <Button style={{backgroundColor:"white"}} onClick={this.handleFriendButton} primary>
-          ADD
-        </Button>
-        
-      </FormControl>
+        <p>Add Friends</p>
+        <FormControl component="fieldset">
+          <FormLabel component="legend">FindUser</FormLabel>
+          <TextField
+            className="search-user"
+            style={{ backgroundColor: "white" }}
+            name="friendName"
+            value={this.state.friendName}
+            //onChange={e => this.handleChange(e)}
+            onChange={this.onTextChange}
+            floatingLabelFixed
+          />
+          <Button
+            style={{ backgroundColor: "white" }}
+            onClick={this.handleFriendButton}
+            primary
+          >
+            ADD
+          </Button>
+        </FormControl>
 
-      <div>
-      <h4>SEARCH RESULTS</h4>
-      {this.state.userList.map(e => {
-        return (
-          <>
-        <p>{e}</p>
-        
-        </>
-        )
-        
-      })}
-      </div>
-      <div>
-      <h3>Friends</h3>
-      {this.state.friends.map(e => {
+        <div>
+          <h4>SEARCH RESULTS</h4>
+          {this.state.userList.map(e => {
+            return (
+              <>
+                <span>{e}</span> => Genres: {genresToPrintSearch}
+              </>
+            );
+          })}
+        </div>
+        <div>
+          <h3>Friends</h3>
+        {this.state.friends} 
+        {/* <span>{genresToPrintSearch},</span> */}
+        {/* {this.state.friends.map(e => {
         let highest = this.getMaxGenres(this.state.userGenres)
         let genresToPrintSearch = highest.map(e => {
           return <p>{e}</p>
@@ -121,12 +149,15 @@ export default class Friends extends Component {
         return (
           <div>
         <p>{e}</p>
-        <div>{genresToPrintSearch}</div>
+        <span>{genresToPrintSearch},</span>
         </div>
         )
-      })}
+      })} */}
+        
+          
+        </div>
       </div>
-    </div>
     );
   }
-}
+
+  }
