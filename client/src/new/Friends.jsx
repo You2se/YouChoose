@@ -6,6 +6,7 @@ import Button from "@material-ui/core/Button";
 import FormLabel from "@material-ui/core/FormLabel";
 import FormControl from "@material-ui/core/FormControl";
 import FriendList from "./FriendList"
+import TitleList from "./TitleList"
 import { Link } from "react-router-dom";
 
 export default class Friends extends Component {
@@ -85,6 +86,7 @@ export default class Friends extends Component {
         this.service
           .friendsGet(val, this.props.userInSession)
           .then(response => {
+            if(response.friend !== undefined)
             this.setState({
               ...this.state,
               userList: [...this.state.userList, response.friend.username],
@@ -120,49 +122,58 @@ export default class Friends extends Component {
       let highest = this.getMaxGenres(this.state.userGenres);
       
       genresToPrintSearch = highest.map(e => {
-        return <span>{e},</span>;
+        return <span>,{e}</span>;
       });
     });
     if(this.state.friends.length>0){
     return (
       <div>
-        <p>Add Friends</p>
+        
         <FormControl component="fieldset">
-          <FormLabel component="legend">FindUser</FormLabel>
+          <FormLabel component="legend"/>
+          <div className="FriendSearch">
           <TextField
-            className="search-user"
-            style={{ backgroundColor: "white" }}
+            placeholder="Search User Here"
+            inputstyle={{ textAlign: "center", backgroundColor: "white" }}
             name="friendName"
             value={this.state.friendName}
             //onChange={e => this.handleChange(e)}
             onChange={this.onTextChange}
-            floatingLabelFixed
+            
           />
+            </div>
+          <div className="Add-Button">
           <Button
             style={{ backgroundColor: "white" }}
             onClick={this.handleFriendButton}
             primary
-          >
+            >
             ADD
           </Button>
+          </div>
+          
         </FormControl>
 
-        <div>
+        <div className="Search-Result">
           <h4>SEARCH RESULTS</h4>
 
           {this.state.userList.map(e => {
             return (
               <>
-                <span>{e}</span> => Genres: {genresToPrintSearch}
+                <span style={{fontSize:50}}>{e.charAt(0).toUpperCase() + e.substring(1)}</span> => Genre: {genresToPrintSearch}
               </>
             );
           })}
         </div>
-        <div>
-          <h3>Friends</h3>
+        
+          
           <FriendList userInSession={this.state.friends} />
         
-        </div>
+          <TitleList
+            userInSession={this.state.loggedInUser}
+            title="Recommended Picks for you and your friends"
+            url="discover/tv?sort_by=popularity.desc&page=1"
+          />
         
       </div>
     )
