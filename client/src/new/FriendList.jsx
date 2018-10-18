@@ -12,6 +12,7 @@ export default class FriendsList extends Component {
 
   componentWillReceiveProps(nextProps) {
     this.setState({ ...this.state, friendsList: nextProps["userInSession"] });
+    this.forceUpdate();
   }
 
   getMaxGenres = object => {
@@ -21,7 +22,7 @@ export default class FriendsList extends Component {
   };
 
   render() {
-    console.log(this.state.list)
+    
     let genre;
     // let amigo = this.state.friendsList.map((e)=>{
     //   return e.map((ele)=>{
@@ -36,7 +37,10 @@ export default class FriendsList extends Component {
     //       )
     //   })
     // })
-    let amigo = this.state.friendsList.map(e => {
+    let amigo =
+    
+    this.state.friendsList.map(e => {
+     if(e.friendsList !== undefined) {
       return e.friendsList.map(ele => {
         genre = this.getMaxGenres(ele.amigo.favGenres)
         
@@ -49,12 +53,16 @@ export default class FriendsList extends Component {
             </div>
         )
       })
-       
-    })
+    }
+    else {
+      return <p>No tienes amigos</p>
+    }     
+  })
+    
     
     return (
     <div>
-     {amigo}
+    {amigo}
     </div>
     )
   }

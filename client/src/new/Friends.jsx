@@ -163,7 +163,8 @@ export default class Friends extends Component {
         </div>
         <div>
           <h3>Friends</h3>
-          <FriendList userInSession={this.state.friends}/>
+          <FriendList render={FriendList} userInSession={this.state.friends} />
+        
         </div>
       </div>
     )
