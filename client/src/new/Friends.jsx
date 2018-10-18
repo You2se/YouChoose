@@ -6,7 +6,7 @@ import Button from "@material-ui/core/Button";
 import FormLabel from "@material-ui/core/FormLabel";
 import FormControl from "@material-ui/core/FormControl";
 import FriendList from "./FriendList"
-import TitleList from "./FriendList"
+import { Link } from "react-router-dom";
 
 export default class Friends extends Component {
   constructor(props) {

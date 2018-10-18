@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import "../App.scss";
-import TitleList from "./TitleList";
 import AuthService from "../components/auth/AuthService";
-import { Link } from "react-router-dom";
 
 export default class UserProfile extends Component {
   constructor(props) {
@@ -22,11 +20,11 @@ export default class UserProfile extends Component {
   render() {
     return (
       <div>
+          
         <div>
-          <Link to="/friends">Friends</Link>
         </div>
         <div>
-          <TitleList
+           {/* <TitleList
             userInSession={this.state.loggedInUser}
             title="Top Picks for you"
             url="discover/tv?sort_by=popularity.desc&page=1"
@@ -46,7 +44,7 @@ export default class UserProfile extends Component {
           <TitleList
             title="Comedy Movies"
             url="genre/35/movies?sort_by=popularity.desc&page=1"
-          />
+          /> */}
         </div>
       </div>
     );

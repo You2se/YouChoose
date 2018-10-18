@@ -5,6 +5,7 @@ import AuthService from "../components/auth/AuthService";
 import Logo from "./Logo";
 import Search from "./Search";
 import Profile from "./Profile";
+import { SubNavbar } from "./SubNavbar";
 
 export default class Navbar extends Component {
   constructor(props) {
@@ -24,6 +25,7 @@ export default class Navbar extends Component {
   render() {
     if (this.props.userInSession) {
       return (
+        <div>
         <nav className="Navigation">
           <Logo />
           <Search />
@@ -43,7 +45,13 @@ export default class Navbar extends Component {
             </li>
           </ul>
           <Profile userInSession={this.state.loggedInUser}/>
+          
         </nav>
+        <div className="SubNavigation">
+          <SubNavbar/>
+        </div>
+       </div>
+        
       );
     } else {
       return (

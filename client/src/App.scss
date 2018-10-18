@@ -75,6 +75,45 @@ p {
   background: red;
   cursor: pointer;
 }
+.Subnavbar {
+  display: flex;
+  margin-left: -44%;
+  justify-content: space-around;
+  
+}
+.Subnavbar ul {
+    display: flex;
+    justify-content: space-between;
+    height: 37px;
+    align-items: center;
+    padding: 0 10px;
+    position: absolute;
+    margin-left: 45%;
+  
+}
+.Subnavbar li {
+  list-style-type: none;
+  width: 256px;
+  height: 64px;
+  font-family: Raleway;
+  font-size: 20px;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.3px;
+  text-align: center;
+  color: #ffffff;
+}
+.Subnavbar li a:hover {
+  color: lightblue;
+  cursor: pointer;
+}
+
+.Subnavbar li a {
+  color: white;
+  text-decoration: none;
+}
 
 .Search {
   align-items: center;
