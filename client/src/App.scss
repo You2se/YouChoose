@@ -31,20 +31,20 @@ p {
 }
 
 .Logo {
-    background-image: url(/static/media/Sofa.c38bc182.png);
+    background-image: url("./Sofa.png");
     background-size: cover;
     background-repeat: no-repeat;
     width: 265px;
     height: 46px;
     transition: margin 0.125s ease;
-    margin-top: -1%;
+    margin-top: -0.5%;
     margin-left: -1%;
     position: absolute;
 }
 
 .Logo:hover {
   cursor: pointer;
-  margin-top: -2%;
+  margin-top: 0%;
 }
 
 .Navigation {
