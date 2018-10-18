@@ -114,11 +114,18 @@ export default class TitleList extends Component {
       >
         <div className="Title">
           <h1>{this.props.title}</h1>
-          <div className="titles-wrapper">{titles}</div>
+          <div className="titles-wrapper">
+          {titles}
+          <div className="arrow-left">
+          <i className="left" onClick={() => this.previousMovie()}></i>
+          </div>
+          <div className="arrow-right">
+        <i className="right" onClick={() => this.nextMovie()}></i>
         </div>
-        <button onClick={() => this.previousMovie()}>Previous</button>
-        <button onClick={() => this.nextMovie()}>Next</button>
+        </div>
+        </div>      
       </div>
+
     );
   }
 }

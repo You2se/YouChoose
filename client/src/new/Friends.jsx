@@ -44,18 +44,7 @@ export default class Friends extends Component {
           this.props.userInSession,
           this.state.friendsList.amigo.favGenres
         )
-        //console.log(this.state.friendsList.amigo.favGenres)
         .then(response => {
-          //console.log("pasa",response)
-          //   this.setState({
-          //     friendListGenres: {
-          //         ...this.state.friendListGenres,
-          //         action:action
-          //     },
-          //     friendName: "",
-          //     friends: [...this.state.friends, friendName],
-          // })
-          //console.log(this.state.friendName)
           this.setState({
             ...this.state,
             friendName,
