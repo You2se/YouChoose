@@ -86,7 +86,7 @@ export default class Search extends Component {
         </div>
         <div
           ref="titlecategory"
-          className="TitleList search-items"
+          className="TitleList search-items "
           data-loaded={true}
         >
           <div className="titles-wrapper">{titles}</div>

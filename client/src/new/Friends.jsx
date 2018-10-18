@@ -48,9 +48,7 @@ export default class Friends extends Component {
           this.state.friendsList.amigo.favGenres,
           this.state.friends[0].imgPath
         )
-        //console.log(this.state.friendsList.amigo.favGenres)
         .then(response => {
-         console.log(response.user)
           this.setState({
             ...this.state,
             friendName,

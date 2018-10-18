@@ -59,16 +59,29 @@ export default class TitleList extends Component {
   }
 
   nextMovie() {
-    this.setState({
-      imageNum: this.state.imageNum + 1,
-      imageIndex: this.state.imageIndex + 1
-    });
+    if (this.state.imageNum === 15) {
+      this.setState({
+        imageNum: 0,
+        imageIndex: 0
+      });
+    } else {
+      this.setState({
+        imageNum: this.state.imageNum + 1,
+        imageIndex: this.state.imageIndex + 1
+      });
+    }
   }
   previousMovie() {
-    this.setState({
-      imageNum: this.state.imageNum - 1,
-      imageIndex: this.state.imageIndex - 1
-    });
+    if (this.state.imageNum === 0) {
+      this.setState({
+        imageNum: 0
+      });
+    } else {
+      this.setState({
+        imageNum: this.state.imageNum - 1,
+        imageIndex: this.state.imageIndex - 1
+      });
+    }
   }
 
   render() {
@@ -114,10 +127,16 @@ export default class TitleList extends Component {
       >
         <div className="Title">
           <h1>{this.props.title}</h1>
-          <div className="titles-wrapper">{titles}</div>
+          <div className="titles-wrapper">
+            {titles}
+            <div className="arrow-left">
+              <i className="left" onClick={() => this.previousMovie()} />
+            </div>
+            <div className="arrow-right">
+              <i className="right" onClick={() => this.nextMovie()} />
+            </div>
+          </div>
         </div>
-        <button onClick={() => this.previousMovie()}>Previous</button>
-        <button onClick={() => this.nextMovie()}>Next</button>
       </div>
     );
   }

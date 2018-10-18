@@ -51,7 +51,7 @@ export default class App extends Component {
         <header>
        <Navbar userInSession={this.state.loggedInUser} logout={this.logout} />
        <Switch>
-       <Route exact path='/' component={Random}/>
+       <Route exact path='/' component={PopularMovies}/>
        <Route exact path='/popular' component={PopularMovies}/>
        <Route  exact path='/profile' component={() => <UserProfile userInSession={this.state.loggedInUser}/>}/>
        <Route  exact path='/friends' component={() => <Friends userInSession={this.state.loggedInUser}/>}/>
@@ -63,7 +63,7 @@ export default class App extends Component {
          <header>
             <Navbar/>
             <Switch>
-            <Route exact path='/' component={Random}/>
+            <Route exact path='/' component={PopularMovies}/>
               <Route exact path='/signup' render={() => <Signup getUser={this.getTheUser}/>}/>
               <Route exact path='/login' render={() => <Login getUser={this.getTheUser}/>}/>
               <Route exact path='/popular' component={PopularMovies}/>

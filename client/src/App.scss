@@ -3,7 +3,7 @@
   padding: 0;
   max-width: 90vw;
 }
-$grey:#181818;
+$grey: #181818;
 
 body {
   background: $grey;
@@ -109,7 +109,7 @@ p {
 }
 
 .search-items {
-  margin-left: -20%;
+  margin-left: -5%;
   margin-top: 60px;
 }
 
@@ -159,11 +159,11 @@ p {
 .UserProfile-menu {
   display: none;
 }
-.logo{
+.logo {
   width: 117px;
-    position: absolute;
-    margin-top: -25px;
-    margin-left: 51px;
+  position: absolute;
+  margin-top: -25px;
+  margin-left: 51px;
 }
 
 .Button {
@@ -197,7 +197,7 @@ p {
   background: red;
 }
 
-.Hero~.TitleList:nth-child(3) {
+.Hero ~ .TitleList:nth-child(3) {
   margin-top: -10vw;
   position: relative;
   z-index: 4;
@@ -208,6 +208,7 @@ p {
   box-sizing: border-box;
   transition: opacity 3s ease;
   opacity: 0;
+  margin-top: -2%;
 }
 
 .TitleList .titles-wrapper {
@@ -350,12 +351,44 @@ p {
 .Search-bar {
   max-width: 77vw;
 }
-
+.favorite-icon {
+  margin-top: -16px;
+}
 .search-icon {
-  padding-top: 25px;
-  padding-left: 3px;
+  margin-top: -62px;
+  margin-left: 1px;
 }
 
 .model-img {
   width: 57%;
+}
+.arrow-right {
+  width: 6%;
+  margin-left: 88%;
+  margin-top: 8%;
+  position: absolute;
+}
+.right {
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  padding:36%;
+}
+
+.arrow-left {
+  width: 11%;
+  margin-left: -3%;
+  margin-top: 8%;
+  position: absolute;
+}
+
+.left {
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 19%;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
 }

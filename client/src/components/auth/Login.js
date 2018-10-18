@@ -51,6 +51,7 @@ export default class Login extends Component {
       redirect: true
     })
   }
+  
   renderRedirect = () => {
     if (this.state.redirect) {
       return <Redirect to='/' />
