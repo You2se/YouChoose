@@ -9,6 +9,9 @@ return(
     <li><Link to="/friends">Friends</Link></li>
     <li><Link to="/recommendations">Recommendations</Link></li>
   </ul>
+  <hr/>
+  {/* <div className="hr-new"></div> */}
   </nav>
+  
 )
 }
