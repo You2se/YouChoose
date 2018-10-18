@@ -31,20 +31,20 @@ p {
 }
 
 .Logo {
-    background-image: url(/static/media/Sofa.c38bc182.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 265px;
-    height: 46px;
-    transition: margin 0.125s ease;
-    margin-top: -1%;
-    margin-left: -1%;
-    position: absolute;
+  background-image: url("./Sofa.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 265px;
+  height: 46px;
+  transition: margin 0.125s ease;
+  margin-top: -0.5%;
+  margin-left: -1%;
+  position: absolute;
 }
 
 .Logo:hover {
   cursor: pointer;
-  margin-top: -2%;
+  margin-top: 0%;
 }
 
 .Navigation {
@@ -307,7 +307,8 @@ p {
 .Item:hover .overlay .plot {
   margin-top: 30px;
   opacity: 1;
-  font-size: 20px;
+  font-size: 15px;
+  text-align: center;
   display: -webkit-box;
   width: 60%;
   line-height: 1;
@@ -323,13 +324,16 @@ p {
 
 .Item:hover .overlay .title {
   opacity: 1;
-  font-size: 45px;
+  text-align: left;
+  font-size: 17px;
   margin-left: 5%;
   margin-top: -16%;
 }
 
 .Item:hover .overlay .rating {
   opacity: 1;
+  margin-left: 7%;
+  text-align: left;
 }
 
 
