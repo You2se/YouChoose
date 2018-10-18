@@ -3,8 +3,8 @@ const router = express.Router();
 const bcrypt = require("bcrypt");
 const User = require("../models/User");
 const passport = require("passport");
-require('../configs/cloudinary');
-const parser = require('../configs/cloudinary.js');
+require("../configs/cloudinary");
+const parser = require("../configs/cloudinary.js");
 
 const login = (req, user) => {
   return new Promise((resolve, reject) => {
@@ -17,18 +17,43 @@ const login = (req, user) => {
     });
   });
 };
+router.post("/genres", (req, res, next) => {
+  const user = req.body.user;
+  const genreName = req.body.genreName;
+const genero = `favGenres.${genreName}`
+const update = {[genero]:1}
+  User.findOne({ _id: user._id })
+    .then(me => {
+      User.findByIdAndUpdate(
+        me._id,
+        {
+          $inc:update
+          // favGenres: update
+        },
+        { new: true }
+      )
+        .then(user => {
+          console.log(user);
+          res.json({ user });
+        })
+        .catch(err => console.log(err));
+    })
+    .catch(e => console.log(e));
+});
 
 router.post("/friends", (req, res, next) => {
   const friendName = req.body.friendName;
-  console.log("body:",req.body.friendGenres)
+  console.log("body:", req.body.friendGenres);
   const user = req.body.user;
-  const favGenres = req.body.friendGenres
+  const favGenres = req.body.friendGenres;
 
   User.findOne({ username: friendName })
     .then(() => {
       User.findOne({ _id: user._id }).then(me => {
         console.log(me._id);
-        User.findByIdAndUpdate(me._id, { $push: { friendsList: {amigo: {amigo: friendName, favGenres}} } })
+        User.findByIdAndUpdate(me._id, {
+          $push: { friendsList: { amigo: { amigo: friendName, favGenres } } }
+        })
           .then(user => {
             res.json({ user });
           })
@@ -56,11 +81,11 @@ router.get("/friends/:friendName", (req, res, next) => {
 });
 
 // SIGNUP
-router.post("/signup", parser.single('picture'), (req, res, next) => {
-  const { username, password, genres} = req.body;
+router.post("/signup", parser.single("picture"), (req, res, next) => {
+  const { username, password, genres } = req.body;
   const genresParsed = JSON.parse(genres);
   const imgPath = req.file.url;
-    console.log(genres)
+  console.log(genres);
   if (!username || !password) {
     next(new Error("You must provide valid credentials"));
   }
@@ -95,7 +120,7 @@ router.post("/signup", parser.single('picture'), (req, res, next) => {
           tvshow: genresParsed[15].bool,
           belic: genresParsed[16].bool,
           western: genresParsed[17].bool,
-          suspense: genresParsed[18].bool,
+          suspense: genresParsed[18].bool
         }
       }).save();
     })
