@@ -39,7 +39,7 @@ export default class AuthService {
     .then(response => response.data)
   }
   friendsGet = (friendName, user) => {
-    //console.log(user)
+    
     return this.service.get(`auth/friends/${friendName}`, {friendName, user})
     .then(response => response.data)
   }

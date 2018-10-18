@@ -100,7 +100,7 @@ export default class Signup extends Component {
   };
 
   handleUploadFile = event => {
-    console.log(event)
+    
     this.setState({
       file: event.target.files[0]
     });

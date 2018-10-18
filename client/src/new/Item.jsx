@@ -17,7 +17,6 @@ export default class Item extends Component {
 
  handleLike = (e) => {
    let num = 1;
-console.log(this.state.loggedUser.favGenres.action)
 let action=this.state.loggedUser.favGenres.action;
 this.setState({
   loggedUser:{...this.loggedUser,action:this.state.loggedUser.favgenres.action+1}

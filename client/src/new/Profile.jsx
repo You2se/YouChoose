@@ -7,7 +7,6 @@ export default class Profile extends Component {
     
   }
   render(){
-    console.log(this.state.loggedInUser.imgPath)
     return(
       <div className="UserProfile">
         <div className="User">

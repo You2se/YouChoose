@@ -37,6 +37,7 @@ export default class Friends extends Component {
   handleFriendButton = event => {
     event.preventDefault();
     const friendName = this.state.friendName;
+    console.log(this.state.friends)
     if (!this.state.friends.includes(friendName)) {
       this.service
         .friends(
@@ -46,29 +47,15 @@ export default class Friends extends Component {
         )
         //console.log(this.state.friendsList.amigo.favGenres)
         .then(response => {
-          //console.log("pasa",response)
-          //   this.setState({
-          //     friendListGenres: {
-          //         ...this.state.friendListGenres,
-          //         action:action
-          //     },
-          //     friendName: "",
-          //     friends: [...this.state.friends, friendName],
-          // })
-          //console.log(this.state.friendName)
+          console.log(response)
           this.setState({
             ...this.state,
             friendName,
-            friends: [...this.state.friends, friendName],
             ...this.state.friendsList,
-            friendsList: {
-              amigo: {
-                amigo: response.friend.username,
-                favGenres: response.friend.favGenres
-              }
-            }
+            friendsList: response.user.friendsList,
+            friends:[response.user]
           });
-
+            
           this.props.getUser(response);
         })
         .catch(error => {
@@ -76,6 +63,7 @@ export default class Friends extends Component {
             error: true
           });
         });
+       
     } else alert("User Already in your friendList");
   };
 
@@ -88,7 +76,6 @@ export default class Friends extends Component {
         this.service
           .friendsGet(val, this.props.userInSession)
           .then(response => {
-            //console.log(response.friend)
             this.setState({
               ...this.state,
               userList: [...this.state.userList, response.friend.username],
@@ -102,30 +89,30 @@ export default class Friends extends Component {
                 }
               }
             });
-            //console.log(this.state.friendsList)
           });
       }
     });
   };
 
   getMaxGenres = object => {
+    if(object){
     return Object.keys(object).filter(x => {
       return object[x] === Math.max.apply(null, Object.values(object));
     });
+  }
   };
   
 
   render() {
+    console.log(this.state.friends)
     let genresToPrintSearch, toPrint
-  
-
     this.state.friends.map(e => {
       let highest = this.getMaxGenres(this.state.userGenres);
+      
       genresToPrintSearch = highest.map(e => {
         return <span>{e},</span>;
       });
     });
-    console.log(this.state.friends)
     if(this.state.friends.length>0){
     return (
       <div>
@@ -163,7 +150,7 @@ export default class Friends extends Component {
         </div>
         <div>
           <h3>Friends</h3>
-          <FriendList render={FriendList} userInSession={this.state.friends} />
+          <FriendList userInSession={this.state.friends} />
         
         </div>
       </div>
