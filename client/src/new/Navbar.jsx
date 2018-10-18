@@ -29,7 +29,7 @@ export default class Navbar extends Component {
           <Search />
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/random">Random</Link>
             </li>
             <li>
               <Link to="/profile">My Profile</Link>
@@ -53,7 +53,7 @@ export default class Navbar extends Component {
             <Search />
             <ul>
               <li>
-                <Link to="/">Home</Link>
+                <Link to="/random">Random</Link>
               </li>
               <li>
                 <Link to="/popular">Popular List</Link>

@@ -64,6 +64,7 @@ export default class App extends Component {
             <Navbar/>
             <Switch>
             <Route exact path='/' component={PopularMovies}/>
+            <Route exact path='/random' component={Random}/>
               <Route exact path='/signup' render={() => <Signup getUser={this.getTheUser}/>}/>
               <Route exact path='/login' render={() => <Login getUser={this.getTheUser}/>}/>
               <Route exact path='/popular' component={PopularMovies}/>
