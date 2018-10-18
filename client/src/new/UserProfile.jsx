@@ -36,15 +36,15 @@ export default class UserProfile extends Component {
             url="discover/movie?sort_by=popularity.desc&page=1"
           />
           <TitleList
-            title="Most watched in Horror"
+            title="Horror Movies"
             url="genre/27/movies?sort_by=popularity.desc&page=1"
           />
           <TitleList
-            title="Sci-Fi greats"
+            title="Sci-Fi Movies"
             url="genre/878/movies?sort_by=popularity.desc&page=1"
           />
           <TitleList
-            title="Comedy magic"
+            title="Comedy Movies"
             url="genre/35/movies?sort_by=popularity.desc&page=1"
           />
         </div>
