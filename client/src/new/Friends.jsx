@@ -40,15 +40,17 @@ export default class Friends extends Component {
     
     //let test = this.state.friends[0].friendsList.map(e =>  e.amigo.amigo)
     
-    console.log(this.state.friends[0].imgPath)
+   
       this.service
         .friends(
           friendName,
           this.props.userInSession,
           this.state.friendsList.amigo.favGenres,
-          this.state.friends[0].imgPath
+          this.state.friendsList.amigo.imgPath
         )
         .then(response => {
+          console.log("pasa", response.user)
+          
           this.setState({
             ...this.state,
             friendName,
@@ -60,6 +62,7 @@ export default class Friends extends Component {
           this.props.getUser(response);
         })
         .catch(error => {
+          console.log(error)
           this.setState({
             error: true
           });
@@ -90,10 +93,12 @@ export default class Friends extends Component {
               friendsList: {
                 amigo: {
                   amigo: response.friend.username,
-                  favGenres: response.friend.favGenres
+                  favGenres: response.friend.favGenres,
+                  imgPath: response.friend.imgPath
                 }
               }
             });
+            
           });
       }
     });
@@ -109,8 +114,6 @@ export default class Friends extends Component {
   
 
   render() {
-    
-    
     let genresToPrintSearch, toPrint
     this.state.friends.map(e => {
       let highest = this.getMaxGenres(this.state.userGenres);
