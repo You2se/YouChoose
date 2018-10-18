@@ -51,9 +51,7 @@ router.post("/friends", (req, res, next) => {
     .then(() => {
       User.findOne({ _id: user._id }).then(me => {
         console.log(me._id);
-        User.findByIdAndUpdate(me._id, {
-          $push: { friendsList: { amigo: { amigo: friendName, favGenres } } }
-        })
+        User.findByIdAndUpdate(me._id, { $push: { friendsList: {amigo: {amigo: friendName, favGenres}} } }, {new:true})
           .then(user => {
             res.json({ user });
           })
@@ -85,7 +83,6 @@ router.post("/signup", parser.single("picture"), (req, res, next) => {
   const { username, password, genres } = req.body;
   const genresParsed = JSON.parse(genres);
   const imgPath = req.file.url;
-  console.log(genres);
   if (!username || !password) {
     next(new Error("You must provide valid credentials"));
   }
