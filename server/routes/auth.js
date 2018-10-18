@@ -43,7 +43,7 @@ const update = {[genero]:1}
 
 router.post("/friends", (req, res, next) => {
   const friendName = req.body.friendName;
-  console.log("body:", req.body.friendGenres);
+  console.log("body:", req.body.imgPath);
   const user = req.body.user;
   const favGenres = req.body.friendGenres;
 
@@ -51,7 +51,7 @@ router.post("/friends", (req, res, next) => {
     .then(() => {
       User.findOne({ _id: user._id }).then(me => {
         console.log(me._id);
-        User.findByIdAndUpdate(me._id, { $push: { friendsList: {amigo: {amigo: friendName, favGenres}} } }, {new:true})
+        User.findByIdAndUpdate(me._id, { $push: { friendsList: {amigo: {amigo: friendName, favGenres, imgPath}} } }, {new:true})
           .then(user => {
             res.json({ user });
           })

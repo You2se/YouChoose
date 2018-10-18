@@ -17,7 +17,7 @@ export default class Friends extends Component {
       userGenres: {},
 
       friendsList: {
-        amigo: { amigo: "", favGenres: "" }
+        amigo: { amigo: "", favGenres: "", imgPath:"" }
       },
 
       loggedInUser: props.userInSession
@@ -37,17 +37,20 @@ export default class Friends extends Component {
   handleFriendButton = event => {
     event.preventDefault();
     const friendName = this.state.friendName;
-    console.log(this.state.friends)
-    if (!this.state.friends.includes(friendName)) {
+    
+    //let test = this.state.friends[0].friendsList.map(e =>  e.amigo.amigo)
+    
+    console.log(this.state.friends[0].imgPath)
       this.service
         .friends(
           friendName,
           this.props.userInSession,
-          this.state.friendsList.amigo.favGenres
+          this.state.friendsList.amigo.favGenres,
+          this.state.friends[0].imgPath
         )
         //console.log(this.state.friendsList.amigo.favGenres)
         .then(response => {
-          console.log(response)
+         console.log(response.user)
           this.setState({
             ...this.state,
             friendName,
@@ -62,9 +65,13 @@ export default class Friends extends Component {
           this.setState({
             error: true
           });
-        });
+        })
+     
+        
        
-    } else alert("User Already in your friendList");
+        
+    
+   //console.log(final)
   };
 
   onTextChange = e => {
@@ -104,7 +111,8 @@ export default class Friends extends Component {
   
 
   render() {
-    console.log(this.state.friends)
+    
+    
     let genresToPrintSearch, toPrint
     this.state.friends.map(e => {
       let highest = this.getMaxGenres(this.state.userGenres);
