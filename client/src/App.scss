@@ -11,6 +11,11 @@ body {
   font-family: lato, sans-serif;
 }
 
+h1 {
+  font-size: 47px;
+  margin-left: 1%;
+}
+
 h2 {
   font-size: 24px;
   font-weight: 600;
@@ -61,7 +66,7 @@ p {
   list-style-type: none;
   font-weight: 400;
   padding: 7px 10px;
-  font-size: 14px;
+  font-size: 25px;
   transition: background 0.125s ease;
   border-radius: 3px;
 }
@@ -123,17 +128,18 @@ p {
 
 .Search {
   align-items: center;
-  width: 20%;
+  width: 33%;
   position: absolute;
   display: flex;
   pointer-events: none;
-  margin-left: 25%;
+  margin-left: 16%;
+  margin-top: -1%;
 }
 
 .Search input {
   font-family: Lato, sans-serif;
   font-weight: 300;
-  font-size: 14px;
+  font-size: 27px;
   height: 19px;
   width: 100%;
   background: transparent;
@@ -143,19 +149,15 @@ p {
   border: 2px solid rgba(grey, 0.1);
   outline: none;
   border-radius: 37px;
-  padding: 0 10px;
+  padding: 17px 82px;
   pointer-events: all;
-  transition: border 0.25s ease, width 0.125s ease 0.125s;
+ border:none;
   margin-top: 7px;
 }
 
 .Search input:focus {
+  border:2px solid darkblue;
   width: 100%;
-}
-
-.search-items {
-  margin-left: -5%;
-  margin-top: 60px;
 }
 
 .UserProfile {
@@ -204,62 +206,19 @@ p {
 .UserProfile-menu {
   display: none;
 }
-.logo {
-  width: 117px;
-  position: absolute;
-  margin-top: -25px;
-  margin-left: 51px;
-}
-
-.Button {
-  background: transparent;
-  display: flex;
-  height: 44px;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  color: white;
-  padding: 20px;
-  box-sizing: border-box;
-  border: 2px solid rgba(grey, 0.2);
-  border-radius: 44px;
-  font-size: 14px;
-  font-weight: 600;
-  transition: border 0.125s ease, background 0.125s ease;
-  width: 82%;
-  margin-left: -3%;
-}
-
-.Button:hover {
-  border: 2px solid grey;
-}
-
-.Button[data-primary="true"] {
-  border: 2px solid red;
-}
-
-.Button[data-primary="true"]:hover {
-  background: red;
-}
-
-.Hero ~ .TitleList:nth-child(3) {
-  margin-top: -10vw;
-  position: relative;
-  z-index: 4;
-}
 
 .TitleList {
   padding: 20px 40px;
   box-sizing: border-box;
   transition: opacity 3s ease;
   opacity: 0;
-  margin-top: -2%;
+  margin-top: -1%;
 }
 
 .TitleList .titles-wrapper {
   display: flex;
   flex-wrap: wrap;
-  margin-left: 1%;
+  margin-left: 4%;
   width: 100vw;
   box-sizing: border-box;
   justify-content: space-between;
@@ -348,9 +307,9 @@ p {
 .Item:hover .overlay .plot {
   margin-top: 30px;
   opacity: 1;
-  font-size: 10px;
+  font-size: 20px;
   display: -webkit-box;
-  width: 120%;
+  width: 60%;
   line-height: 1;
   -webkit-line-clamp: 5;
   /* autoprefixer: off */
@@ -364,12 +323,15 @@ p {
 
 .Item:hover .overlay .title {
   opacity: 1;
-  font-size: 10px;
+  font-size: 45px;
+  margin-left: 5%;
+  margin-top: -16%;
 }
 
 .Item:hover .overlay .rating {
   opacity: 1;
 }
+
 
 .Random {
   height: 100%;
@@ -387,7 +349,6 @@ p {
   font-size: 15px;
 }
 
-/* TEMPORAL */
 .MuiFormControl-root-1 .search-user {
   margin-top: -150px;
   position: absolute;
@@ -409,9 +370,14 @@ p {
 }
 .arrow-right {
   width: 6%;
-  margin-left: 88%;
-  margin-top: 8%;
+  margin-left: 88.5%;
+  margin-top: 3%;
   position: absolute;
+}
+
+.search-items {
+  margin-left: -5%;
+  margin-top: 6%;
 }
 .right {
   border: solid white;
@@ -419,13 +385,13 @@ p {
   display: inline-block;
   transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
-  padding:36%;
+  padding: 36%;
 }
 
 .arrow-left {
   width: 11%;
   margin-left: -3%;
-  margin-top: 8%;
+  margin-top: 3%;
   position: absolute;
 }
 
@@ -436,4 +402,11 @@ p {
   padding: 19%;
   transform: rotate(135deg);
   -webkit-transform: rotate(135deg);
+}
+
+.material-icons {
+  font-size: 40px;
+  position: absolute;
+  margin-left: 2%;
+  margin-top: 1%;
 }
