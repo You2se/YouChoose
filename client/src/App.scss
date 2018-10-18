@@ -135,6 +135,29 @@ p {
   margin-left: 16%;
   margin-top: -1%;
 }
+.FriendSearch input {
+  font-family: Lato, sans-serif;
+  font-weight: 300;
+  font-size: 27px;
+  height: 19px;
+  width: 100%;
+  background: transparent;
+  color: white;
+  appearance: none;
+  border: 0;
+  border: 2px solid rgba(grey, 0.1);
+  outline: none;
+  border-radius: 37px;
+  padding: 17px 82px;
+  pointer-events: all;
+ border:none;
+  margin-top: 7px;
+}
+
+.FriendSearch input:focus {
+  border:1px solid darkblue;
+  width: 100%;
+}
 
 .Search input {
   font-family: Lato, sans-serif;
@@ -354,13 +377,39 @@ p {
   font-size: 15px;
 }
 
-.MuiFormControl-root-1 .search-user {
-  margin-top: -150px;
+.FriendSearch {
+  width:500px;
+  margin-top: -130px;
+  margin-left: 900px;
   position: absolute;
 }
+.Search-Result {
+  position: absolute;
+  margin-top: -40px;
+  margin-left: 950px;
+}
 
+.Add-Button {
+  position: absolute;
+  margin-top: 60px;
+  margin-left: 950px;
+}
+
+.FriendList {
+   margin-left: 150px;
+  // margin-top: -62px;
+}
 .Search-bar {
   max-width: 77vw;
+}
+.User-Image {
+  position: absolute;
+  margin-top: -70px;
+  margin-left: 89px;
+}
+.FriendsGenre {
+  margin-top: -42px;
+  margin-left: 145px;
 }
 .favorite-icon {
   margin-top: -16px;

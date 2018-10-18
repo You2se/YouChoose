@@ -48,17 +48,19 @@ export default class FriendsList extends Component {
         genre = this.getMaxGenres(ele.amigo.favGenres)
         
         return(
+          <div>
             <div> 
-            <div><span>User:{ele.amigo.amigo}</span> ProfileImage:<img style={{width:40, height:40}}src={ele.amigo.imgPath} alt="" /> </div>
-            <p>{genre.map((e)=>{
+            <div className="FriendList">
+              <div><p style={{fontSize:30}}>{ele.amigo.amigo}</p><img className="User-Image" style={{width:40, height:40}}src={ele.amigo.imgPath} alt="" /> </div>
+            </div>
+            <p className="FriendsGenre">{genre.map((e)=>{
              return e
              })}</p>
-              <TitleList
-            userInSession={this.state.loggedInUser}
-            title="Recommended Picks for you and your friends"
-            url="discover/tv?sort_by=popularity.desc&page=1"
-          />
+             <br></br>
             </div>
+            
+              
+          </div>
           
            
           
