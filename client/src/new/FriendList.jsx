@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../App.scss";
+import TitleList from "./TitleList"
 
 export default class FriendsList extends Component {
   constructor(props) {
@@ -52,7 +53,15 @@ export default class FriendsList extends Component {
             <p>{genre.map((e)=>{
              return e
              })}</p>
+              <TitleList
+            userInSession={this.state.loggedInUser}
+            title="Recommended Picks for you and your friends"
+            url="discover/tv?sort_by=popularity.desc&page=1"
+          />
             </div>
+          
+           
+          
         )
       })
     }

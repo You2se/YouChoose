@@ -6,6 +6,7 @@ import Button from "@material-ui/core/Button";
 import FormLabel from "@material-ui/core/FormLabel";
 import FormControl from "@material-ui/core/FormControl";
 import FriendList from "./FriendList"
+import TitleList from "./FriendList"
 
 export default class Friends extends Component {
   constructor(props) {
@@ -162,6 +163,7 @@ export default class Friends extends Component {
           <FriendList userInSession={this.state.friends} />
         
         </div>
+        
       </div>
     )
         }else{
