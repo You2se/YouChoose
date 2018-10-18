@@ -2,10 +2,6 @@
   "name": "react-login",
   "version": "0.1.0",
   "private": true,
-  "engines": {
-    "npm": "6.4.1",
-    "node": "8.12.0"
-  },
   "dependencies": {
     "@material-ui/core": "^3.2.0",
     "@material-ui/icons": "^3.0.1",
@@ -20,8 +16,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "build-dev": "dotenv -e .env.development react-scripts build", 
+    "build-prod": "dotenv -e .env.production react-scripts build",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
