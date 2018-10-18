@@ -22,7 +22,10 @@ h2 {
   line-height: 1.4;
   margin-bottom: 1em;
 }
-
+h3 {
+  font-size: 50px;
+  text-align: center;
+}
 p {
   font-size: 15px;
   font-weight: 300;
@@ -31,15 +34,15 @@ p {
 }
 
 .Logo {
-    background-image: url("./Sofa.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 265px;
-    height: 46px;
-    transition: margin 0.125s ease;
-    margin-top: -0.5%;
-    margin-left: -1%;
-    position: absolute;
+  background-image: url("./Sofa.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 265px;
+  height: 46px;
+  transition: margin 0.125s ease;
+  margin-top: -0.5%;
+  margin-left: -1%;
+  position: absolute;
 }
 
 .Logo:hover {
@@ -84,17 +87,15 @@ p {
   display: flex;
   margin-left: -44%;
   justify-content: space-around;
-  
 }
 .Subnavbar ul {
-    display: flex;
-    justify-content: space-between;
-    height: 37px;
-    align-items: center;
-    //padding: 0 10px;
-    position: absolute;
-    margin-left: 19%;
-  
+  display: flex;
+  justify-content: space-between;
+  height: 37px;
+  align-items: center;
+  //padding: 0 10px;
+  position: absolute;
+  margin-left: 19%;
 }
 .Subnavbar li {
   list-style-type: none;
@@ -122,8 +123,8 @@ p {
 .Subnavbar hr {
   margin: 30px -20px 20px;
   border: 0;
-  border-top: 1px solid #c9c7c7; 
-  width: 100%;  
+  border-top: 1px solid #c9c7c7;
+  width: 100%;
 }
 
 .Search {
@@ -151,12 +152,12 @@ p {
   border-radius: 37px;
   padding: 17px 82px;
   pointer-events: all;
- border:none;
+  border: none;
   margin-top: 7px;
 }
 
 .Search input:focus {
-  border:2px solid darkblue;
+  border: 2px solid darkblue;
   width: 100%;
 }
 
@@ -332,7 +333,6 @@ p {
   opacity: 1;
 }
 
-
 .Random {
   height: 100%;
   margin-top: -8%;
@@ -349,9 +349,15 @@ p {
   font-size: 15px;
 }
 
-.MuiFormControl-root-1 .search-user {
-  margin-top: -150px;
-  position: absolute;
+.form-control {
+  background-color: azure;
+  text-align: center;
+  width: 50%;
+}
+
+.sign-up {
+  margin-left: 35%;
+  width: 60%;
 }
 
 .Search-bar {
@@ -409,4 +415,20 @@ p {
   position: absolute;
   margin-left: 2%;
   margin-top: 1%;
+}
+
+.MuiInputBase-root-18 {
+  font-size: 50px !important;
+  color: darkblue;
+}
+
+.pic-load {
+  height: 44px;
+  font-size: 30px;
+  padding: 25px;
+}
+
+span {
+  color: black;
+  font-size: 30px;
 }

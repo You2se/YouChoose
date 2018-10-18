@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "../App.scss";
 import AuthService from "../components/auth/AuthService";
+import TitleList from "./TitleList"
 
 export default class UserProfile extends Component {
   constructor(props) {
@@ -24,25 +25,8 @@ export default class UserProfile extends Component {
         <div>
         </div>
         <div>
-           {/* <TitleList
-            userInSession={this.state.loggedInUser}
-            title="Top Picks for you"
-            url="discover/tv?sort_by=popularity.desc&page=1"
-          />
           <TitleList
-            title="Trending now"
-            url="discover/movie?sort_by=popularity.desc&page=1"
-          />
-          <TitleList
-            title="Horror Movies"
-            url="genre/27/movies?sort_by=popularity.desc&page=1"
-          />
-          <TitleList
-            title="Sci-Fi Movies"
-            url="genre/878/movies?sort_by=popularity.desc&page=1"
-          />
-          <TitleList
-            title="Comedy Movies"
+            title="This are your last seen movies"
             url="genre/35/movies?sort_by=popularity.desc&page=1"
           /> */}
         </div>
