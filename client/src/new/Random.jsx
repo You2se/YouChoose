@@ -68,10 +68,7 @@ export default class Random extends Component {
               style={{ backgroundImage: "url(" + BASE_IMG + posterPath + ")" }}
             >
               <div className="overlay">
-                <div className="title">{this.state.title}</div>
-                <i className="material-icons">favorite</i>
-                <div className="rating">{this.state.vote_average} / 10</div>
-                <div className="plot plot-random">{this.state.overview}</div>
+                <div className="name">{this.state.title}</div>
               </div>
             </div>
           <div className="button">

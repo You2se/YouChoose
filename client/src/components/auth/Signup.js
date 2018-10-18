@@ -100,7 +100,6 @@ export default class Signup extends Component {
   };
 
   handleUploadFile = event => {
-    
     this.setState({
       file: event.target.files[0]
     });
@@ -117,57 +116,62 @@ export default class Signup extends Component {
         <h3>Welcome! Create your account next:</h3>
         <br />
         <br />
-<div className="sign-up">
-        <FormControl component="fieldset" className="form-control">
-       
-          <TextField
-          placeholder="username"
-            className="text-field"
-            name="username"
-            value={this.state.username}
-            onChange={e => this.handleChange(e)}
-          />
-          <TextField
-          placeholder="password"
-          type="password"
-            className="text-field"
-            name="password"
-            value={this.state.password}
-            onChange={e => this.handleChange(e)}
-          />
-          <span>Upload your profile Picture</span>
-           <input
-            type="file"
-            name="photo"
-            className="pic-load"
-            onChange={e => this.handleUploadFile(e)}
-          />
-          <br />
-          <br />
+        <div className="sign-up">
+          <FormControl component="fieldset" className="form-control">
+            <TextField
+              placeholder="username"
+              className="text-field"
+              name="username"
+              value={this.state.username}
+              onChange={e => this.handleChange(e)}
+            />
+            <TextField
+              placeholder="password"
+              type="password"
+              className="text-field"
+              name="password"
+              value={this.state.password}
+              onChange={e => this.handleChange(e)}
+            />
+            <span>Upload your profile Picture</span>
+            <input
+              type="file"
+              name="photo"
+              className="pic-load"
+              onChange={e => this.handleUploadFile(e)}
+            />
+            <br />
+            <br />
 
-          <FormGroup>
-            <FormLabel component="legend">
-              <p>Select Genres</p>
-            </FormLabel>
-            {this.state.genres.map((el, index, arr) => {
-              return (
-                <FormControlLabel
-                  control={
-                    <Radio
-                      checked={el.bool}
-                      onChange={event => {
-                        arr.splice(index, 1, { type: el.type, bool: !el.bool });
-                        this.setState({ genres: arr });
-                      }}
-                      value="action"
+            <FormGroup>
+              <FormLabel component="legend">
+                <p>Select Genres That You Like The Most</p>
+              </FormLabel>
+              <div >
+                {this.state.genres.map((el, index, arr) => {
+                  return (
+                    <FormControlLabel
+                      control={
+                        <Radio
+                          checked={el.bool}
+                          onChange={event => {
+                            arr.splice(index, 1, {
+                              type: el.type,
+                              bool: !el.bool
+                            });
+                            this.setState({ genres: arr });
+                          }}
+                          className="check-genre"
+                          value="action"
+                        />
+                      }
+                      label={el.type}
                     />
-                  }
-                  label={el.type}
-                />
-              );
-            })}
-          </FormGroup>
-        </FormControl>
+                  );
+                })}
+              </div>
+            </FormGroup>
+          </FormControl>
         </div>
         <Button onClick={this.handleFormSubmit} primary="true">
           Submit
