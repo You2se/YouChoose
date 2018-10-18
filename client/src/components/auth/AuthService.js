@@ -45,9 +45,9 @@ export default class AuthService {
       .get(`auth/friends/${friendName}`, { friendName, user })
       .then(response => response.data);
   };
-  friends = (friendName, user, friendGenres) => {
+  friends = (friendName, user, friendGenres, imgPath) => {
     return this.service
-      .post("auth/friends", { friendName, user, friendGenres })
+      .post("auth/friends", { friendName, user, friendGenres, imgPath })
       .then(response => response.data);
   };
   genre = (user, genreName) => {

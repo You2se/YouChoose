@@ -8,7 +8,7 @@ export default class UserProfile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      listMovies: [],
+      
       loggedInUser: props.userInSession
     };
     this.service = new AuthService();

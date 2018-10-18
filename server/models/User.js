@@ -35,7 +35,7 @@ const userSchema = new Schema({
   },
   favMovies: [Number],
   friendsList: {
-    amigo: {amigo: String, favGenres:Object},
+    amigo: {amigo: String, favGenres:Object, imgPath:String},
   },
   imgPath: String,
 }, {

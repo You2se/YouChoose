@@ -6,6 +6,7 @@ import Button from "@material-ui/core/Button";
 import FormLabel from "@material-ui/core/FormLabel";
 import FormControl from "@material-ui/core/FormControl";
 import FriendList from "./FriendList"
+import TitleList from "./FriendList"
 
 export default class Friends extends Component {
   constructor(props) {
@@ -17,7 +18,7 @@ export default class Friends extends Component {
       userGenres: {},
 
       friendsList: {
-        amigo: { amigo: "", favGenres: "" }
+        amigo: { amigo: "", favGenres: "", imgPath:"" }
       },
 
       loggedInUser: props.userInSession
@@ -37,15 +38,20 @@ export default class Friends extends Component {
   handleFriendButton = event => {
     event.preventDefault();
     const friendName = this.state.friendName;
-    console.log(this.state.friends)
-    if (!this.state.friends.includes(friendName)) {
+    
+    //let test = this.state.friends[0].friendsList.map(e =>  e.amigo.amigo)
+    
+   
       this.service
         .friends(
           friendName,
           this.props.userInSession,
-          this.state.friendsList.amigo.favGenres
+          this.state.friendsList.amigo.favGenres,
+          this.state.friendsList.amigo.imgPath
         )
         .then(response => {
+          console.log("pasa", response.user)
+          
           this.setState({
             ...this.state,
             friendName,
@@ -57,12 +63,17 @@ export default class Friends extends Component {
           this.props.getUser(response);
         })
         .catch(error => {
+          console.log(error)
           this.setState({
             error: true
           });
-        });
+        })
+     
+        
        
-    } else alert("User Already in your friendList");
+        
+    
+   //console.log(final)
   };
 
   onTextChange = e => {
@@ -83,10 +94,12 @@ export default class Friends extends Component {
               friendsList: {
                 amigo: {
                   amigo: response.friend.username,
-                  favGenres: response.friend.favGenres
+                  favGenres: response.friend.favGenres,
+                  imgPath: response.friend.imgPath
                 }
               }
             });
+            
           });
       }
     });
@@ -102,7 +115,6 @@ export default class Friends extends Component {
   
 
   render() {
-    console.log(this.state.friends)
     let genresToPrintSearch, toPrint
     this.state.friends.map(e => {
       let highest = this.getMaxGenres(this.state.userGenres);
@@ -151,6 +163,7 @@ export default class Friends extends Component {
           <FriendList userInSession={this.state.friends} />
         
         </div>
+        
       </div>
     )
         }else{
