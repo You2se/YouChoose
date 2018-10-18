@@ -46,10 +46,6 @@ export default class Friends extends Component {
           this.state.friendsList.amigo.favGenres
         )
         .then(response => {
-<<<<<<< HEAD
-=======
-          console.log(response)
->>>>>>> 00a5d1109249840ff10a55df763f9dc19d8678a2
           this.setState({
             ...this.state,
             friendName,
