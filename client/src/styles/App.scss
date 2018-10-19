@@ -23,6 +23,8 @@ body {
 h1 {
   font-size: 47px;
   margin-left: 4%;
+  line-height: 45px;
+  color:white
 }
 
 h2 {
@@ -109,7 +111,6 @@ p {
 
 .model-img {
   width: 67%;
-  margin-left: 15%;
 }
 
 .search-items {
@@ -128,7 +129,19 @@ p {
   font-size: 50px !important;
   color: darkblue;
 }
+.MuiDialog-paperWidthSm-104 {
+  max-width: 800px!important;
+  background-color: black!important;
+}
 
+.MuiDialogContentText-root-115 {
+  line-height: 1.5;
+  font-size: 23px!important;
+}
+.MuiTypography-colorTextSecondary-95 {
+  color: white!important;
+  padding-top: 4%;
+}
 .pic-load {
   height: 44px;
   font-size: 30px;
@@ -177,4 +190,30 @@ input.pic-load {
 
 .create {
   margin-top: -7%;
+}
+
+.dialog-score{
+  color: black;
+    position: absolute;
+    font-size: 38px;
+    margin-left: 65%;
+    margin-top: -37%;
+    color: white;
+}
+
+.netflix{
+  width: 14%;
+  position: absolute;
+  margin-top: 13%;
+  margin-left: 7%;
+}
+.hbo{
+  width: 14%;
+  position: absolute;
+  margin-top: 28%;
+  margin-left: 7%;
+}
+
+.see{
+  margin-top:-30%;
 }

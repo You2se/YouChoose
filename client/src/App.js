@@ -56,6 +56,7 @@ export default class App extends Component {
        <Route  exact path='/profile' component={() => <UserProfile userInSession={this.state.loggedInUser}/>}/>
        <Route  exact path='/friends' component={() => <Friends userInSession={this.state.loggedInUser}/>}/>
        <Route exact path='/recommendations' component= {Recommendations}/>
+       <Route exact path='/random' component={Random}/>
        </Switch>
        </header>
        )

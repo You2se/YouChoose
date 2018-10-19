@@ -76,6 +76,8 @@ export default class Item extends Component {
                   score={this.props.score}
                   overview={this.props.overview}
                   backdrop={this.props.backdrop}
+                  name={this.props.title}
+                  score={this.props.score}
                 />
               </div>
               <div className="overlay">
