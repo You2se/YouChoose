@@ -4,6 +4,8 @@
 @import "./Icons.scss";
 @import "./Navigation.scss";
 @import "./Search.scss";
+@import "./Random.scss";
+@import "./Movies.scss";
 
 * {
   margin: 0;
@@ -88,136 +90,6 @@ p {
   display: none;
 }
 
-.TitleList {
-  padding: 20px 40px;
-  box-sizing: border-box;
-  transition: opacity 3s ease;
-  opacity: 0;
-  margin-top: -1%;
-}
-
-.TitleList .titles-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: 4%;
-  width: 100vw;
-  box-sizing: border-box;
-  justify-content: space-between;
-  padding-bottom: 6%;
-}
-
-.TitleList[data-loaded="true"] {
-  opacity: 1;
-  margin-bottom: 5%;
-}
-
-.Item {
-  width: 18%;
-  min-width: calc(20% - 10px);
-  background-color: $grey;
-  flex: 1 0 auto;
-  background-position: center;
-  background-size: 100%;
-  height: 200px;
-  background-repeat: no-repeat;
-  overflow: hidden;
-  margin-right: 10px;
-  transition: background 1s ease;
-}
-
-.Item:nth-child(n + 6) {
-  margin-top: 20px;
-}
-
-.Item:last-child {
-  margin-right: 0;
-}
-
-.Item .overlay {
-  padding: 20px;
-  position: relative;
-  height: 100%;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.125s ease;
-}
-
-.Item .overlay .rating {
-  font-size: 14px;
-  opacity: 0;
-  transition: opacity 0.25s ease 0.125s;
-}
-
-.Item .overlay .plot {
-  font-size: 14px;
-  display: -webkit-box;
-  margin-top: 100px;
-  font-weight: 300;
-  line-height: 1.6;
-  opacity: 0;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  transition: margin 0.25s ease 0.125s, opacity 0.25s ease 0.25s;
-}
-
-.Item:hover {
-  background-size: 150%;
-  font-weight: bolder;
-}
-
-.Item:hover .overlay {
-  opacity: 1;
-  pointer-events: all;
-  margin-top: 60px;
-  margin-left: -10%;
-}
-
-.Item:hover .overlay i {
-  margin-left: 70%;
-  margin-top: -6%;
-  font-size: 35px;
-  position: absolute;
-}
-
-.Item:hover .overlay i:hover {
-  color: red;
-  cursor: pointer;
-}
-
-.Item:hover .overlay .plot {
-  margin-top: 30px;
-  opacity: 1;
-  font-size: 15px;
-  text-align: center;
-  display: -webkit-box;
-  width: 60%;
-  line-height: 1;
-  -webkit-line-clamp: 5;
-  /* autoprefixer: off */
-  -webkit-box-orient: vertical;
-  /* autoprefixer: on */
-  overflow: hidden;
-  text-overflow: ellipsis;
-  color: white;
-  font-weight: bolder;
-}
-
-.Item:hover .overlay .title {
-  opacity: 1;
-  text-align: left;
-  font-size: 17px;
-  margin-left: 5%;
-  margin-top: -16%;
-}
-
-.Item:hover .overlay .rating {
-  opacity: 1;
-  margin-left: 7%;
-  text-align: left;
-}
-
 .Random {
   height: 100%;
   margin-top: -8%;
@@ -234,52 +106,6 @@ p {
   text-align: center;
   width: 57%;
 }
-
-.FriendSearch {
-  width: 500px;
-  margin-top: -130px;
-  margin-left: 900px;
-  position: absolute;
-}
-.Search-Result {
-  position: absolute;
-  margin-top: -40px;
-  margin-left: 950px;
-}
-
-.Search-Result span {
-  color: white;
-}
-.genre-title-search {
-  font-size: 30px;
-}
-.Add-Button {
-  position: absolute;
-  margin-top: 60px;
-  margin-left: 950px;
-}
-
-.FriendList {
-  margin-left: 150px;
-}
-.friend-name {
-  font-size: 40px;
-
-}
-.Search-bar {
-  max-width: 77vw;
-}
-.User-Image {
-  position: absolute;
-  margin-top: -55px;
-  margin-left: -60px;
-}
-.FriendsGenre {
-  font-size: 35px;
-  margin-top: -12px;
-  margin-left: 145px;
-}
-
 
 .model-img {
   width: 67%;
@@ -318,11 +144,7 @@ label {
   font-size: 100px;
 }
 
-.name {
-  font-size: 60px;
-  text-align: center;
-  padding: 15%;
-}
+
 
 .background {
   width: 105%;
