@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../App.scss";
+import "../styles/App.scss";
 import { Link } from "react-router-dom";
 import AuthService from "../components/auth/AuthService";
 import Logo from "./Logo";

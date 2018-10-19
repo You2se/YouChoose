@@ -112,7 +112,7 @@ export default class Signup extends Component {
 
   render() {
     return (
-      <div>
+      <div className="create">
         <h3>Welcome! Create your account next:</h3>
         <br />
         <br />

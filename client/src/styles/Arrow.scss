@@ -1,0 +1,30 @@
+.arrow-right {
+  width: 6%;
+  margin-left: 88.5%;
+  margin-top: 3%;
+  position: absolute;
+}
+.right {
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  padding: 36%;
+}
+
+.arrow-left {
+  width: 11%;
+  margin-left: -3%;
+  margin-top: 3%;
+  position: absolute;
+}
+
+.left {
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 19%;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}

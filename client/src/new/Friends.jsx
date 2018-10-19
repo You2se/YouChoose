@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../App.scss";
+import "../styles/App.scss";
 import AuthService from "../components/auth/AuthService";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";

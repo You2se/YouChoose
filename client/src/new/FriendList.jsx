@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../App.scss";
+import "../styles/App.scss";
 import TitleList from "./TitleList"
 
 export default class FriendsList extends Component {

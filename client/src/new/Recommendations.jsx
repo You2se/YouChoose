@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import "../App.scss";
+import "../styles/App.scss";
 import TitleList from "./TitleList";
 import AuthService from "../components/auth/AuthService";
-import { Link } from "react-router-dom";
 
 export default class UserProfile extends Component {
   constructor(props) {

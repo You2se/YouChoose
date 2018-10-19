@@ -1,8 +1,0 @@
-@mixin rollovable($color) {
-  background-color: $color;
-  transition: all 1.2s; 
-
-  &:hover {
-    background-color: darken($color, 20)
-  }
-}

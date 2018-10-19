@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../App.scss";
+import "../styles/App.scss";
 import DialogPop from "./Dialog";
 import AuthService from "../components/auth/AuthService";
 import { Redirect } from 'react-router-dom'
