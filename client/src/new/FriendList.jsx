@@ -51,11 +51,16 @@ export default class FriendsList extends Component {
           <div>
             <div> 
             <div className="FriendList">
-              <div><p style={{fontSize:30}}>{ele.amigo.amigo}</p><img className="User-Image" style={{width:40, height:40}}src={ele.amigo.imgPath} alt="" /> </div>
+              <div>
+                <p className="friend-name">{ele.amigo.amigo.charAt(0).toUpperCase() + ele.amigo.amigo.substring(1)}:</p>
+                <img className="User-Image" style={{width:40, height:40}}src={ele.amigo.imgPath} alt="" /> 
+                </div>
             </div>
+            <div>
             <p className="FriendsGenre">{genre.map((e)=>{
-             return e
+             return e.charAt(0).toUpperCase() + e.substring(1) + ","
              })}</p>
+             </div>
              <br></br>
             </div>
             
