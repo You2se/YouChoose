@@ -160,7 +160,7 @@ export default class Friends extends Component {
           {this.state.userList.map(e => {
             return (
               <>
-                <span style={{fontSize:50, color:"lightblue"}}>{e.charAt(0).toUpperCase() + e.substring(1)}</span><span className="genre-title-search"> Fav Genre: </span> {genresToPrintSearch}
+                <span style={{fontSize:50, color:"lightblue"}}>{e.charAt(0).toUpperCase() + e.substring(1)}:</span><span className="genre-title-search"> Fav Genre: </span> {genresToPrintSearch}
               </>
             );
           })}

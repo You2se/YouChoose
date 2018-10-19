@@ -52,7 +52,7 @@ export default class FriendsList extends Component {
             <div> 
             <div className="FriendList">
               <div>
-                <p className="friend-name">{ele.amigo.amigo.charAt(0).toUpperCase() + ele.amigo.amigo.substring(1)}</p>
+                <p className="friend-name">{ele.amigo.amigo.charAt(0).toUpperCase() + ele.amigo.amigo.substring(1)}:</p>
                 <img className="User-Image" style={{width:40, height:40}}src={ele.amigo.imgPath} alt="" /> 
                 </div>
             </div>
