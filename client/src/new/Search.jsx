@@ -34,7 +34,6 @@ export default class Search extends Component {
   };
 
   render() {
-    let BASE_IMG = "https://image.tmdb.org/t/p/w300/";
     let titles = "";
     let backDrop = "";
     let name = "";
@@ -56,7 +55,6 @@ export default class Search extends Component {
             >
               <div className="overlay">
                 <div className="title">{name}</div>
-                <i className="material-icons">favorite</i>
                 <div className="rating">{title.vote_average} / 10</div>
                 <div className="plot">{title.overview}</div>
               </div>

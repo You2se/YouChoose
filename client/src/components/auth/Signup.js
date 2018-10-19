@@ -173,11 +173,12 @@ export default class Signup extends Component {
             </FormGroup>
           </FormControl>
         </div>
-        <Button onClick={this.handleFormSubmit} primary="true">
+        <div className="submit-btn">
+        <Button  onClick={this.handleFormSubmit} primary="true">
           Submit
         </Button>
-
-        <h1>{this.state.error ? "Error" : ""}</h1>
+        </div>
+        <h1>{this.state.error ? "Something went wrong, try againw" : ""}</h1>
       </div>
     );
   }

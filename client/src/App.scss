@@ -251,6 +251,7 @@ p {
 
 .TitleList[data-loaded="true"] {
   opacity: 1;
+  margin-bottom: 5%;
 }
 
 .Item {
@@ -366,7 +367,7 @@ p {
 }
 
 .Random-pic {
-  height: 100vh;
+  height: 75vh;
   width: 35vw;
   margin: 0 auto;
 }
@@ -421,7 +422,9 @@ p {
 }
 
 .model-img {
-  width: 57%;
+  width: 67%;
+  margin-left: 15%;
+
 }
 .arrow-right {
   width: 6%;
@@ -490,3 +493,101 @@ label {
   font-size: 60px;
   text-align: center;
 }
+
+.sign-up{
+  margin-left:30%;
+}
+
+input.pic-load{
+  color:black;
+}
+
+.submit-btn{
+  margin-left: 45%;
+}
+.submit-btn button span{
+  color:white;
+  padding-top: 10px;
+}
+
+.login{
+  margin-left: 29%;
+  margin-top:3%;
+}
+.btn{
+  margin-top:2%;
+}
+.button {
+  background: #3498db;
+    width: 180px;
+    padding: 4px 0;
+    position: absolute;
+    left: 83%;
+    top: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    border-radius: 15px;
+    border: none;
+    margin-top: -5%;
+
+  p {
+   	font-family: 'Roboto'; 
+	  text-align: center;
+  	text-transform: uppercase;
+    color: #FFF;
+    user-select: none;
+  }
+  
+  &:hover {
+    cursor: pointer;
+  }
+  
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 10%;
+    border-radius: 50%;
+    background-color: darken(#f1c40f, 20%);
+    opacity: 0.4;
+    bottom: -30px;
+  }
+}
+
+.second{
+  margin-top:-1%;
+}
+
+.third{
+  margin-top: 3%;
+}
+
+.fourth{
+  margin-top: 7%;
+}
+
+.fifth{
+  margin-top:11%;
+}
+
+.sixth{
+  margin-top: -5%;
+    margin-left: -73%;
+}
+
+.seventh{
+  margin-top: -1%;
+    margin-left: -73%;
+}
+
+.eigth{
+  margin-top: 3%;
+    margin-left: -73%;
+}
+
+.nine{
+  margin-top: 7%;
+    margin-left: -73%;
+}
+

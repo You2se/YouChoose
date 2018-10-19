@@ -62,22 +62,23 @@ export default class Login extends Component {
   render() {
     return (
       <div>
-        <h3>Please, login to our site</h3>
+        <h3>Please, login to our site:</h3>
+        <div className="login">
         <FormControl component="fieldset" className="form-control">
-          <FormLabel component="legend">Username</FormLabel>
           <TextField
             name="username"
-            hinttext="Username"
+            placeholder="Username"
             floatinglabeltext="username"
             value={this.state.username}
             onChange={e => this.handleChange(e)}
             floatingLabelFixed
           />
-          <FormLabel component="legend">Password</FormLabel>
           <TextField
             name="password"
-            hinttext="Password"
+            placeholder="Password"
             floatinglabeltext="password"
+
+            type="password"
             value={this.state.password}
             onChange={e => this.handleChange(e)}
             floatingLabelFixed
@@ -89,8 +90,9 @@ export default class Login extends Component {
           </Button>
           </div>
         </FormControl>
+        </div>
 
-        <h1>{this.state.error ? "Error" : ""}</h1>
+        <h1>{this.state.error ? "Username or Password incorrect" : ""}</h1>
       </div>
     );
   }
