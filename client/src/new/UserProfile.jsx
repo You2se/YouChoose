@@ -28,7 +28,7 @@ export default class UserProfile extends Component {
           <TitleList
             title="This are your last seen movies"
             url="genre/35/movies?sort_by=popularity.desc&page=1"
-          /> */}
+          /> 
         </div>
       </div>
     );
