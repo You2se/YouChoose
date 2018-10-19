@@ -6,7 +6,7 @@ import FormLabel from "@material-ui/core/FormLabel";
 import FormControl from "@material-ui/core/FormControl";
 import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
+import Radio from "@material-ui/core/Radio";
 
 export default class Signup extends Component {
   constructor(props) {
@@ -100,7 +100,6 @@ export default class Signup extends Component {
   };
 
   handleUploadFile = event => {
-    
     this.setState({
       file: event.target.files[0]
     });
@@ -113,67 +112,73 @@ export default class Signup extends Component {
 
   render() {
     return (
-      <div>
-        <h3>Welcome!, create your account next:</h3>
+      <div className="create">
+        <h3>Welcome! Create your account next:</h3>
         <br />
         <br />
+        <div className="sign-up">
+          <FormControl component="fieldset" className="form-control">
+            <TextField
+              placeholder="username"
+              className="text-field"
+              name="username"
+              value={this.state.username}
+              onChange={e => this.handleChange(e)}
+            />
+            <TextField
+              placeholder="password"
+              type="password"
+              className="text-field"
+              name="password"
+              value={this.state.password}
+              onChange={e => this.handleChange(e)}
+            />
+            <span>Upload your profile Picture</span>
+            <input
+              type="file"
+              name="photo"
+              className="pic-load"
+              onChange={e => this.handleUploadFile(e)}
+            />
+            <br />
+            <br />
 
-        <FormControl component="fieldset" className="form-control">
-          <FormLabel component="legend">
-            <p className="register-label-user">Username</p>
-          </FormLabel>
-          <TextField
-            className="username-textfield"
-            name="username"
-            value={this.state.username}
-            onChange={e => this.handleChange(e)}
-          />
-          <FormLabel className="label-password" component="legend">
-            <p className="register-label-password">Password</p>
-          </FormLabel>
-          <TextField
-            className="password-textfield"
-            name="password"
-            value={this.state.password}
-            onChange={e => this.handleChange(e)}
-          />
-          <input
-            type="file"
-            name="photo"
-            onChange={e => this.handleUploadFile(e)}
-          />
-
-          <br />
-          <br />
-
-          <FormGroup>
-            <FormLabel component="legend">
-              <p>Select Genres</p>
-            </FormLabel>
-            {this.state.genres.map((el, index, arr) => {
-              return (
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={el.bool}
-                      onChange={event => {
-                        arr.splice(index, 1, { type: el.type, bool: !el.bool });
-                        this.setState({ genres: arr });
-                      }}
-                      value="action"
+            <FormGroup>
+              <FormLabel component="legend">
+                <p>Select Genres That You Like The Most</p>
+              </FormLabel>
+              <div >
+                {this.state.genres.map((el, index, arr) => {
+                  return (
+                    <FormControlLabel
+                      control={
+                        <Radio
+                          checked={el.bool}
+                          onChange={event => {
+                            arr.splice(index, 1, {
+                              type: el.type,
+                              bool: !el.bool
+                            });
+                            this.setState({ genres: arr });
+                          }}
+                          className="check-genre"
+                          value="action"
+                        />
+                      }
+                      label={el.type}
                     />
-                  }
-                  label={el.type}
-                />
-              );
-            })}
-          </FormGroup>
-        </FormControl>
-        <Button onClick={this.handleFormSubmit} primary="true">
+                  );
+                })}
+              </div>
+            </FormGroup>
+          </FormControl>
+        </div>
+        <div className="submit-btn">
+        <Button  onClick={this.handleFormSubmit} primary="true">
           Submit
         </Button>
-
-        <h1>{this.state.error ? "Error" : ""}</h1>
+        </div>
+        <h1>{this.state.error ? "Something went wrong, try againw" : ""}</h1>
       </div>
     );
   }

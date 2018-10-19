@@ -8,14 +8,14 @@ export default class Random extends Component {
     this.state = {
       pageNum: 1,
       countButton: 0
-    }
+    };
     this.service = new AuthService();
   }
 
   componentWillReceiveProps(nextProps) {
     this.setState({ ...this.state, loggedInUser: nextProps["userInSession"] });
   }
-  
+
   componentWillMount() {
     this.getRandomMovie();
   }
@@ -30,8 +30,7 @@ export default class Random extends Component {
         const movieDetail = res.data;
         this.setState(movieDetail);
       })
-      .catch(err => {
-      });
+      .catch(err => {});
   };
 
   getMovieByGenre = genre => {
@@ -55,39 +54,96 @@ export default class Random extends Component {
         console.log(err);
       });
   };
+
+  getMovieByYear = year => {
+    axios
+    .get(
+      `https://api.themoviedb.org/3/discover/movie?api_key=3d561f8d0b8aac21ad2ca16cb83e0825&primary_release_year=${year}`
+    ).then(res => {
+      if(res!==undefined){
+      let random = Math.floor(Math.random() * 21);
+      const movieDetail = res.data.results[random];
+      this.setState(movieDetail);
+      }else{
+        this.getMovieByYear(year)
+      }
+    }).catch(err => {
+      console.log(err);
+    });
+
+  }
+
   render() {
     let BASE_IMG = "https://image.tmdb.org/t/p/w400/";
     let posterPath = "";
-    if (this.state.title !== undefined && this.state.poster_path !== undefined) {
-      posterPath=this.state.poster_path
+    if (
+      this.state.title !== undefined &&
+      this.state.poster_path !== undefined
+    ) {
+      posterPath = this.state.poster_path;
       return (
-        
         <div className="Random">
-         <div
-              className="Item Random-pic"
-              style={{ backgroundImage: "url(" + BASE_IMG + posterPath + ")" }}
-            >
-              <div className="overlay">
-                <div className="title">{this.state.title}</div>
-                <i className="material-icons">favorite</i>
-                <div className="rating">{this.state.vote_average} / 10</div>
-                <div className="plot plot-random">{this.state.overview}</div>
-              </div>
+          <div
+            className="Item Random-pic"
+            style={{ backgroundImage: "url(" + BASE_IMG + posterPath + ")" }}
+          >
+            <div className="overlay">
+              <div className="name">{this.state.title}</div>
             </div>
-          <div className="button">
-            <button onClick={this.getRandomMovie}>Another Random Movie</button>
-            <button onClick={() => this.getMovieByGenre(28)}>
+          </div>
+          <div className="btn">
+            <button className="button" onClick={this.getRandomMovie}>
+              Another Random Movie
+            </button>
+            <button
+              className="button second"
+              onClick={() => this.getMovieByGenre(28)}
+            >
               Action Movies
             </button>
-            <button onClick={() => this.getMovieByGenre(18)}>
+            <button
+              className="button third"
+              onClick={() => this.getMovieByGenre(18)}
+            >
               Drama Movies
             </button>
-            <button onClick={() => this.getMovieByGenre(35)}>
+            <button
+              className="button fourth"
+              onClick={() => this.getMovieByGenre(35)}
+            >
               Comedy Movies
             </button>
-            <button onClick={() => this.getMovieByGenre(16)}>
+            <button
+              className="button fifth"
+              onClick={() => this.getMovieByGenre(16)}
+            >
               Animation Movies
             </button>
+            <button
+              className="button sixth"
+              onClick={() => this.getMovieByYear(2018)}
+            >
+              Movie of 2018
+            </button>
+            <button
+              className="button seventh"
+              onClick={() => this.getMovieByYear(2017)}
+            >
+              Movie of 2017
+            </button>
+            <button
+              className="button eigth"
+              onClick={() => this.getMovieByYear(2016)}
+            >
+              Movie of 2016
+            </button>
+            <button
+              className="button nine"
+              onClick={() => this.getMovieByYear(2015)}
+            >
+              Movie of 2015
+            </button>
+
           </div>
         </div>
       );

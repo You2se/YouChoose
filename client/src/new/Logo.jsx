@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../App.scss"
+import "../styles/App.scss"
 import {Link} from "react-router-dom";
 
 export default class Logo extends Component {

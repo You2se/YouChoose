@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../App.scss";
+import "../styles/App.scss";
 import { Link } from "react-router-dom";
 
 export const SubNavbar = () => {
@@ -10,7 +10,6 @@ return(
     <li><Link to="/recommendations">Recommendations</Link></li>
   </ul>
   <hr/>
-  {/* <div className="hr-new"></div> */}
   </nav>
   
 )

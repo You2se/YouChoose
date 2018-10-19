@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../App.scss";
+import "../styles/App.scss";
 import Item from "./Item";
 
 export default class TitleList extends Component {

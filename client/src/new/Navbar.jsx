@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../App.scss";
+import "../styles/App.scss";
 import { Link } from "react-router-dom";
 import AuthService from "../components/auth/AuthService";
 import Logo from "./Logo";
@@ -67,7 +67,7 @@ export default class Navbar extends Component {
                 <Link to="/popular">Popular List</Link>
               </li>
               <li>
-                <Link to="/signup">Register</Link>
+                <Link to="/signup">Sign Up</Link>
               </li>
               <li>
                 <Link to="/login">Login</Link>
