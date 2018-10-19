@@ -1,6 +1,9 @@
 @import "./Random-btn.scss";
 @import "./Arrow.scss";
 @import "./Logo.scss";
+@import "./Icons.scss";
+@import "./Navigation.scss";
+@import "./Search.scss";
 
 * {
   margin: 0;
@@ -34,142 +37,6 @@ p {
   font-size: 46px;
   font-weight: 300;
   line-height: 1.6;
-}
-
-
-.Navigation {
-  display: flex;
-  margin-top: 3%;
-  margin-left: 4%;
-}
-
-.Navigation ul {
-  display: flex;
-  height: 37px;
-  align-items: center;
-  padding: 0 10px;
-  position: absolute;
-  margin-left: 45%;
-}
-
-.Navigation li {
-  list-style-type: none;
-  font-weight: 400;
-  padding: 7px 10px;
-  font-size: 25px;
-  transition: background 0.125s ease;
-  border-radius: 3px;
-}
-
-.Navigation li a {
-  color: white;
-  text-decoration: none;
-}
-
-.Navigation li:hover {
-  background: red;
-  cursor: pointer;
-}
-.Subnavbar {
-  display: flex;
-  margin-left: -44%;
-  margin-top: -6%;
-  justify-content: space-around;
-}
-.Subnavbar ul {
-  display: flex;
-  justify-content: space-between;
-  height: 37px;
-  align-items: center;
-  //padding: 0 10px;
-  position: absolute;
-  margin-left: 19%;
-}
-.Subnavbar li {
-  list-style-type: none;
-  width: 256px;
-  height: 64px;
-  font-family: Raleway;
-  font-size: 20px;
-  font-weight: 300;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: 0.3px;
-  text-align: center;
-  color: #ffffff;
-}
-.Subnavbar li a:hover {
-  color: lightblue;
-  cursor: pointer;
-}
-
-.Subnavbar li a {
-  color: white;
-  text-decoration: none;
-}
-.Subnavbar hr {
-  margin: 30px -20px 20px;
-  border: 0;
-  border-top: 1px solid #c9c7c7;
-  width: 100%;
-}
-
-.Search {
-  align-items: center;
-  width: 33%;
-  position: absolute;
-  display: flex;
-  pointer-events: none;
-  margin-left: 16%;
-  margin-top: -1%;
-}
-.FriendSearch input {
-  font-family: Lato, sans-serif;
-  font-weight: 300;
-  font-size: 27px;
-  height: 19px;
-  width: 100%;
-  background: transparent;
-  color: white;
-  appearance: none;
-  border: 0;
-  border: 2px solid rgba(grey, 0.1);
-  outline: none;
-  border-radius: 37px;
-  padding: 17px 82px;
-  pointer-events: all;
- border:none;
-  margin-top: 7px;
-}
-
-.FriendSearch input:focus {
-  border:1px solid darkblue;
-  width: 100%;
-}
-
-.Search input {
-  font-family: Lato, sans-serif;
-  font-weight: 300;
-  font-size: 27px;
-  height: 19px;
-  width: 100%;
-  background: transparent;
-  color: white;
-  appearance: none;
-  border: 0;
-  border: 2px solid rgba(grey, 0.1);
-  outline: none;
-  border-radius: 37px;
-  padding: 17px 82px;
-  pointer-events: all;
-  border: none;
-  margin-top: 7px;
-}
-
-.Search input:focus {
-  border: 2px solid darkblue;
-  width: 100%;
 }
 
 .UserProfile {
@@ -361,7 +228,6 @@ p {
   margin: 0 auto;
 }
 
-
 .form-control {
   background-color: azure;
   text-align: center;
@@ -369,7 +235,7 @@ p {
 }
 
 .FriendSearch {
-  width:500px;
+  width: 500px;
   margin-top: -130px;
   margin-left: 900px;
   position: absolute;
@@ -380,8 +246,8 @@ p {
   margin-left: 950px;
 }
 
-.Search-Result span{
-  color:white;
+.Search-Result span {
+  color: white;
 }
 
 .Add-Button {
@@ -391,7 +257,7 @@ p {
 }
 
 .FriendList {
-   margin-left: 150px;
+  margin-left: 150px;
   // margin-top: -62px;
 }
 .Search-bar {
@@ -406,26 +272,17 @@ p {
   margin-top: -42px;
   margin-left: 145px;
 }
-.favorite-icon {
-  margin-top: -16px;
-}
-.search-icon {
-  margin-top: -62px;
-  margin-left: 1px;
-}
+
 
 .model-img {
   width: 67%;
   margin-left: 15%;
-
 }
-
 
 .search-items {
   margin-left: -5%;
   margin-top: 6%;
 }
-
 
 .material-icons {
   font-size: 40px;
@@ -457,32 +314,40 @@ label {
 .name {
   font-size: 60px;
   text-align: center;
+  padding: 15%;
 }
 
-.sign-up{
-  margin-left:30%;
+.background {
+  width: 105%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  margin-top: -12%;
 }
 
-input.pic-load{
-  color:black;
+.sign-up {
+  margin-left: 30%;
 }
 
-.submit-btn{
+input.pic-load {
+  color: black;
+}
+
+.submit-btn {
   margin-left: 45%;
 }
-.submit-btn button span{
-  color:white;
+.submit-btn button span {
+  color: white;
   padding-top: 10px;
 }
 
-.login{
+.login {
   margin-left: 29%;
-  margin-top:3%;
+  margin-top: 3%;
 }
-.btn{
-  margin-top:2%;
+.btn {
+  margin-top: 2%;
 }
 
-.create{
+.create {
   margin-top: -7%;
 }

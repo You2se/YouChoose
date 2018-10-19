@@ -88,7 +88,10 @@ export default class Random extends Component {
             style={{ backgroundImage: "url(" + BASE_IMG + posterPath + ")" }}
           >
             <div className="overlay">
+            <div className="background">
               <div className="name">{this.state.title}</div>
+              <div className="random-descript">{this.state.overview}</div>
+              </div>
             </div>
           </div>
           <div className="btn">

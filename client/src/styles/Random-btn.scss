@@ -1,29 +1,33 @@
-
 .button {
-  background: #3498db;
-    width: 180px;
-    padding: 4px 0;
-    position: absolute;
-    left: 83%;
-    top: 50%;
-    -webkit-transform: translateX(-50%) translateY(-50%);
-    transform: translateX(-50%) translateY(-50%);
-    border-radius: 15px;
-    border: none;
-    margin-top: -5%;
+  background: #00bcd4;
+  width: 194px;
+  padding: 11px 0;
+  position: absolute;
+  left: 83%;
+  top: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  border-radius: 15px;
+  border: none;
+  margin-top: -5%;
+  font-size: 15px;
 
   p {
-   	font-family: 'Roboto'; 
-	  text-align: center;
-  	text-transform: uppercase;
-    color: #FFF;
+    font-family: "Roboto";
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
     user-select: none;
   }
-  
+
   &:hover {
     cursor: pointer;
+    width:12%;
+    padding: 20px ;
+    border-radius: 40px;
+    font-size: 20px;
   }
-  
+
   &:after {
     content: "";
     display: block;
@@ -37,38 +41,45 @@
   }
 }
 
-.second{
-  margin-top:-1%;
-}
-
-.third{
-  margin-top: 3%;
-}
-
-.fourth{
-  margin-top: 7%;
-}
-
-.fifth{
-  margin-top:11%;
-}
-
-.sixth{
-  margin-top: -5%;
-    margin-left: -73%;
-}
-
-.seventh{
+.second {
   margin-top: -1%;
-    margin-left: -73%;
 }
 
-.eigth{
+.third {
   margin-top: 3%;
-    margin-left: -73%;
 }
 
-.nine{
+.fourth {
   margin-top: 7%;
-    margin-left: -73%;
+}
+
+.fifth {
+  margin-top: 11%;
+}
+
+.sixth {
+  margin-top: -5%;
+  margin-left: -73%;
+}
+
+.seventh {
+  margin-top: -1%;
+  margin-left: -73%;
+}
+
+.eigth {
+  margin-top: 3%;
+  margin-left: -73%;
+}
+
+.nine {
+  margin-top: 7%;
+  margin-left: -73%;
+}
+
+.random-descript{
+  width: 80%;
+  text-align: center;
+  margin-left: 12%;
+  font-size: 29px;
 }
