@@ -35,6 +35,7 @@ h2 {
 h3 {
   font-size: 50px;
   text-align: center;
+  margin-left: 96px;
 }
 p {
   font-size: 46px;
@@ -141,6 +142,7 @@ p {
   padding: 25px;
 }
 
+
 span {
   color: black;
   font-size: 30px;
@@ -149,6 +151,7 @@ span {
 label {
   font-size: 100px;
 }
+
 
 .background {
   width: 105%;
@@ -159,6 +162,44 @@ label {
 
 .sign-up {
   margin-left: 30%;
+}
+.login-username {
+  border-radius: 50px;
+  position: absolute;
+  margin-left: 267px;
+  width: 14%;
+  height: 3%;
+  text-align: center;
+
+}
+.login-password {
+  border-radius: 50px;
+  position: absolute;
+  margin-top: 59px;
+  margin-left: 268px;
+  width: 14%;
+  height: 3%;
+  text-align: center;
+  
+}
+
+.login-button {
+  border-radius: 20px;
+  border:0;
+  width: 5%;
+  position: absolute;
+  height: 5%;
+  background: rgb(161, 102, 161);
+  color: white;
+  font-size: 16px;
+  margin-top: 115px;
+  margin-left: 350px;
+}
+.login-error {
+  margin-top: 175px;
+  margin-left: 770px;
+  position: absolute;
+  font-size: 28px;
 }
 
 input.pic-load {
