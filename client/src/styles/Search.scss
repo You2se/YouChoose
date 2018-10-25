@@ -46,7 +46,7 @@
   border-radius: 37px;
   padding: 17px 82px;
   pointer-events: all;
-  border: none;
+  border: 1px solid white;
   margin-top: 7px;
 }
 
@@ -54,7 +54,6 @@
   border: 2px solid darkblue;
   width: 100%;
 }
-
 
 .FriendSearch {
   width: 500px;
@@ -79,8 +78,7 @@
 }
 
 .friend-name {
-  font-size:40px;
-  
+  font-size: 40px;
 }
 
 .FriendList {
@@ -96,8 +94,7 @@
   margin-left: -55px;
 }
 .FriendsGenre {
-  font-size:30px;
+  font-size: 30px;
   margin-top: -10px;
   margin-left: 160px;
 }
-
