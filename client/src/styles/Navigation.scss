@@ -16,7 +16,7 @@
 .Navigation li {
   list-style-type: none;
   font-weight: 400;
-  padding: 7px 10px;
+  padding: 7px 39px;
   font-size: 25px;
   transition: background 0.125s ease;
   border-radius: 3px;
@@ -28,7 +28,7 @@
 }
 
 .Navigation li:hover {
-  background: red;
+  background: rgb(161, 102, 161);
   cursor: pointer;
 }
 .Subnavbar {
