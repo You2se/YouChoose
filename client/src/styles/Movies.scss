@@ -102,7 +102,6 @@ $grey: #181818;
   margin-top: 30px;
   opacity: 1;
   font-size: 15px;
-  text-align: center;
   display: -webkit-box;
   width: 60%;
   line-height: 1;
@@ -114,6 +113,7 @@ $grey: #181818;
   text-overflow: ellipsis;
   color: white;
   font-weight: bolder;
+  margin-left: 25px;
 }
 
 .Item:hover .overlay .title {

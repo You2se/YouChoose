@@ -94,7 +94,7 @@ export default class Item extends Component {
                 <div className="rating">{this.props.score} / 10</div>
                 <div className="plot">{this.props.overview}</div>
                 <div className="search-icon">              
-                    <i className="material-icons" onClick={()=>this.handleClickOpen()}>search</i>
+                    <i  className="material-icons" onClick={()=>this.handleClickOpen()}>search</i>
                 </div>
 
               </div>

@@ -1,13 +1,16 @@
-.name {
-  font-size: 60px;
-  text-align: center;
-  padding: 15%;
+.div-pic {
+  display: flex;
 }
 
-.random-descript{
+.name {
+  font-size: 80px;
+  text-align: center;
+  padding: 10%;
+}
+
+.random-descript {
   width: 80%;
   text-align: center;
   margin-left: 12%;
   font-size: 29px;
 }
-

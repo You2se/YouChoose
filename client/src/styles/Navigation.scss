@@ -1,7 +1,7 @@
 .Navigation {
   display: flex;
   margin-top: 3%;
-  margin-left: 4%;
+  margin-left: 7%;
 }
 
 .Navigation ul {
@@ -74,4 +74,11 @@
   border: 0;
   border-top: 1px solid #c9c7c7;
   width: 100%;
+}
+
+.material-icons {
+  font-size: 40px;
+  position: absolute;
+  margin-left: 7%;
+  margin-top: 0.5%;
 }

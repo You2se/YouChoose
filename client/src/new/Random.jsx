@@ -149,7 +149,7 @@ export default class Random extends Component {
               </button>
             </div>
           </div>
-          <div>
+          <div className="div-pic">
             <div
               className="Item Random-pic"
               style={{ backgroundImage: "url(" + BASE_IMG + posterPath + ")" }}

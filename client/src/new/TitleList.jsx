@@ -104,6 +104,7 @@ export default class TitleList extends Component {
           }
           return (
             <Item
+            className="appear"
               userInSession={this.props.userInSession}
               key={title.id}
               title={name}
