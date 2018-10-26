@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import AuthService from "../components/auth/AuthService";
+import { Animated } from "react-animated-css";
 
 export default class Random extends Component {
   constructor(props) {
@@ -84,81 +85,88 @@ export default class Random extends Component {
       posterPath = this.state.poster_path;
       return (
         <div className="Random">
-          <div>
-            <h4 className="title-btn">Filter by Genre:</h4>
-            <div className="btn-genre">
-              <button className="button" onClick={this.getRandomMovie}>
-                Random Movie
-              </button>
-              <button
-                className="button second"
-                onClick={() => this.getMovieByGenre(28)}
-              >
-                Action Movies
-              </button>
-              <button
-                className="button third"
-                onClick={() => this.getMovieByGenre(18)}
-              >
-                Drama Movies
-              </button>
-              <button
-                className="button fourth"
-                onClick={() => this.getMovieByGenre(35)}
-              >
-                Comedy Movies
-              </button>
-              <button
-                className="button fifth"
-                onClick={() => this.getMovieByGenre(16)}
-              >
-                Animation Movies
-              </button>
+            <div>
+              <h4 className="title-btn">Filter by Genre:</h4>
+
+              <div className="btn-genre">
+                <button className="button" onClick={this.getRandomMovie}>
+                  Random Movie
+                </button>
+                <button
+                  className="button second"
+                  onClick={() => this.getMovieByGenre(28)}
+                >
+                  Action Movies
+                </button>
+                <button
+                  className="button third"
+                  onClick={() => this.getMovieByGenre(18)}
+                >
+                  Drama Movies
+                </button>
+                <button
+                  className="button fourth"
+                  onClick={() => this.getMovieByGenre(35)}
+                >
+                  Comedy Movies
+                </button>
+                <button
+                  className="button fifth"
+                  onClick={() => this.getMovieByGenre(16)}
+                >
+                  Animation Movies
+                </button>
+              </div>
+              <h4 className="title-btn-2">Filter by Age:</h4>
+              <div className="btn-age">
+                <button
+                  className="button sixth"
+                  onClick={() => this.getMovieByYear(2018)}
+                >
+                  Movie of 2018
+                </button>
+                <button
+                  className="button seventh"
+                  onClick={() => this.getMovieByYear(2017)}
+                >
+                  Movie of 2017
+                </button>
+                <button
+                  className="button eigth"
+                  onClick={() => this.getMovieByYear(2016)}
+                >
+                  Movie of 2016
+                </button>
+                <button
+                  className="button nine"
+                  onClick={() => this.getMovieByYear(2015)}
+                >
+                  Movie of 2015
+                </button>
+                <button
+                  className="button sixth"
+                  onClick={() => this.getMovieByYear(2014)}
+                >
+                  Movie of 2014
+                </button>
+              </div>
             </div>
-            <h4 className="title-btn-2">Filter by Age:</h4>
-            <div className="btn-age">
-              <button
-                className="button sixth"
-                onClick={() => this.getMovieByYear(2018)}
-              >
-                Movie of 2018
-              </button>
-              <button
-                className="button seventh"
-                onClick={() => this.getMovieByYear(2017)}
-              >
-                Movie of 2017
-              </button>
-              <button
-                className="button eigth"
-                onClick={() => this.getMovieByYear(2016)}
-              >
-                Movie of 2016
-              </button>
-              <button
-                className="button nine"
-                onClick={() => this.getMovieByYear(2015)}
-              >
-                Movie of 2015
-              </button>
-              <button
-                className="button sixth"
-                onClick={() => this.getMovieByYear(2014)}
-              >
-                Movie of 2014
-              </button>
-            </div>
-          </div>
           <div className="div-pic">
+          <Animated animationIn="bounceInLeft" animationOut="fadeOut" isVisible={true}>
             <div
               className="Item Random-pic"
               style={{ backgroundImage: "url(" + BASE_IMG + posterPath + ")" }}
             />
+             </Animated>
+             <Animated animationIn="bounceInRight" animationOut="fadeOut" isVisible={true}>
+
             <div className="overlay">
               <div className="name">{this.state.title}</div>
               <div className="random-descript">{this.state.overview}</div>
             </div>
+            </Animated>
           </div>
+       
         </div>
       );
     } else {

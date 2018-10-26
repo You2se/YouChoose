@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "../styles/App.scss";
 import Item from "./Item";
+import {Animated} from "react-animated-css";
 
 export default class TitleList extends Component {
   constructor(props) {
@@ -121,6 +122,7 @@ export default class TitleList extends Component {
     }
 
     return (
+      <Animated animationIn="bounceInLeft" animationOut="fadeOut" isVisible={true}>
       <div
         ref="titlecategory"
         className="TitleList"
@@ -139,6 +141,7 @@ export default class TitleList extends Component {
           </div>
         </div>
       </div>
+      </Animated>
     );
   }
 }

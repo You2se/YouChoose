@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "../styles/App.scss";
 import DialogPop from "./Dialog";
 import AuthService from "../components/auth/AuthService";
-import { Redirect } from 'react-router-dom'
+import { Redirect } from "react-router-dom";
 
 export default class Item extends Component {
   constructor(props) {
@@ -10,7 +10,7 @@ export default class Item extends Component {
     this.state = {
       open: false,
       close: true,
-      redirect:false,
+      redirect: false,
       loggedUser: this.props.userInSession
     };
     this.service = new AuthService();
@@ -33,8 +33,8 @@ export default class Item extends Component {
         });
       });
     } else {
-      this.setRedirect()
-      this.renderRedirect()
+      this.setRedirect();
+      this.renderRedirect();
       console.log("Not logged user");
     }
   };
@@ -42,14 +42,14 @@ export default class Item extends Component {
   setRedirect = () => {
     this.setState({
       redirect: true
-    })
-  }
-  
+    });
+  };
+
   renderRedirect = () => {
     if (this.state.redirect) {
-      return <Redirect to='/' />
+      return <Redirect to="/" />;
     }
-  }
+  };
 
   handleClickOpen = () => {
     this.setState({ open: true });
@@ -63,42 +63,46 @@ export default class Item extends Component {
   };
 
   render() {
-      return (
-            <div
-              className="Item"
-              style={{ backgroundImage: "url(" + this.props.backdrop + ")" }}
+    return (
+      <div
+        className="Item"
+        style={{ backgroundImage: "url(" + this.props.backdrop + ")" }}
+      >
+        <div className="model">
+          <DialogPop
+            open={this.state.open}
+            close={this.state.close}
+            title={this.props.name}
+            score={this.props.score}
+            overview={this.props.overview}
+            backdrop={this.props.backdrop}
+            name={this.props.title}
+            score={this.props.score}
+          />
+        </div>
+        <div className="overlay">
+          <div className="title">{this.props.title}</div>
+          <div className="favorite">
+            <i
+              className="material-icons"
+              onClick={() => this.handleLike(this.props.all)}
             >
-              <div className="model">
-                <DialogPop
-                  open={this.state.open}
-                  close={this.state.close}
-                  title={this.props.name}
-                  score={this.props.score}
-                  overview={this.props.overview}
-                  backdrop={this.props.backdrop}
-                  name={this.props.title}
-                  score={this.props.score}
-                />
-              </div>
-              <div className="overlay">
-                <div className="title">{this.props.title}</div>
-                <div className="favorite">
-                <i
-                  className="material-icons"
-                  onClick={() => this.handleLike(this.props.all)}
-                >
-                  favorite
-                </i>
-                </div>
-              
-                <div className="rating">{this.props.score} / 10</div>
-                <div className="plot">{this.props.overview}</div>
-                <div className="search-icon">              
-                    <i  className="material-icons" onClick={()=>this.handleClickOpen()}>search</i>
-                </div>
+              favorite
+            </i>
+          </div>
 
-              </div>
-            </div>
-      );
+          <div className="rating">{this.props.score} / 10</div>
+          <div className="plot">{this.props.overview}</div>
+          <div className="search-icon">
+            <i
+              className="material-icons"
+              onClick={() => this.handleClickOpen()}
+            >
+              add
+            </i>
+          </div>
+        </div>
+      </div>
+    );
   }
 }

@@ -7,7 +7,6 @@ import FormLabel from "@material-ui/core/FormLabel";
 import FormControl from "@material-ui/core/FormControl";
 import FriendList from "./FriendList"
 import TitleList from "./TitleList"
-import { Link } from "react-router-dom";
 
 export default class Friends extends Component {
   constructor(props) {
@@ -39,10 +38,6 @@ export default class Friends extends Component {
   handleFriendButton = event => {
     event.preventDefault();
     const friendName = this.state.friendName;
-    
-    //let test = this.state.friends[0].friendsList.map(e =>  e.amigo.amigo)
-    
-   
       this.service
         .friends(
           friendName,

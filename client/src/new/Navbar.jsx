@@ -26,32 +26,31 @@ export default class Navbar extends Component {
     if (this.props.userInSession) {
       return (
         <div>
-        <nav className="Navigation">
-          <Logo />
-          <Search />
-          <ul>
-            <li>
-              <Link to="/random">Random</Link>
-            </li>
-            <li>
-              <Link to="/profile">My Profile</Link>
-            </li>
-            <li>
-
-              <Link to="/popular">Popular List</Link>
-            </li>
-            <li>
-              <Link to="/" onClick={this.handleLogout}>Logout</Link>
-            </li>
-          </ul>
-          <Profile userInSession={this.state.loggedInUser}/>
-          
-        </nav>
-        <div className="SubNavigation">
-          <SubNavbar/>
+          <nav className="Navigation">
+            <Logo />
+            <Search />
+            <ul>
+              <li>
+                <Link to="/random">Random</Link>
+              </li>
+              <li>
+                <Link to="/profile">My Profile</Link>
+              </li>
+              <li>
+                <Link to="/popular">Popular List</Link>
+              </li>
+              <li>
+                <Link to="/" onClick={this.handleLogout}>
+                  Logout
+                </Link>
+              </li>
+            </ul>
+            <Profile userInSession={this.state.loggedInUser} />
+          </nav>
+          <div className="SubNavigation">
+            <SubNavbar />
+          </div>
         </div>
-       </div>
-        
       );
     } else {
       return (

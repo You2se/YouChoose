@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 import AuthService from "./AuthService";
 import { Redirect } from "react-router-dom";
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
-import FormLabel from "@material-ui/core/FormLabel";
-import FormControl from "@material-ui/core/FormControl";
+
 
 export default class Login extends Component {
   constructor(props) {
