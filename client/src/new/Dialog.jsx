@@ -48,7 +48,7 @@ export default class DialogPop extends Component {
              <p className="dialog-score">Rating: {this.props.score}/10</p>
             <p className="dialog-score see" >Watch on:</p>
              <a href="https://www.netflix.com" target="_blank"><img className="netflix" src="https://mbtskoudsalg.com/images/netflix-envelope-png-6.png" alt="netflix logo"/></a>
-             <a href="https://es.hboespana.com/" target="_blank"><img className="hbo" src="" alt="hbo logo"/></a>
+             <a href="https://es.hboespana.com/" target="_blank"><img className="hbo" src="https://mazorcastudio.com/wp-content/uploads/2016/05/hbo-logo.png" alt="hbo logo"/></a>
               <DialogContentText>{this.props.overview}
               </DialogContentText>
             </DialogContent>
