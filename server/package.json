@@ -11,7 +11,7 @@
     "debug": "DEBUG=server:* nodemon --inspect-brk ./bin/www"
   },
   "dependencies": {
-    "bcrypt": "^3.0.2",
+    "bcrypt": "^5.0.0",
     "body-parser": "~1.18.2",
     "cloudinary": "^1.11.0",
     "connect-mongo": "latest",
